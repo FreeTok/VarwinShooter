@@ -1,0 +1,44 @@
+ManifestFileVersion: 0
+CRC: 1309923507
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 011ae2a54577354e58a61851a07a3d12
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: ec2ddb6b91eecde3c07eb08218178d68
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 23
+  Script: {instanceID: 0}
+- Class: 33
+  Script: {instanceID: 0}
+- Class: 43
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 54
+  Script: {instanceID: 0}
+- Class: 65
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 11500000, guid: de7338d1ff64bbc44bfbd17b39fb65da, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 678ecbd1caa8baa4f82441c7639f9f24, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 8e0fef5926f5abc4abda01eb169b6e87, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: b220ea0c852a049499171b51c58596c1, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 7b1142458b032e449be5c080d82b43b0, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+Assets:
+- Assets/Objects/Weapon/Weapon.prefab
+Dependencies: []

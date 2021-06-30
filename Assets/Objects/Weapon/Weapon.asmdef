@@ -1,0 +1,10 @@
+﻿{
+    "name": "Weapon_ccc5102640fe48729f5919dc3f07e470",
+    "references": [
+        "VarwinCore"
+    ],
+    "optionalUnityReferences": [],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false
+}
