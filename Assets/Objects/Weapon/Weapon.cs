@@ -11,10 +11,10 @@ namespace Varwin.Types.Weapon_ccc5102640fe48729f5919dc3f07e470
         public bool bIsGrabbed = false;
         public Transform MuzzleTransform;
 
-        private GameObject Bullet;
+        private Wrapper Bullet;
 
         [Variable(English: "Bullet", Russian: "Пуля")]
-        public GameObject BulletPanel
+        public Wrapper BulletPanel
         {
             get => Bullet;
             internal set => Bullet = value;
@@ -32,7 +32,7 @@ namespace Varwin.Types.Weapon_ccc5102640fe48729f5919dc3f07e470
                     {
                         if (rightHandEvents.IsTriggerPressed())
                         {
-                            Shot(Bullet);
+                            Shot(Bullet.GetGameObject());
                         }
                     }
                 }
