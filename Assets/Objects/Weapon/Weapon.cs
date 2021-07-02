@@ -13,11 +13,18 @@ namespace Varwin.Types.Weapon_ccc5102640fe48729f5919dc3f07e470
 
         private Wrapper Bullet;
 
+        private Rigidbody thisRB;
+
         [Variable(English: "Bullet", Russian: "Пуля")]
         public Wrapper BulletPanel
         {
             get => Bullet;
             internal set => Bullet = value;
+        }
+
+        private void Start()
+        {
+            thisRB = GetComponent<Rigidbody>();
         }
 
         private void Update()
@@ -51,14 +58,16 @@ namespace Varwin.Types.Weapon_ccc5102640fe48729f5919dc3f07e470
 
         void Shot(GameObject BulletPrefab)
         {
-            GameObject Bullet = Instantiate(BulletPrefab, MuzzleTransform);
+            GameObject Bullet = ObjectManager.Instantiate(BulletPrefab, MuzzleTransform);
             if (Bullet == null) return;
+
+            Debug.LogWarning("OK");
 
             Rigidbody BulletRb = Bullet.AddComponent<Rigidbody>();
 
             if (BulletRb)
             {
-                BulletRb.AddForce(MuzzleTransform.forward * 20f);
+                thisRB.AddForce(MuzzleTransform.forward * 20f);
             }
         }
     }

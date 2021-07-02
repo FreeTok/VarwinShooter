@@ -1,0 +1,10 @@
+﻿{
+    "name": "Grenade_ebd40b3bf4bb4e4d86336f31820574ba",
+    "references": [
+        "VarwinCore"
+    ],
+    "optionalUnityReferences": [],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false
+}
