@@ -8,7 +8,7 @@ namespace Varwin.Types.Weapon_ccc5102640fe48729f5919dc3f07e470
     [VarwinComponent(English: "Weapon")]
     public class Weapon : VarwinObject
     {
-        public bool bIsGrabbed = false;
+        private bool bIsGrabbed = false;
         public Transform MuzzleTransform;
 
         private Wrapper Bullet;
@@ -27,25 +27,6 @@ namespace Varwin.Types.Weapon_ccc5102640fe48729f5919dc3f07e470
             thisRB = GetComponent<Rigidbody>();
         }
 
-        private void Update()
-        {
-            GameObject rightHand = InputAdapter.Instance?.PlayerController?.Nodes?.RightHand?.GameObject;
-            if(rightHand)
-            {
-                var rightHandEvents = InputAdapter.Instance?.ControllerInput?.ControllerEventFactory?.GetFrom(rightHand);
-                if(rightHandEvents != null)
-                {
-                    if(bIsGrabbed)
-                    {
-                        if (rightHandEvents.IsTriggerPressed())
-                        {
-                            Shot(Bullet.GetGameObject());
-                        }
-                    }
-                }
-            }
-        }
-
         public void StartGrab()
         {
             bIsGrabbed = true;
@@ -56,9 +37,36 @@ namespace Varwin.Types.Weapon_ccc5102640fe48729f5919dc3f07e470
             bIsGrabbed = false;
         }
 
-        void Shot(GameObject BulletPrefab)
+        [Action(English: "Shot", Russian: "Выстрел")]
+        public void Shot(Wrapper BulletPrefab, float Speed = 20f)
         {
-            GameObject Bullet = ObjectManager.Instantiate(BulletPrefab, MuzzleTransform);
+            GameObject rightHand = InputAdapter.Instance?.PlayerController?.Nodes?.RightHand?.GameObject;
+            if (rightHand)
+            {
+                var rightHandEvents = InputAdapter.Instance?.ControllerInput?.ControllerEventFactory?.GetFrom(rightHand);
+                if (rightHandEvents != null)
+                {
+                    if (rightHandEvents.IsTriggerPressed())
+                    {
+                        //MakeShot(BulletPrefab, Speed);
+                        Destroy(this.gameObject);
+                        SpawnObject(BulletPrefab);
+                        Destroy(this.gameObject);
+                    }
+
+                }
+            }
+        }
+
+        void SpawnObject(Wrapper SpawnPrefab)
+        {
+            GameObject Bullet = ObjectManager.Instantiate(SpawnPrefab.GetGameObject(), MuzzleTransform);
+            ObjectManager.Instantiate(SpawnPrefab.GetGameObject(), MuzzleTransform);
+        }
+
+        void MakeShot(Wrapper BulletPrefab, float Speed)
+        {
+            GameObject Bullet = ObjectManager.Instantiate(BulletPrefab.GetGameObject(), MuzzleTransform);
             if (Bullet == null) return;
 
             Debug.LogWarning("OK");
@@ -67,8 +75,9 @@ namespace Varwin.Types.Weapon_ccc5102640fe48729f5919dc3f07e470
 
             if (BulletRb)
             {
-                thisRB.AddForce(MuzzleTransform.forward * 20f);
+                thisRB.AddForce(MuzzleTransform.forward * Speed);
             }
         }
     }
 }
+
