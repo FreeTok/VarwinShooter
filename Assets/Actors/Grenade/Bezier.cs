@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bezier
+public class Bezier : MonoBehaviour
 {
     public static Vector3 GetPoint(Vector3 p0, Vector3 p1, Vector3 p2, float t)
     {

@@ -865,7 +865,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5082007821597603512}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.003, y: 0.356, z: 16.648}
+  m_LocalPosition: {x: -0.003, y: 0.356, z: 18.14}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5748995940482365227}
@@ -885,6 +885,7 @@ GameObject:
   - component: {fileID: 54431510032240646}
   - component: {fileID: 479139480455083239}
   - component: {fileID: 65380392087931242}
+  - component: {fileID: 114418027373801704}
   m_Layer: 0
   m_Name: Weapon
   m_TagString: Untagged
@@ -920,7 +921,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b220ea0c852a049499171b51c58596c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ConfigBlockly: "{\"Name\":{\"en\":\"Weapon\"},\"Description\":{\"en\":\"Weapon description\"},\"Guid\":\"c15e3f4b-df01-4c9f-9f9d-23af20cde0e4\",\"RootGuid\":\"5c924651-5996-48cd-948b-617ff503254f\",\"Locked\":false,\"Embedded\":false,\"MobileReady\":false,\"SourcesIncluded\":false,\"DisableSceneLogic\":false,\"Config\":{\"type\":\"Weapon_5c924651599648cd948b617ff503254f.WeaponWrapper\",\"blocks\":[{\"name\":\"BulletPanelGetter\",\"type\":\"getter\",\"items\":[{\"i18n\":{\"en\":\"Bullet\",\"ru\":\"\u041F\u0443\u043B\u044F\"},\"property\":\"BulletPanel\"}],\"valueType\":\"Varwin.Wrapper\"},{\"name\":\"BulletPanelSetter\",\"type\":\"setter\",\"items\":[{\"i18n\":{\"en\":\"Bullet\",\"ru\":\"\u041F\u0443\u043B\u044F\"},\"property\":\"BulletPanel\"}],\"valueType\":\"Varwin.Wrapper\"},{\"name\":\"Shot\",\"type\":\"action\",\"items\":[{\"method\":\"Shot\",\"i18n\":{\"en\":\"Shot\",\"ru\":\"\u0412\u044B\u0441\u0442\u0440\u0435\u043B\"}}],\"args\":[{\"valueType\":\"Varwin.Wrapper\"},{\"valueType\":\"System.Single\"}]}]},\"Author\":{\"Name\":\"Anonymous\",\"Email\":\"\",\"Url\":\"\"},\"License\":{\"Code\":\"cc-by\",\"Version\":\"4.0\"},\"BuiltAt\":\"2021-07-05T13:15:49Z\",\"SdkVersion\":\"0.13.7\"}"
+  ConfigBlockly: "{\"Name\":{\"en\":\"Weapon\",\"ru\":\"\u0420\u0443\u0436\u044C\u0451\"},\"Description\":{\"en\":\"Weapon
+    description\"},\"Guid\":\"642d6ddc-44e3-4405-83e8-4c9699e335ec\",\"RootGuid\":\"5c924651-5996-48cd-948b-617ff503254f\",\"Locked\":false,\"Embedded\":false,\"MobileReady\":false,\"SourcesIncluded\":false,\"DisableSceneLogic\":false,\"Config\":{\"type\":\"Weapon_5c924651599648cd948b617ff503254f.WeaponWrapper\",\"blocks\":[{\"name\":\"BulletPanelGetter\",\"type\":\"getter\",\"items\":[{\"i18n\":{\"en\":\"Bullet\",\"ru\":\"\u041F\u0443\u043B\u044F\"},\"property\":\"BulletPanel\"}],\"valueType\":\"Varwin.Wrapper\"},{\"name\":\"BulletPanelSetter\",\"type\":\"setter\",\"items\":[{\"i18n\":{\"en\":\"Bullet\",\"ru\":\"\u041F\u0443\u043B\u044F\"},\"property\":\"BulletPanel\"}],\"valueType\":\"Varwin.Wrapper\"},{\"name\":\"Shot\",\"type\":\"action\",\"items\":[{\"method\":\"Shot\",\"i18n\":{\"en\":\"Shot\",\"ru\":\"\u0412\u044B\u0441\u0442\u0440\u0435\u043B\"}}],\"args\":[{\"valueType\":\"Varwin.Wrapper\"},{\"valueType\":\"System.Single\"}]}]},\"Author\":{\"Name\":\"Anonymous\",\"Email\":\"\",\"Url\":\"\"},\"License\":{\"Code\":\"cc-by\",\"Version\":\"4.0\"},\"BuiltAt\":\"2021-07-06T13:17:58Z\",\"SdkVersion\":\"0.13.7\"}"
   ConfigAssetBundle: '{"AssetName":"Weapon","Assembly":["Weapon_5c924651599648cd948b617ff503254f.dll"]}'
   Icon: {fileID: 0}
   Name: Weapon
@@ -952,13 +954,15 @@ MonoBehaviour:
   AuthorUrl: 
   LicenseCode: cc-by
   LicenseVersion: 4.0
-  BuiltAt: 05.07.2021 16:54:24 +03:00
+  BuiltAt: 06.07.2021 16:49:19 +03:00
   CurrentVersionWasBuilt: 1
   CurrentVersionWasBuiltAsMobileReady: 0
   Components:
     ComponentReferences:
     - Name: Weapon_0
       Component: {fileID: 2619901218745605112}
+    - Name: InteractableObjectBehaviour_0
+      Component: {fileID: 114418027373801704}
 --- !u!114 &2619901218745605112
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1014,3 +1018,47 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 3.1901236, y: 7.1115894, z: 35.66694}
   m_Center: {x: -0.0000054836273, y: -0.00000047683716, z: 0}
+--- !u!114 &114418027373801704
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5127961427281767317}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de7338d1ff64bbc44bfbd17b39fb65da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _isGrabbable: 1
+  _isUsable: 1
+  _isTouchable: 0
+  OnGrabStarted:
+    m_PersistentCalls:
+      m_Calls: []
+  OnGrabEnded:
+    m_PersistentCalls:
+      m_Calls: []
+  OnUseStarted:
+    m_PersistentCalls:
+      m_Calls: []
+  OnUseEnded:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2619901218745605112}
+        m_MethodName: Reload
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnTouchStarted:
+    m_PersistentCalls:
+      m_Calls: []
+  OnTouchEnded:
+    m_PersistentCalls:
+      m_Calls: []
