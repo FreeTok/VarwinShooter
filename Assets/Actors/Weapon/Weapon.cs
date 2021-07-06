@@ -12,6 +12,12 @@ namespace Varwin.Types.Weapon_ccc5102640fe48729f5919dc3f07e470
         private InteractableObjectBehaviour InterectBehaviour;
 
         private bool Shoted;
+        
+        public delegate void ShotEventHandler(Wrapper BulletPrefab);
+        
+        [Event(English: "Shot event")]
+        public event ShotEventHandler ShotEvent;
+
 
         private void Start()
         {
@@ -22,23 +28,28 @@ namespace Varwin.Types.Weapon_ccc5102640fe48729f5919dc3f07e470
         [Action(English: "Shot", Russian: "Выстрел")]
         public void Shot(Wrapper BulletPrefab, float Speed = 20f)
         {
-            if (Shoted) return;
-            if (InterectBehaviour.IsGrabbed && InterectBehaviour.IsUsed)
-            {
-                Debug.LogWarning("Shot started");
-                Shoted = true;
-                GameObject Bullet = ObjectManager.Instantiate(BulletPrefab.GetGameObject(), MuzzleTransform);
-                Rigidbody BulletRb;
+            ShotEvent?.Invoke(MakeShot(BulletPrefab, Speed));
+        }
 
-                if (Bullet == null) return;
-                Debug.LogWarning("OK");
+        private Wrapper MakeShot(Wrapper BulletPrefab, float Speed = 20f)
+        {
+            if (Shoted) return null;
+            if (!InterectBehaviour.IsGrabbed || !InterectBehaviour.IsUsed) return null;
+            
+            Debug.LogWarning("Shot started");
+            Shoted = true;
+            GameObject Bullet = ObjectManager.Instantiate(BulletPrefab.GetGameObject(), MuzzleTransform);
+            Rigidbody BulletRb;
 
-                BulletRb = Bullet.GetComponent<Rigidbody>() == null
-                    ? Bullet.AddComponent<Rigidbody>()
-                    : Bullet.GetComponent<Rigidbody>();
+            if (Bullet == null) return null;
+            Debug.LogWarning("OK");
 
-                BulletRb.AddForce(MuzzleTransform.forward * Speed);
-            }
+            BulletRb = Bullet.GetComponent<Rigidbody>() == null
+                ? Bullet.AddComponent<Rigidbody>()
+                : Bullet.GetComponent<Rigidbody>();
+
+            return Bullet.GetWrapper();
+
         }
 
         public void Reload()
