@@ -1,0 +1,15 @@
+{
+    "name": "MakarovPistol_1d429d7bed2046099bd99355c171bc7c",
+    "references": [
+        "VarwinCore",
+        "WeaponLibrary"
+    ],
+    "optionalUnityReferences": [],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": []
+}

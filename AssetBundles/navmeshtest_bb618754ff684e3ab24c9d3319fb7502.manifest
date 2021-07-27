@@ -1,0 +1,46 @@
+ManifestFileVersion: 0
+CRC: 1487371311
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 0c99ae06fa8bea64ff0b2a43a0cfd77e
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 36b16ca075739e88703de6e3fe46fd43
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 23
+  Script: {instanceID: 0}
+- Class: 33
+  Script: {instanceID: 0}
+- Class: 43
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 54
+  Script: {instanceID: 0}
+- Class: 65
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 11500000, guid: 707dd1517f07e9943864be9a2764625b, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 8e0fef5926f5abc4abda01eb169b6e87, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: b220ea0c852a049499171b51c58596c1, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: be33a82f09c389e40aff72919b83d811, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+- Class: 136
+  Script: {instanceID: 0}
+- Class: 195
+  Script: {instanceID: 0}
+Assets:
+- Assets/Objects/NavMeshTest/NavMeshTest.prefab
+Dependencies: []

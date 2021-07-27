@@ -865,7 +865,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5082007821597603512}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.003, y: 0.356, z: 18.14}
+  m_LocalPosition: {x: -0.003, y: 0.65, z: 18.14}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5748995940482365227}
@@ -941,7 +941,7 @@ MonoBehaviour:
   AssetBundleParts: []
   Prefab: Assets/Actors/Weapon/Weapon.prefab
   PrefabGuid: af57e2a0f2b90ed49935d1cdb358d578
-  Guid: 642d6ddc-44e3-4405-83e8-4c9699e335ec
+  Guid: 3a3bf315-8ed9-4063-960c-582e5fbe9971
   RootGuid: 5c924651-5996-48cd-948b-617ff503254f
   Locked: 0
   Embedded: 0
@@ -954,7 +954,7 @@ MonoBehaviour:
   AuthorUrl: 
   LicenseCode: cc-by
   LicenseVersion: 4.0
-  BuiltAt: 7/6/2021 10:51:59 PM +03:00
+  BuiltAt: 07.07.2021 13:44:20 +03:00
   CurrentVersionWasBuilt: 1
   CurrentVersionWasBuiltAsMobileReady: 0
   Components:

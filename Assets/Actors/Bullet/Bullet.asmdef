@@ -1,0 +1,10 @@
+﻿{
+    "name": "Bullet_018844b7693a4e2886977d66f956deaf",
+    "references": [
+        "VarwinCore"
+    ],
+    "optionalUnityReferences": [],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false
+}
