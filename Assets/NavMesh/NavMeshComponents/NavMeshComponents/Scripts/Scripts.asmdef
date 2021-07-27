@@ -1,0 +1,14 @@
+{
+  "name": "Scripts_cab07f46150b41bfab684d03d18e8603",
+  "references": [
+    "VarwinCore"
+  ],
+  "optionalUnityReferences": null,
+  "includePlatforms": null,
+  "excludePlatforms": null,
+  "overrideReferences": false,
+  "precompiledReferences": null,
+  "allowUnsafeCode": false,
+  "autoReferenced": false,
+  "defineConstraints": null
+}

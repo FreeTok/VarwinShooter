@@ -7,6 +7,8 @@ using UnityEditorInternal;
 using UnityEngine.AI;
 using UnityEngine;
 
+#if UNITY_EDITOR
+
 namespace UnityEditor.AI
 {
     [CanEditMultipleObjects]
@@ -483,3 +485,5 @@ namespace UnityEditor.AI
         }
     }
 }
+
+#endif
