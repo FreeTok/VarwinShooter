@@ -1,8 +1,6 @@
 using UnityEngine;
 using UnityEngine.AI;
 
-#if UNITY_EDITOR
-
 namespace UnityEditor.AI
 {
     public static class NavMeshComponentsGUIUtility
@@ -258,5 +256,3 @@ namespace UnityEditor.AI
         }
     }
 }
-
-#endif

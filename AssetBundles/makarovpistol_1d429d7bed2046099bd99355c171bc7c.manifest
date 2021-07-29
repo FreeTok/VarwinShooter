@@ -1,0 +1,80 @@
+ManifestFileVersion: 0
+CRC: 3731583858
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: f73cb62d5bcae93d0d4976bf64917bac
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: da6b5a458a13641b5e05801646d767e9
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 23
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 33
+  Script: {instanceID: 0}
+- Class: 43
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 54
+  Script: {instanceID: 0}
+- Class: 65
+  Script: {instanceID: 0}
+- Class: 74
+  Script: {instanceID: 0}
+- Class: 82
+  Script: {instanceID: 0}
+- Class: 83
+  Script: {instanceID: 0}
+- Class: 90
+  Script: {instanceID: 0}
+- Class: 95
+  Script: {instanceID: 0}
+- Class: 108
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 11500000, guid: de7338d1ff64bbc44bfbd17b39fb65da, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: ed047b52efff69e4d8bfe25d71444434, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 72581793a6a55f641aa138f128180305, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 5db17005b6af4b63b01c43cdb3943905, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 610715d88a114deda1f3d97bd9456be3, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 8e0fef5926f5abc4abda01eb169b6e87, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 00dec22a88024418a63ab9256c10ca13, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: c221066b952e2a64187821f6536a1c1f, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: b220ea0c852a049499171b51c58596c1, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 6ace748ea591a9d478c7a98d15fbe77f, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 2edd6d9ee35208943b359643e6116197, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+- Class: 136
+  Script: {instanceID: 0}
+- Class: 198
+  Script: {instanceID: 0}
+- Class: 199
+  Script: {instanceID: 0}
+- Class: 212
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+Assets:
+- Assets/vrtir/VarwinObjects/MakarovPistol/MakarovPistol.prefab
+Dependencies: []
