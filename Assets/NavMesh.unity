@@ -111,7 +111,64 @@ NavMeshSettings:
     accuratePlacement: 0
     debug:
       m_Flags: 0
-  m_NavMeshData: {fileID: 0}
+  m_NavMeshData: {fileID: 23800000, guid: 8c63202741657a341b9af70821190750, type: 2}
+--- !u!1001 &303641654
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4240191, guid: 500a7057cb2377c43a1226759e2551b2, type: 3}
+      propertyPath: m_Name
+      value: MagicRifle
+      objectReference: {fileID: 0}
+    - target: {fileID: 4240192, guid: 500a7057cb2377c43a1226759e2551b2, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4240192, guid: 500a7057cb2377c43a1226759e2551b2, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.604
+      objectReference: {fileID: 0}
+    - target: {fileID: 4240192, guid: 500a7057cb2377c43a1226759e2551b2, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.08
+      objectReference: {fileID: 0}
+    - target: {fileID: 4240192, guid: 500a7057cb2377c43a1226759e2551b2, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4240192, guid: 500a7057cb2377c43a1226759e2551b2, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4240192, guid: 500a7057cb2377c43a1226759e2551b2, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4240192, guid: 500a7057cb2377c43a1226759e2551b2, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4240192, guid: 500a7057cb2377c43a1226759e2551b2, type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4240192, guid: 500a7057cb2377c43a1226759e2551b2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4240192, guid: 500a7057cb2377c43a1226759e2551b2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: 4240192, guid: 500a7057cb2377c43a1226759e2551b2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 500a7057cb2377c43a1226759e2551b2, type: 3}
 --- !u!1 &390065477
 GameObject:
   m_ObjectHideFlags: 0
@@ -142,28 +199,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &679849056 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1717709954, guid: b1e061b7cfceb814297321d238b82b2a,
-    type: 3}
-  m_PrefabInstance: {fileID: 1452104393}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &679849057
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 679849056}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6d07ce676d7afda4dabb3b0f7dd5e654, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_OverrideArea: 1
-  m_Area: 1
-  m_IgnoreFromBuild: 0
-  m_AffectedAgents: ffffffff
 --- !u!1 &1277581550
 GameObject:
   m_ObjectHideFlags: 0
@@ -303,66 +338,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b1e061b7cfceb814297321d238b82b2a, type: 3}
---- !u!1 &1614485454
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1614485455}
-  - component: {fileID: 1614485456}
-  m_Layer: 0
-  m_Name: NavMeshBaker
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1614485455
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1614485454}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 2138028707}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1614485456
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1614485454}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3df27b9289d1e8c4fb82e0df4f4673ba, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_AgentTypeID: 0
-  m_CollectObjects: 0
-  m_Size: {x: 10, y: 10, z: 10}
-  m_Center: {x: 0, y: 2, z: 0}
-  m_LayerMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_UseGeometry: 0
-  m_DefaultArea: 0
-  m_IgnoreNavMeshAgent: 1
-  m_IgnoreNavMeshObstacle: 1
-  m_OverrideTileSize: 0
-  m_TileSize: 256
-  m_OverrideVoxelSize: 0
-  m_VoxelSize: 0.16666667
-  m_BuildHeightMesh: 0
-  m_NavMeshData: {fileID: 23800000, guid: bbb9cdb36c0fb0d488b26b64d46e5227, type: 2}
 --- !u!1 &2064055458
 GameObject:
   m_ObjectHideFlags: 0
@@ -432,9 +407,3 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
---- !u!4 &2138028707 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 487155965, guid: b1e061b7cfceb814297321d238b82b2a,
-    type: 3}
-  m_PrefabInstance: {fileID: 1452104393}
-  m_PrefabAsset: {fileID: 0}

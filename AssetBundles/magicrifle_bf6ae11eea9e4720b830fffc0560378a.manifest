@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 640313878
+CRC: 2127584415
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 913045e7733b26a9ae1870325210e8b8
+    Hash: 80c2532e7892d0f1019240f4f4043d84
   TypeTreeHash:
     serializedVersion: 2
-    Hash: 3d2ab4dbc2f7e8809ca50313a1e550c6
+    Hash: 5b03714534d8b5bcd90fb86169d9e0c3
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -44,11 +44,9 @@ ClassTypes:
 - Class: 114
   Script: {fileID: 11500000, guid: de7338d1ff64bbc44bfbd17b39fb65da, type: 3}
 - Class: 114
-  Script: {fileID: 11500000, guid: ed047b52efff69e4d8bfe25d71444434, type: 3}
-- Class: 114
-  Script: {fileID: 11500000, guid: 72581793a6a55f641aa138f128180305, type: 3}
-- Class: 114
   Script: {fileID: 11500000, guid: 5db17005b6af4b63b01c43cdb3943905, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: e38cec7615a9d3246b81b590ab71ee40, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: 610715d88a114deda1f3d97bd9456be3, type: 3}
 - Class: 114
@@ -56,13 +54,7 @@ ClassTypes:
 - Class: 114
   Script: {fileID: 11500000, guid: 00dec22a88024418a63ab9256c10ca13, type: 3}
 - Class: 114
-  Script: {fileID: 11500000, guid: c221066b952e2a64187821f6536a1c1f, type: 3}
-- Class: 114
   Script: {fileID: 11500000, guid: b220ea0c852a049499171b51c58596c1, type: 3}
-- Class: 114
-  Script: {fileID: 11500000, guid: 6ace748ea591a9d478c7a98d15fbe77f, type: 3}
-- Class: 114
-  Script: {fileID: 11500000, guid: 2edd6d9ee35208943b359643e6116197, type: 3}
 - Class: 115
   Script: {instanceID: 0}
 - Class: 136
@@ -76,5 +68,5 @@ ClassTypes:
 - Class: 213
   Script: {instanceID: 0}
 Assets:
-- Assets/vrtir/VarwinObjects/MagicRifle/MagicRifle.prefab
+- Assets/Objects/MagicRifle/MagicRifle.prefab
 Dependencies: []

@@ -1,3 +1,5 @@
+#if UNITY_EDITOR
+
 using UnityEditor.IMGUI.Controls;
 using UnityEditorInternal;
 using UnityEngine.AI;
@@ -144,3 +146,5 @@ namespace UnityEditor.AI
         }
     }
 }
+
+#endif

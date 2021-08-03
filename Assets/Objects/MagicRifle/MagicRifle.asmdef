@@ -1,0 +1,16 @@
+{
+  "name": "MagicRifle_bf6ae11eea9e4720b830fffc0560378a",
+  "references": [
+    "VarwinCore",
+    "WeaponLibrary",
+    "MakarovPistol_1d429d7bed2046099bd99355c171bc7c"
+  ],
+  "optionalUnityReferences": [],
+  "includePlatforms": [],
+  "excludePlatforms": [],
+  "overrideReferences": false,
+  "precompiledReferences": [],
+  "allowUnsafeCode": false,
+  "autoReferenced": true,
+  "defineConstraints": []
+}

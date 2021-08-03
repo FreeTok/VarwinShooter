@@ -1,12 +1,16 @@
-﻿using System;
+﻿//using WeaponLibrary;
+
+using WeaponLibrary;
+using System;
 using System.Collections;
 using UnityEngine;
 using Varwin;
 using Varwin.Public;
 
-namespace WeaponLibrary
+namespace Varwin.Types.MakarovPistol_1d429d7bed2046099bd99355c171bc7c
 {
-    public class WeaponBehaviour : VarwinObject
+    [VarwinComponent(English: "Magic Rifle")]
+    public class MagicRifle : VarwinObject
     {
         private float _maxVelocityInertia = 0.2f;
 
@@ -59,10 +63,6 @@ namespace WeaponLibrary
         public event Action OnShoot;
 
         public Animator MainAnimator;
-        // public JointPoint MagazineJointPoint;
-        //
-        // public MagazineBehaviour MagazineBehaviour => GetMagazine();
-
         public Rigidbody Rigidbody => GetRigidBody();
 
         private bool _isBusy = false;
@@ -72,17 +72,12 @@ namespace WeaponLibrary
         public Transform ShootPoint;
         public HoleBehaviour HolePrefab;
 
-        //public bool HasAmmo = false;
         public bool OnSafety = false;
 
         public float ShootNormalizedTime = 0.5f;
 
         public AudioClip ShootAudioClip;
-        // public AudioClip ReloadAudioClip;
         public AudioClip ReturnFrameAudioClip;
-
-        // public AudioClip ConnectMagazineClip;
-        // public AudioClip DisconnectMagazineClip;
 
         public ParticleSystem ShootParticleSystem;
         public LightExplositionAnimator LightExplositionAnimator;
@@ -111,8 +106,6 @@ namespace WeaponLibrary
         public Transform BulletPoint;
 
         private float _bulletForce = 0.5f;
-        
-        // private Vector3 _magazineDeltaPos;
 
         [VarwinInspector(English: "Force bullet fly", Russian: "Сила вылета патрона")]
         public float BulletForce
@@ -130,81 +123,15 @@ namespace WeaponLibrary
             set => _wallHoleLifeTime = value;
         }
 
-        // private void Awake()
-        // {
-        //     _audioSource = GetComponent<AudioSource>();
-        //     StartCoroutine(InitMagazine());
-        // }
-
-        // private IEnumerator InitMagazine()
-        // {
-        //     while (MagazineJointPoint.JointBehaviour == null)
-        //     {
-        //         yield return new WaitForEndOfFrame();
-        //     }
-        //
-        //     MagazineJointPoint.JointBehaviour.OnConnect += JointBehaviourOnConnect;
-        //     MagazineJointPoint.JointBehaviour.OnDisconnect += JointBehaviourOnDisconnect;
-        // }
-
-        // private void JointBehaviourOnDisconnect()
-        // {
-        //     PlayAudioClip(DisconnectMagazineClip);
-        // }
-
-        // private void JointBehaviourOnConnect()
-        // {
-        //     PlayAudioClip(ConnectMagazineClip);
-        //
-        //     _magazineDeltaPos = transform.InverseTransformPoint(MagazineBehaviour.transform.position);
-        // }
-
         public void Shoot()
         {
             if (IsBusy)
             {
                 return;
             }
-            
-            // if (!HasAmmo)
-            // {
-            //     if (!_simpleMechanics)
-            //     {
-            //         return;
-            //     }
-            //    
-            //     if (MagazineBehaviour == null)
-            //     {
-            //         return;
-            //     }
-            // }
-
-            // if (OnSafety && !_simpleMechanics)
-            // {
-            //     return;
-            // }
 
             StartCoroutine(Shooting());
         }
-
-        // public void Reload()
-        // {
-        //     if (OnSafety)
-        //     {
-        //         return;
-        //     }
-        //
-        //     MainAnimator.SetTrigger("Reload");
-        //
-        //     PlayAudioClip(IsBusy ? ReturnFrameAudioClip : ReloadAudioClip);
-        //
-        //     if (HasAmmo)
-        //     {
-        //         AddBullet(false);
-        //     }
-        //
-        //     HasAmmo = MagazineBehaviour && MagazineBehaviour.GetAmmo();
-        // }
 
         private void AddBullet(bool used)
         {
@@ -221,8 +148,6 @@ namespace WeaponLibrary
         private IEnumerator Shooting()
         {
             _isBusy = true;
-            // var animName = !MagazineBehaviour || MagazineBehaviour.IsEmpty() ? "ShootLastAmmo" : "Shoot";
-            // MainAnimator.SetTrigger(animName);
 
             PlayAudioClip(ShootAudioClip);
             ShootParticleSystem.Play();
@@ -240,21 +165,9 @@ namespace WeaponLibrary
 
             AddBullet(true);
 
-            // HasAmmo = MagazineBehaviour && MagazineBehaviour.GetAmmo();
-
             yield return new WaitForSeconds(ShootDelay);
             _isBusy = false;
         }
-
-        // private void LateUpdate()
-        // {
-        //     if (!MagazineBehaviour)
-        //     {
-        //         return;
-        //     }
-        //     
-        //     MagazineBehaviour.FixPosition(transform.TransformPoint(_magazineDeltaPos));
-        // }
 
         public void PlayAudioClip(AudioClip clip)
         {
@@ -298,16 +211,6 @@ namespace WeaponLibrary
             OnShootToTarget?.Invoke(target ? target.CountMarks : 0, wrapper);
         }
 
-        // private MagazineBehaviour GetMagazine()
-        // {
-        //     if (!MagazineJointPoint || !MagazineJointPoint.ConnectedJointPoint)
-        //     {
-        //         return null;
-        //     }
-        //
-        //     return MagazineJointPoint.ConnectedJointPoint.JointBehaviour.GetComponent<MagazineBehaviour>();
-        // }
-
         private Rigidbody GetRigidBody()
         {
             if (!_rigidbody)
@@ -321,11 +224,6 @@ namespace WeaponLibrary
         public void SetEnableSafety(bool safety)
         {
             OnSafety = safety;
-        }
-
-        public void ForceSetKinematic(bool state)
-        {
-            
         }
     }
 }

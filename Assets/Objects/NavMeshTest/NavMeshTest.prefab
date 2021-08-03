@@ -34,6 +34,7 @@ Transform:
   - {fileID: 1717940388}
   - {fileID: 755971145}
   - {fileID: 1876491563}
+  - {fileID: 1614485455}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -49,8 +50,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b220ea0c852a049499171b51c58596c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ConfigBlockly: 
-  ConfigAssetBundle: 
+  ConfigBlockly: '{"Name":{"en":"Nav Mesh Test"},"Description":{"en":"Nav Mesh Test
+    description"},"Guid":"bb618754-ff68-4e3a-b24c-9d3319fb7502","RootGuid":"bb618754-ff68-4e3a-b24c-9d3319fb7502","Locked":false,"Embedded":false,"MobileReady":false,"SourcesIncluded":false,"DisableSceneLogic":false,"Config":{"type":"NavMeshTest_bb618754ff684e3ab24c9d3319fb7502.NavMeshTestWrapper","blocks":[]},"Author":{"Name":"Anonymous","Email":"","Url":""},"License":{"Code":"cc-by","Version":"4.0"},"BuiltAt":"2021-08-02T12:20:43Z","SdkVersion":"0.13.8"}'
+  ConfigAssetBundle: '{"AssetName":"NavMeshTest","Assembly":["Scripts_598caaf2d60641769cd6f3112a14a8a7.dll","Scripts_60a316ddd4534c8ea9aa95e375a180ab.dll","NavMeshTest_bb618754ff684e3ab24c9d3319fb7502.dll"]}'
   Icon: {fileID: 0}
   Name: NavMeshTest
   DisplayNames:
@@ -79,7 +81,7 @@ MonoBehaviour:
   AuthorUrl: 
   LicenseCode: cc-by
   LicenseVersion: 4.0
-  BuiltAt: 7/27/2021 12:37:14 PM +03:00
+  BuiltAt: 8/2/2021 3:38:24 PM +03:00
   CurrentVersionWasBuilt: 1
   CurrentVersionWasBuiltAsMobileReady: 0
   Components:
@@ -88,6 +90,12 @@ MonoBehaviour:
       Component: {fileID: 6541541146064111040}
     - Name: NavMeshMove_0
       Component: {fileID: 1452104395}
+    - Name: NavMeshModifier_0
+      Component: {fileID: 679849057}
+    - Name: NavMeshSurface_0
+      Component: {fileID: 1614485456}
+    - Name: NavMeshModifier_1
+      Component: {fileID: 1211811356}
 --- !u!114 &6541541146064111040
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -159,7 +167,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 755971141}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -6.924801, y: 7.375754, z: -2.3904848}
+  m_LocalPosition: {x: -4.54, y: 7.628, z: -2.3904848}
   m_LocalScale: {x: 0.666947, y: 0.666947, z: 0.666947}
   m_Children: []
   m_Father: {fileID: 487155965}
@@ -272,6 +280,80 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 18012
+--- !u!1 &1614485454
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1614485455}
+  - component: {fileID: 1614485456}
+  - component: {fileID: 2912528247980031132}
+  m_Layer: 0
+  m_Name: NavMeshBaker
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1614485455
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1614485454}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 487155965}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1614485456
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1614485454}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3df27b9289d1e8c4fb82e0df4f4673ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_AgentTypeID: 0
+  m_CollectObjects: 0
+  m_Size: {x: 10, y: 10, z: 10}
+  m_Center: {x: 0, y: 2, z: 0}
+  m_LayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_UseGeometry: 0
+  m_DefaultArea: 0
+  m_IgnoreNavMeshAgent: 1
+  m_IgnoreNavMeshObstacle: 1
+  m_OverrideTileSize: 0
+  m_TileSize: 256
+  m_OverrideVoxelSize: 0
+  m_VoxelSize: 0.16666667
+  m_BuildHeightMesh: 0
+  m_NavMeshData: {fileID: 0}
+--- !u!114 &2912528247980031132
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1614485454}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e0fef5926f5abc4abda01eb169b6e87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Id: 19256
 --- !u!1 &1717709954
 GameObject:
   m_ObjectHideFlags: 0
@@ -283,6 +365,8 @@ GameObject:
   - component: {fileID: 1717940386}
   - component: {fileID: 1716646020}
   - component: {fileID: 1715515972}
+  - component: {fileID: 679849057}
+  - component: {fileID: 7739136056270821835}
   m_Layer: 0
   m_Name: Walls
   m_TagString: Untagged
@@ -349,6 +433,35 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &679849057
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1717709954}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d07ce676d7afda4dabb3b0f7dd5e654, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_OverrideArea: 1
+  m_Area: 1
+  m_IgnoreFromBuild: 0
+  m_AffectedAgents: ffffffff
+--- !u!114 &7739136056270821835
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1717709954}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e0fef5926f5abc4abda01eb169b6e87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Id: 19270
 --- !u!1 &1717709956
 GameObject:
   m_ObjectHideFlags: 0
@@ -393,6 +506,8 @@ GameObject:
   - component: {fileID: 1716646022}
   - component: {fileID: 1715515974}
   - component: {fileID: 1570637039}
+  - component: {fileID: 1211811356}
+  - component: {fileID: 7975167939461403223}
   m_Layer: 0
   m_Name: Ground
   m_TagString: Untagged
@@ -472,6 +587,35 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 22, y: 1.32, z: 22}
   m_Center: {x: 0, y: 0.44, z: 0}
+--- !u!114 &1211811356
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1717709958}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d07ce676d7afda4dabb3b0f7dd5e654, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_OverrideArea: 1
+  m_Area: 0
+  m_IgnoreFromBuild: 0
+  m_AffectedAgents: ffffffff
+--- !u!114 &7975167939461403223
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1717709958}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e0fef5926f5abc4abda01eb169b6e87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Id: 23454
 --- !u!1 &1876491561
 GameObject:
   m_ObjectHideFlags: 0

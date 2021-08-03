@@ -4,7 +4,7 @@ using Varwin.Public;
 
 namespace WeaponLibrary
 {
-    public class FrameBehaviour : MonoBehaviour, IUseStartAware
+    public class FrameBehaviour : MonoBehaviour//, IUseStartAware
     {
         private WeaponBehaviour _weaponBehaviour;
 
@@ -13,9 +13,9 @@ namespace WeaponLibrary
             _weaponBehaviour = GetComponentInParent<WeaponBehaviour>();
         }
 
-        public void OnUseStart(UsingContext context)
-        {
-            _weaponBehaviour.Reload();
-        }
+        // public void OnUseStart(UsingContext context)
+        // {
+        //     _weaponBehaviour.Reload();
+        // }
     }
 }
