@@ -10,6 +10,14 @@ namespace Varwin.Types.MagicRifle_bf6ae11eea9e4720b830fffc0560378a
     [VarwinComponent(English: "Magic Rifle")]
     public class MagicRifle : VarwinObject
     {
+        private float _baseDamage = 10;
+        [VarwinInspector(English: "Base damage per shot", Russian: "Дамаг за выстрел")]
+        public float BaseDamage
+        {
+            get => _baseDamage;
+            set => _baseDamage = value;
+        }
+        
         private float _maxVelocityInertia = 0.2f;
 
         [VarwinInspector(English: "Inertia in m", Russian: "Максимальное отклонение в метрах")]
@@ -187,6 +195,18 @@ namespace Varwin.Types.MagicRifle_bf6ae11eea9e4720b830fffc0560378a
                 holeInstance.gameObject.SetActive(true);
             }
 
+            print(hit.collider.gameObject.name);
+            damage_get handler = hit.collider.gameObject.GetComponent<damage_get>();
+            if (handler)
+            {
+                print("Enemy hitted");
+                handler.TakeDamage(_baseDamage);
+            }
+            else
+            {
+                print("Miss");
+            }
+
             var target = hit.collider.GetComponentInParent<TargetBehaviour>();
             var wrapper = hit.collider.gameObject.GetWrapper();
 
@@ -199,6 +219,8 @@ namespace Varwin.Types.MagicRifle_bf6ae11eea9e4720b830fffc0560378a
             Debug.Log("Hit the target with point: " + target.CountMarks);
 
             OnShootToTarget?.Invoke(target ? target.CountMarks : 0, wrapper);
+            
+            print(hit.collider.gameObject);
         }
 
         private Rigidbody GetRigidBody()

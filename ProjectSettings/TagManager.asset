@@ -8,6 +8,7 @@ TagManager:
   - NotTeleport
   - Beam
   - Effects
+  - Enemy
   layers:
   - Default
   - TransparentFX

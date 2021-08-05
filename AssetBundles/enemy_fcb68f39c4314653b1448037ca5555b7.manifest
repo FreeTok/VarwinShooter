@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 1694401739
+CRC: 821374559
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 2f63afbb98ccc41187e97eaf5d3d346d
+    Hash: 9da015d8c6652a38570027234effc899
   TypeTreeHash:
     serializedVersion: 2
-    Hash: 5b03714534d8b5bcd90fb86169d9e0c3
+    Hash: 8eec64f57981e996de4f941703c1b19a
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -27,46 +27,36 @@ ClassTypes:
   Script: {instanceID: 0}
 - Class: 54
   Script: {instanceID: 0}
-- Class: 65
-  Script: {instanceID: 0}
-- Class: 74
-  Script: {instanceID: 0}
-- Class: 82
-  Script: {instanceID: 0}
-- Class: 83
-  Script: {instanceID: 0}
-- Class: 90
-  Script: {instanceID: 0}
-- Class: 95
-  Script: {instanceID: 0}
-- Class: 108
-  Script: {instanceID: 0}
 - Class: 114
-  Script: {fileID: 11500000, guid: de7338d1ff64bbc44bfbd17b39fb65da, type: 3}
+  Script: {fileID: 1980459831, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 - Class: 114
-  Script: {fileID: 11500000, guid: 5db17005b6af4b63b01c43cdb3943905, type: 3}
+  Script: {fileID: 1301386320, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 - Class: 114
-  Script: {fileID: 11500000, guid: e38cec7615a9d3246b81b590ab71ee40, type: 3}
-- Class: 114
-  Script: {fileID: 11500000, guid: 610715d88a114deda1f3d97bd9456be3, type: 3}
+  Script: {fileID: 11500000, guid: bedc1ef4a601b474d8775b6926e56e94, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: 8e0fef5926f5abc4abda01eb169b6e87, type: 3}
 - Class: 114
-  Script: {fileID: 11500000, guid: 00dec22a88024418a63ab9256c10ca13, type: 3}
+  Script: {fileID: 11500000, guid: c4b5e089e6a1c144d863aaea5e7aca4b, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 71c1514a6bd24e1e882cebbe1904ce04, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: b220ea0c852a049499171b51c58596c1, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 993eca303cd994c4fac9c2ebd3d20b04, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 625ef7d7b4e323744b9b27a0910c059d, type: 3}
 - Class: 115
   Script: {instanceID: 0}
 - Class: 136
   Script: {instanceID: 0}
-- Class: 198
+- Class: 222
   Script: {instanceID: 0}
-- Class: 199
+- Class: 223
   Script: {instanceID: 0}
-- Class: 212
-  Script: {instanceID: 0}
-- Class: 213
+- Class: 224
   Script: {instanceID: 0}
 Assets:
-- Assets/Objects/MagicRifle/MagicRifle.prefab
+- Assets/Objects/Enemy/Enemy.prefab
 Dependencies: []

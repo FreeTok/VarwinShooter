@@ -1,7 +1,8 @@
 {
     "name": "WeaponLibrary",
     "references": [
-        "VarwinCore"
+        "VarwinCore",
+        "Unity.TextMeshPro"
     ],
     "optionalUnityReferences": [],
     "includePlatforms": [],

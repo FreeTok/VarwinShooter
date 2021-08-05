@@ -1,9 +1,9 @@
 {
-  "name": "MagicRifle_bf6ae11eea9e4720b830fffc0560378a",
+  "name": "Enemy_fcb68f39c4314653b1448037ca5555b7",
   "references": [
-    "Unity.TextMeshPro",
     "VarwinCore",
-    "WeaponLibrary"
+    "WeaponLibrary",
+    "Unity.TextMeshPro"
   ],
   "optionalUnityReferences": [],
   "includePlatforms": [],
