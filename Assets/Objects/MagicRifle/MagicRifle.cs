@@ -131,17 +131,17 @@ namespace Varwin.Types.MagicRifle_bf6ae11eea9e4720b830fffc0560378a
             StartCoroutine(Shooting());
         }
 
-        private void AddBullet(bool used)
-        {
-            var bulletPointTransform = BulletPoint.transform;
-            var bullet = Instantiate(BulletBehaviourPrefab, bulletPointTransform.position,
-                bulletPointTransform.rotation);
-
-            bullet.gameObject.SetActive(true);
-            bullet.SetObject(used);
-
-            bullet.Rigidbody.AddForce(BulletPoint.transform.forward * BulletForce);
-        }
+        // private void AddBullet(bool used)
+        // {
+        //     var bulletPointTransform = BulletPoint.transform;
+        //     var bullet = Instantiate(BulletBehaviourPrefab, bulletPointTransform.position,
+        //         bulletPointTransform.rotation);
+        //
+        //     bullet.gameObject.SetActive(true);
+        //     bullet.SetObject(used);
+        //
+        //     bullet.Rigidbody.AddForce(BulletPoint.transform.forward * BulletForce);
+        // }
 
         private IEnumerator Shooting()
         {
@@ -160,8 +160,8 @@ namespace Varwin.Types.MagicRifle_bf6ae11eea9e4720b830fffc0560378a
 
             Rigidbody.AddExplosionForce(ForceInertia, ShootPoint.transform.position, ForceRadius);
             OnShoot?.Invoke();
-
-            AddBullet(true);
+            
+            // AddBullet(true);
 
             yield return new WaitForSeconds(ShootDelay);
             // _isBusy = false;

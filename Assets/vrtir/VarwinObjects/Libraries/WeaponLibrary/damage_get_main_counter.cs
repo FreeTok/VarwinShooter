@@ -12,39 +12,39 @@ public class damage_get_main_counter : MonoBehaviour
 
     public GameObject mob;
 
-    private Rigidbody rigd;
-
-    private MeshRenderer rendm;
-
-    // public GameObject me_self_monster;
-
     [SerializeField] private List<damage_get> damage_handlers;
 
     [SerializeField] private float health = 100;
 
     public TextMeshProUGUI HPText;
 
-    public void TakeDamage(float damage)
+    public float DieTime = 2;
+
+    public void TakeDamage(float damage, float damageMultiplier)
     {
+        damage *= damageMultiplier;
+        
         if (damage < 0) throw new System.Exception("Damage count must be non negative!");
+        
         health -= damage;
-        HPText.text = health.ToString();
-        if (health < 0) health = 0;
-        if (health == 0)
+        
+        if (health >= 0)
         {
+            HPText.text = health.ToString();
+        }
+
+        else
+        {
+            HPText.text = "0";
+            
             Debug.Log("Ragdoll_dead");
 
-            rigd = gameObject.GetComponent<Rigidbody>();
-
-            rigd.isKinematic = true;
-
-            deathparticles.ForEach(x => x.SetActive(true));
-
-            rendm = gameObject.GetComponent<MeshRenderer>();
-
-            rendm.enabled = false;
-            Destroy(mob, 2);
-            // Destroy(me_self_monster, 6);
+            foreach (GameObject particle in deathparticles)
+            {
+                particle.SetActive(true);
+            }
+            
+            Destroy(mob, DieTime);
         }
     }
 
