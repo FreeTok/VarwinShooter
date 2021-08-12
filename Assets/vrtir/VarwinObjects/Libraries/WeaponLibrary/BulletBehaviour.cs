@@ -8,14 +8,13 @@ namespace WeaponLibrary
 
         public Rigidbody Rigidbody => GetRigidBody();
 
-        public GameObject UsedGameObject;
-        public GameObject NonUsedGameObject;
+        public GameObject bullet;
 
         public float LiveTime = 5f;
 
         public AudioClip CollisionAudioClip;
 
-        private bool _isCollided = false;
+        private bool _isCollided = true;
 
         public void PlaySound(AudioClip clip)
         {
@@ -30,10 +29,9 @@ namespace WeaponLibrary
             source.PlayOneShot(clip);
         }
 
-        public void SetObject(bool used)
+        public void SetObject()
         {
-            UsedGameObject.SetActive(used);
-            NonUsedGameObject.SetActive(!used);
+            bullet.SetActive(true);
         }
         
         private void Update()

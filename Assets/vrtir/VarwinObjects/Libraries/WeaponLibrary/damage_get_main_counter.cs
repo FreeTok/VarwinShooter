@@ -28,7 +28,7 @@ public class damage_get_main_counter : MonoBehaviour
         
         health -= damage;
         
-        if (health >= 0)
+        if (health > 0)
         {
             HPText.text = health.ToString();
         }
