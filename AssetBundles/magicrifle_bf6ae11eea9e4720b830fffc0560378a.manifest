@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 3509090698
+CRC: 3843497488
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 2306b11b877742cee3abfb9d3ecf64c8
+    Hash: 3e887b1485e4b02fca24f874f926061f
   TypeTreeHash:
     serializedVersion: 2
-    Hash: 5b03714534d8b5bcd90fb86169d9e0c3
+    Hash: a9a4fd4f7f51f3ab4b526b81ea885d51
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -39,12 +39,8 @@ ClassTypes:
   Script: {instanceID: 0}
 - Class: 95
   Script: {instanceID: 0}
-- Class: 108
-  Script: {instanceID: 0}
 - Class: 114
   Script: {fileID: 11500000, guid: de7338d1ff64bbc44bfbd17b39fb65da, type: 3}
-- Class: 114
-  Script: {fileID: 11500000, guid: 5db17005b6af4b63b01c43cdb3943905, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: e38cec7615a9d3246b81b590ab71ee40, type: 3}
 - Class: 114
@@ -64,8 +60,6 @@ ClassTypes:
 - Class: 199
   Script: {instanceID: 0}
 - Class: 212
-  Script: {instanceID: 0}
-- Class: 213
   Script: {instanceID: 0}
 Assets:
 - Assets/Objects/MagicRifle/MagicRifle.prefab

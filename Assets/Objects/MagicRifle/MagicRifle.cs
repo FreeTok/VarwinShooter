@@ -60,12 +60,7 @@ namespace Varwin.Types.MagicRifle_bf6ae11eea9e4720b830fffc0560378a
         [Event(English: "On shoot", Russian: "При выстреле")]
         public event Action OnShoot;
 
-        // public Animator MainAnimator;
         public Rigidbody Rigidbody => GetRigidBody();
-        //
-        // private bool _isBusy = false;
-
-        // public bool IsBusy => !MainAnimator.GetCurrentAnimatorStateInfo(0).IsName(IdleClip.name) || _isBusy;
 
         public Transform ShootPoint;
         public HoleBehaviour HolePrefab;
@@ -75,10 +70,7 @@ namespace Varwin.Types.MagicRifle_bf6ae11eea9e4720b830fffc0560378a
         public float ShootNormalizedTime = 0.5f;
 
         public AudioClip ShootAudioClip;
-        public AudioClip ReturnFrameAudioClip;
-
         public ParticleSystem ShootParticleSystem;
-        public LightExplositionAnimator LightExplositionAnimator;
 
         private AudioSource _audioSource;
         private float _forceInertia = 3000;
@@ -104,7 +96,7 @@ namespace Varwin.Types.MagicRifle_bf6ae11eea9e4720b830fffc0560378a
         public BulletBehaviour BulletBehaviourPrefab;
         public Transform BulletPoint;
 
-        private float _bulletForce = 0.5f;
+        private float _bulletForce = 20f;
 
         [VarwinInspector(English: "Force bullet fly", Russian: "Сила вылета патрона")]
         public float BulletForce
@@ -124,15 +116,6 @@ namespace Varwin.Types.MagicRifle_bf6ae11eea9e4720b830fffc0560378a
 
         public void Shoot()
         {
-            // if (IsBusy)
-            // {
-            //     return;
-            // }
-
-            print(Time.time);
-            print(LastShoot); 
-            print(_shootDelay);
-            
             if (Time.time - LastShoot >= _shootDelay)
             {
                 LastShoot = Time.time;
@@ -141,16 +124,15 @@ namespace Varwin.Types.MagicRifle_bf6ae11eea9e4720b830fffc0560378a
             }
         }
 
-        private void AddBullet(bool used)
+        private void AddBullet()
         {
             var bulletPointTransform = BulletPoint.transform;
             var bullet = Instantiate(BulletBehaviourPrefab, bulletPointTransform.position,
                 bulletPointTransform.rotation);
         
             bullet.gameObject.SetActive(true);
-            bullet.SetObject();
-        
-            bullet.Rigidbody.AddForce(BulletPoint.transform.forward * BulletForce);
+
+            bullet.GetComponent<Rigidbody>().AddForce(BulletPoint.transform.forward * BulletForce);
         }
 
         private IEnumerator Shooting()
@@ -159,9 +141,9 @@ namespace Varwin.Types.MagicRifle_bf6ae11eea9e4720b830fffc0560378a
 
             PlayAudioClip(ShootAudioClip);
             ShootParticleSystem.Play();
-            LightExplositionAnimator.Play();
 
             Raycast();
+            AddBullet();
 
             // while (MainAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime < ShootNormalizedTime)
             // {
@@ -170,8 +152,6 @@ namespace Varwin.Types.MagicRifle_bf6ae11eea9e4720b830fffc0560378a
 
             Rigidbody.AddExplosionForce(ForceInertia, ShootPoint.transform.position, ForceRadius);
             OnShoot?.Invoke();
-            
-            AddBullet(true);
 
             yield return new WaitForSeconds(ShootDelay);
             // _isBusy = false;
