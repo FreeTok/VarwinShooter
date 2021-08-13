@@ -8,6 +8,7 @@ TagManager:
   - NotTeleport
   - Beam
   - Effects
+  - Rifle
   layers:
   - Default
   - TransparentFX

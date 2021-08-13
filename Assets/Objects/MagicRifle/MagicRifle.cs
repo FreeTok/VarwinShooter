@@ -119,7 +119,6 @@ namespace Varwin.Types.MagicRifle_bf6ae11eea9e4720b830fffc0560378a
             if (Time.time - LastShoot >= _shootDelay)
             {
                 LastShoot = Time.time;
-                print("Shoot");
                 StartCoroutine(Shooting());
             }
         }
@@ -128,33 +127,28 @@ namespace Varwin.Types.MagicRifle_bf6ae11eea9e4720b830fffc0560378a
         {
             var bulletPointTransform = BulletPoint.transform;
             var bullet = Instantiate(BulletBehaviourPrefab, bulletPointTransform.position,
-                bulletPointTransform.rotation);
+                BulletBehaviourPrefab.gameObject.transform.rotation);
         
             bullet.gameObject.SetActive(true);
 
             bullet.GetComponent<Rigidbody>().AddForce(BulletPoint.transform.forward * BulletForce);
+
+            bullet.Rifle = this.gameObject;
+            bullet.WallHoleLifeTime = _wallHoleLifeTime;
+            bullet.BaseDamage = _baseDamage;
         }
 
         private IEnumerator Shooting()
         {
-            // _isBusy = true;
-
             PlayAudioClip(ShootAudioClip);
             ShootParticleSystem.Play();
 
-            Raycast();
             AddBullet();
-
-            // while (MainAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime < ShootNormalizedTime)
-            // {
-            //     yield return new WaitForEndOfFrame();
-            // }
 
             Rigidbody.AddExplosionForce(ForceInertia, ShootPoint.transform.position, ForceRadius);
             OnShoot?.Invoke();
 
             yield return new WaitForSeconds(ShootDelay);
-            // _isBusy = false;
         }
 
         public void PlayAudioClip(AudioClip clip)
@@ -165,54 +159,6 @@ namespace Varwin.Types.MagicRifle_bf6ae11eea9e4720b830fffc0560378a
             }
         }
 
-        private void Raycast()
-        {
-            var ray = new Ray(ShootPoint.position, ShootPoint.forward);
-            if (!Physics.Raycast(ray, out var hit))
-            {
-                return;
-            }
-
-            if (hit.collider.isTrigger || hit.collider.name != "Player")
-            {
-                var holeInstance = Instantiate(HolePrefab, hit.point, Quaternion.LookRotation(hit.normal));
-                holeInstance.MaxTime = WallHoleLifeTime;
-                var holeSpriteTransform = holeInstance.transform;
-                
-                holeSpriteTransform.Translate(Vector3.forward * 0.01f);
-                holeSpriteTransform.parent = hit.collider.transform;
-
-                holeInstance.gameObject.SetActive(true);
-            }
-
-            print(hit.collider.gameObject.name);
-            damage_get handler = hit.collider.gameObject.GetComponent<damage_get>();
-            if (handler)
-            {
-                print("Enemy hitted");
-                handler.TakeDamage(_baseDamage);
-            }
-            else
-            {
-                print("Miss");
-            }
-
-            var target = hit.collider.GetComponentInParent<TargetBehaviour>();
-            var wrapper = hit.collider.gameObject.GetWrapper();
-
-            if (!target || wrapper == null)
-            {
-                return;
-            }
-
-            target.Hit(hit.point);
-            Debug.Log("Hit the target with point: " + target.CountMarks);
-
-            OnShootToTarget?.Invoke(target ? target.CountMarks : 0, wrapper);
-            
-            print(hit.collider.gameObject);
-        }
-
         private Rigidbody GetRigidBody()
         {
             if (!_rigidbody)
@@ -221,11 +167,6 @@ namespace Varwin.Types.MagicRifle_bf6ae11eea9e4720b830fffc0560378a
             }
 
             return _rigidbody;
-        }
-
-        public void SetEnableSafety(bool safety)
-        {
-            OnSafety = safety;
         }
     }
 }

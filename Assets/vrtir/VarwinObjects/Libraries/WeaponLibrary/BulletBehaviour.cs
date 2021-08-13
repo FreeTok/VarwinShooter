@@ -1,62 +1,58 @@
+using System;
 using UnityEngine;
 
 namespace WeaponLibrary
 {
     public class BulletBehaviour : MonoBehaviour
     {
-        // private Rigidbody _rigidbody;
-        //
-        // public Rigidbody Rigidbody => GetRigidBody();
-        //
-        // public GameObject bullet;
-        //
-        // public float LiveTime = 5f;
-        //
-        // public AudioClip CollisionAudioClip;
-        //
-        // private bool _isCollided = true;
-        //
-        // public void PlaySound(AudioClip clip)
-        // {
-        //     var source = GetComponent<AudioSource>();
-        //     if (!source || !clip)
-        //     {
-        //         return;
-        //     }
-        //
-        //     source.volume = Mathf.Clamp(Rigidbody.velocity.magnitude / 2f, 0f, 0.5f);
-        //     
-        //     source.PlayOneShot(clip);
-        // }
-        //
-        // private void Update()
-        // {
-        //     LiveTime -= Time.deltaTime;
-        //     if (LiveTime < 0f)
-        //     {
-        //         Destroy(gameObject);
-        //     }
-        // }
-        //
-        // // private void OnCollisionEnter(Collision other)
-        // // {
-        // //     if (_isCollided)
-        // //     {
-        // //         return;
-        // //     }
-        // //     
-        // //     PlaySound(CollisionAudioClip);
-        // //     _isCollided = true;
-        // // }
-        //
-        // private Rigidbody GetRigidBody()
-        // {
-        //     if (!_rigidbody)
-        //     {
-        //         _rigidbody = GetComponent<Rigidbody>();
-        //     }
-        //
-        //     return _rigidbody;
-        // }
+        [HideInInspector] public GameObject Rifle;
+        [HideInInspector] public float WallHoleLifeTime;
+        [HideInInspector] public float BaseDamage;
+        public HoleBehaviour HolePrefab;
+
+        private void Start()
+        {
+            if (WallHoleLifeTime == 0)
+            {
+                WallHoleLifeTime = 200f;
+            }
+        }
+
+        private void OnCollisionEnter(Collision other)
+        {
+            if (other.gameObject == Rifle)
+            {
+                print("Rifle hitted");
+                return;
+            }
+            
+            ContactPoint contact = other.contacts[0];
+            Vector3 rot = contact.normal;
+            Vector3 pos = contact.point;
+            
+            var holeInstance = Instantiate(HolePrefab, pos, Quaternion.LookRotation(rot));
+            holeInstance.MaxTime = WallHoleLifeTime;
+            var holeSpriteTransform = holeInstance.transform;
+            
+            holeSpriteTransform.Translate(Vector3.forward * 0.001f);
+            
+            holeSpriteTransform.parent = other.transform;
+            holeInstance.gameObject.SetActive(true);
+            print(holeInstance.name);
+            
+            damage_get handler = other.collider.gameObject.GetComponent<damage_get>();
+
+            if (handler)
+            {
+                print("Enemy hitted");
+                handler.TakeDamage(BaseDamage);
+            }
+            else
+            {
+                print("Miss");
+            }
+            
+            Destroy(this.gameObject);
+        }
     }
 }
