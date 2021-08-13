@@ -2090,16 +2090,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ConfigBlockly: "{\"Name\":{\"en\":\"Enemy\",\"es\":\"\u0412\u0440\u0430\u0433\"},\"Description\":{\"en\":\"Enemy
-    description\"},\"Guid\":\"fcb68f39-c431-4653-b144-8037ca5555b7\",\"RootGuid\":\"fcb68f39-c431-4653-b144-8037ca5555b7\",\"Locked\":false,\"Embedded\":false,\"MobileReady\":false,\"SourcesIncluded\":false,\"DisableSceneLogic\":false,\"Config\":{\"type\":\"Enemy_fcb68f39c4314653b1448037ca5555b7.EnemyWrapper\",\"blocks\":[]},\"Author\":{\"Name\":\"Anonymous\",\"Email\":\"\",\"Url\":\"\"},\"License\":{\"Code\":\"cc-by\",\"Version\":\"4.0\"},\"BuiltAt\":\"2021-08-05T10:06:40Z\",\"SdkVersion\":\"0.13.8\"}"
+    description\"},\"Guid\":\"bfe195c9-1931-490b-abba-0f63a5653af1\",\"RootGuid\":\"fcb68f39-c431-4653-b144-8037ca5555b7\",\"Locked\":false,\"Embedded\":false,\"MobileReady\":false,\"SourcesIncluded\":false,\"DisableSceneLogic\":false,\"Config\":{\"type\":\"Enemy_fcb68f39c4314653b1448037ca5555b7.EnemyWrapper\",\"blocks\":[]},\"Author\":{\"Name\":\"Anonymous\",\"Email\":\"\",\"Url\":\"\"},\"License\":{\"Code\":\"cc-by\",\"Version\":\"4.0\"},\"BuiltAt\":\"2021-08-13T19:25:53Z\",\"SdkVersion\":\"0.13.9\"}"
   ConfigAssetBundle: '{"AssetName":"Enemy","Assembly":["WeaponLibrary.dll","Enemy_fcb68f39c4314653b1448037ca5555b7.dll"]}'
   Icon: {fileID: 0}
   Name: Enemy
   DisplayNames:
     LocalizationStrings:
     - key: 10
-      value: Enemy
+      value: Small Enemy
     - key: 11
-      value: "\u0412\u0440\u0430\u0433"
+      value: "\u041C\u0430\u043B\u0435\u043D\u044C\u043A\u0438\u0439 \u0412\u0440\u0430\u0433"
     IsValidDictionary: 1
   Description:
     LocalizationStrings:
@@ -2107,9 +2107,9 @@ MonoBehaviour:
       value: Enemy description
     IsValidDictionary: 1
   AssetBundleParts: []
-  Prefab: Assets/Objects/Enemy/SmallEnemy.prefab
+  Prefab: Assets/Objects/SmallEnemy/SmallEnemy.prefab
   PrefabGuid: 61156eef821a9b84783ec7e3c15e22f4
-  Guid: fcb68f39-c431-4653-b144-8037ca5555b7
+  Guid: bfe195c9-1931-490b-abba-0f63a5653af1
   RootGuid: fcb68f39-c431-4653-b144-8037ca5555b7
   Locked: 0
   Embedded: 0
@@ -2122,7 +2122,7 @@ MonoBehaviour:
   AuthorUrl: 
   LicenseCode: cc-by
   LicenseVersion: 4.0
-  BuiltAt: 8/13/2021 3:12:05 PM +03:00
+  BuiltAt: 8/13/2021 10:30:48 PM +03:00
   CurrentVersionWasBuilt: 1
   CurrentVersionWasBuiltAsMobileReady: 0
   Components:
@@ -2155,9 +2155,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bedc1ef4a601b474d8775b6926e56e94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnemyClass: 0
-  WizardMesh: {fileID: 2449828851480549770}
-  KnightMesh: {fileID: 514121766250171707}
 --- !u!54 &1098354993427017501
 Rigidbody:
   m_ObjectHideFlags: 0
