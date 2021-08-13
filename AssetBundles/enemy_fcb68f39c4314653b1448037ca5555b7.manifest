@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 848293709
+CRC: 1440003306
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: c1b887de49a1cff7b8f5cc2f259e6c5b
+    Hash: 9f7c80384f7f8ac04dc36dfb124ce373
   TypeTreeHash:
     serializedVersion: 2
-    Hash: 4f1c042ec1bcc6026a8f4687ed60d188
+    Hash: f25197500772741cb35d4b395ad678d2
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -53,6 +53,8 @@ ClassTypes:
   Script: {fileID: 11500000, guid: b220ea0c852a049499171b51c58596c1, type: 3}
 - Class: 115
   Script: {instanceID: 0}
+- Class: 136
+  Script: {instanceID: 0}
 - Class: 198
   Script: {instanceID: 0}
 - Class: 199
@@ -64,5 +66,5 @@ ClassTypes:
 - Class: 224
   Script: {instanceID: 0}
 Assets:
-- Assets/Objects/Enemy/Enemy.prefab
+- Assets/Objects/Enemy/SmallEnemy.prefab
 Dependencies: []
