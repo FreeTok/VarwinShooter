@@ -1,44 +1,47 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using WeaponLibrary;
-using UnityEngine;
+﻿using UnityEngine;
 using Varwin;
 using Varwin.Public;
 
-namespace Varwin.Types.Enemy_fcb68f39c4314653b1448037ca5555b7
+namespace Varwin.Types.SmallEnemy_211023e0a08b4fe69ae12e0d1c19edba
 {
-    [VarwinComponent(English: "Enemy")]
+    [VarwinComponent(English: "Small Enemy")]
     public class SmallEnemy : VarwinObject
     {
-        // public enum EnEnemyClass
-        // {
-        //     Wizard,
-        //     Knight,
-        // };
-        //
-        // public EnEnemyClass EnemyClass;
-        //
-        // public GameObject WizardMesh, KnightMesh;
-        //
-        // void Start()
-        // {
-        //     switch(EnemyClass)
-        //     {
-        //         case EnEnemyClass.Wizard:
-        //         {
-        //             WizardMesh.SetActive(true);
-        //             print("Wizard");
-        //             break;
-        //         }
-        //
-        //         case EnEnemyClass.Knight:
-        //         {
-        //             KnightMesh.SetActive(true);
-        //             print("Knight");
-        //             break;
-        //         }
-        //     }
-        // }
+        public enum EnEnemyClass
+        {
+            Wizard,
+            Knight,
+        };
+        
+        public EnEnemyClass EnemyClass;
+        
+        [VarwinInspector(English: "Enemy class", Russian: "Класс врага")]
+        public EnEnemyClass EnemyClassPanel
+        {
+            get => EnemyClass;
+            set => EnemyClass = value;
+        }
+        
+        public GameObject WizardMesh, KnightMesh;
+        
+        void Start()
+        {
+            switch(EnemyClass)
+            {
+                case EnEnemyClass.Wizard:
+                {
+                    WizardMesh.SetActive(true);
+                    print("Wizard");
+                    break;
+                }
+        
+                case EnEnemyClass.Knight:
+                {
+                    KnightMesh.SetActive(true);
+                    print("Knight");
+                    break;
+                }
+            }
+        }
     }
 }

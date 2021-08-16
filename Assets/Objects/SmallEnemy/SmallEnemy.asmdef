@@ -1,5 +1,5 @@
 {
-  "name": "Enemy_fcb68f39c4314653b1448037ca5555b7",
+  "name": "SmallEnemy_211023e0a08b4fe69ae12e0d1c19edba",
   "references": [
     "VarwinCore",
     "WeaponLibrary",
@@ -9,8 +9,8 @@
   "includePlatforms": [],
   "excludePlatforms": [],
   "overrideReferences": false,
-  "precompiledReferences": [],
+  "precompiledReferences": null,
   "allowUnsafeCode": false,
-  "autoReferenced": true,
-  "defineConstraints": []
+  "autoReferenced": false,
+  "defineConstraints": null
 }

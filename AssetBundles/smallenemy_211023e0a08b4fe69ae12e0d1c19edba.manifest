@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 535346271
+CRC: 2172412958
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: ab548c5912cdcd2c334c696355878b1b
+    Hash: 163cfbdaaf989bd8043ed15c47645e8a
   TypeTreeHash:
     serializedVersion: 2
-    Hash: 41f022fda0a3f46535ea327d8c1529c1
+    Hash: 04d9018eb5ec419b88209aa9d0f71e14
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -27,7 +27,7 @@ ClassTypes:
   Script: {instanceID: 0}
 - Class: 54
   Script: {instanceID: 0}
-- Class: 65
+- Class: 64
   Script: {instanceID: 0}
 - Class: 114
   Script: {fileID: 11500000, guid: 993eca303cd994c4fac9c2ebd3d20b04, type: 3}
@@ -35,6 +35,10 @@ ClassTypes:
   Script: {fileID: 1980459831, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 - Class: 114
   Script: {fileID: 1301386320, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 01440653b8b47924b8621f48488d369a, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: bedc1ef4a601b474d8775b6926e56e94, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: 625ef7d7b4e323744b9b27a0910c059d, type: 3}
 - Class: 114
@@ -45,9 +49,9 @@ ClassTypes:
   Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: b220ea0c852a049499171b51c58596c1, type: 3}
-- Class: 114
-  Script: {fileID: 11500000, guid: 5d558e460cc14af4b9d7cd1bd98ce234, type: 3}
 - Class: 115
+  Script: {instanceID: 0}
+- Class: 136
   Script: {instanceID: 0}
 - Class: 198
   Script: {instanceID: 0}
@@ -60,5 +64,5 @@ ClassTypes:
 - Class: 224
   Script: {instanceID: 0}
 Assets:
-- Assets/Objects/BigEnemy/BigEnemy.prefab
+- Assets/Objects/SmallEnemy/SmallEnemy.prefab
 Dependencies: []

@@ -1,10 +1,16 @@
-﻿{
-    "name": "BigEnemy_6cc896cffcff4e8d95a8367963486dd1",
-    "references": [
-        "VarwinCore"
-    ],
-    "optionalUnityReferences": [],
-    "includePlatforms": [],
-    "excludePlatforms": [],
-    "allowUnsafeCode": false
+{
+  "name": "BigEnemy_6cc896cffcff4e8d95a8367963486dd1",
+  "references": [
+    "VarwinCore",
+    "WeaponLibrary",
+    "Unity.TextMeshPro"
+  ],
+  "optionalUnityReferences": [],
+  "includePlatforms": [],
+  "excludePlatforms": [],
+  "overrideReferences": false,
+  "precompiledReferences": null,
+  "allowUnsafeCode": false,
+  "autoReferenced": false,
+  "defineConstraints": null
 }
