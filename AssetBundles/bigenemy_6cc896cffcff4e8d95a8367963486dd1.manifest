@@ -1,0 +1,40 @@
+ManifestFileVersion: 0
+CRC: 806207735
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 95a31e8ef8dd214d6a585827ede783fa
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 02cd597366ca553ef2bf76057588471c
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 23
+  Script: {instanceID: 0}
+- Class: 33
+  Script: {instanceID: 0}
+- Class: 43
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 54
+  Script: {instanceID: 0}
+- Class: 65
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 11500000, guid: b220ea0c852a049499171b51c58596c1, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 8e0fef5926f5abc4abda01eb169b6e87, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 5d558e460cc14af4b9d7cd1bd98ce234, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+Assets:
+- Assets/Objects/BigEnemy/BigEnemy.prefab
+Dependencies: []
