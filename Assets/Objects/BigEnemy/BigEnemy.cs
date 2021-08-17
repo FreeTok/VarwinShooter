@@ -18,7 +18,7 @@ namespace Varwin.Types.BigEnemy_6cc896cffcff4e8d95a8367963486dd1
         
         private float _GetX;
 
-        [Variable(English: "GetX", Russian: "Получить X")]
+        [Variable(English: "VarX", Russian: "Просто переменная X")]
         public float GetXPanel
         {
             get => _GetX;
@@ -27,7 +27,7 @@ namespace Varwin.Types.BigEnemy_6cc896cffcff4e8d95a8367963486dd1
         
         private float _GetY;
 
-        [Variable(English: "GetY", Russian: "Получить Y")]
+        [Variable(English: "VarY", Russian: "Просто переменная Y")]
         public float GetYPanel
         {
             get => _GetY;
@@ -36,24 +36,29 @@ namespace Varwin.Types.BigEnemy_6cc896cffcff4e8d95a8367963486dd1
         
         private float _GetZ;
 
-        [Variable(English: "GetZ", Russian: "Получить Z")]
+        [Variable(English: "VarZ", Russian: "Просто переменная Z")]
         public float GetZPanel
         {
             get => _GetZ;
             set => _GetZ = value;
         }
-
-        [Function(English: "Get Transform")]
-        public Transform Add()
+        
+        [Function(English: "Get X Position")]
+        public float GetXPos()
         {
-            return gameObject.transform;
+            return gameObject.transform.position.x;
         }
         
-        [Action(English: "Set transform")]
-        public void SetTransform(Transform Atransform)
+        [Function(English: "Get Y Position")]
+        public float GetYPos()
         {
-            this.gameObject.transform.position = Atransform.position;
-            this.gameObject.transform.rotation = Atransform.rotation;
+            return gameObject.transform.position.y;
+        }
+        
+        [Function(English: "Get Z Position")]
+        public float GetZPos()
+        {
+            return gameObject.transform.position.z;
         }
     }
 }
