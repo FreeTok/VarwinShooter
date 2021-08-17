@@ -43,6 +43,19 @@ namespace Varwin.Types.SmallEnemy_211023e0a08b4fe69ae12e0d1c19edba
             set => _GetZ = value;
         }
         
+        [Function(English: "Get Transform")]
+        public Transform Add()
+        {
+            return gameObject.transform;
+        }
+        
+        [Action(English: "Set transform")]
+        public void SetTransform(Transform Atransform)
+        {
+            this.gameObject.transform.position = Atransform.position;
+            this.gameObject.transform.rotation = Atransform.rotation;
+        }
+        
         public enum EnEnemyClass
         {
             Wizard,

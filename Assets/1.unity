@@ -136,6 +136,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: BigEnemy
       objectReference: {fileID: 0}
+    - target: {fileID: 7448868999786717604, guid: 855ee32b174870c4d84ea26809b69787,
+        type: 3}
+      propertyPath: m_textInfo.characterCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7448868999786717604, guid: 855ee32b174870c4d84ea26809b69787,
+        type: 3}
+      propertyPath: m_textInfo.wordCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7448868999786717604, guid: 855ee32b174870c4d84ea26809b69787,
+        type: 3}
+      propertyPath: m_textInfo.lineCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7448868999786717604, guid: 855ee32b174870c4d84ea26809b69787,
+        type: 3}
+      propertyPath: m_textInfo.pageCount
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8866625303108761959, guid: 855ee32b174870c4d84ea26809b69787,
         type: 3}
       propertyPath: m_LocalPosition.x

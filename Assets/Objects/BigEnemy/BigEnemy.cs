@@ -42,5 +42,18 @@ namespace Varwin.Types.BigEnemy_6cc896cffcff4e8d95a8367963486dd1
             get => _GetZ;
             set => _GetZ = value;
         }
+
+        [Function(English: "Get Transform")]
+        public Transform Add()
+        {
+            return gameObject.transform;
+        }
+        
+        [Action(English: "Set transform")]
+        public void SetTransform(Transform Atransform)
+        {
+            this.gameObject.transform.position = Atransform.position;
+            this.gameObject.transform.rotation = Atransform.rotation;
+        }
     }
 }
