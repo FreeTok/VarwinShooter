@@ -15033,7 +15033,7 @@ MonoBehaviour:
   AssetBundleParts: []
   Prefab: Assets/Objects/BigEnemy/BigEnemy.prefab
   PrefabGuid: 855ee32b174870c4d84ea26809b69787
-  Guid: 4c388dba-85dd-4b61-be46-51ef6639c0b7
+  Guid: 65df937e-cdcf-49ee-a878-46b8d5d0e632
   RootGuid: 6cc896cf-fcff-4e8d-95a8-367963486dd1
   Locked: 0
   Embedded: 0
@@ -15046,7 +15046,7 @@ MonoBehaviour:
   AuthorUrl: 
   LicenseCode: cc-by
   LicenseVersion: 4.0
-  BuiltAt: 8/17/2021 1:25:06 PM +03:00
+  BuiltAt: 8/17/2021 11:12:22 PM +03:00
   CurrentVersionWasBuilt: 1
   CurrentVersionWasBuiltAsMobileReady: 0
   Components:

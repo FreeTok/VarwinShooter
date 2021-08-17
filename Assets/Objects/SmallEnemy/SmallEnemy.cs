@@ -7,59 +7,55 @@ namespace Varwin.Types.SmallEnemy_211023e0a08b4fe69ae12e0d1c19edba
     [VarwinComponent(English: "Small Enemy")]
     public class SmallEnemy : VarwinObject
     {
-        private Vector3 _startPosition;
-
-        [Variable(English: "StartPosition", Russian: "Стартовая позиция")]
-        public Vector3 StartPositionPanel
+        [VariableGroup("panel start variables")]
+        [Variable(English: "GetStartPositionX", Russian: "Получить стартовую позицию X")]
+        public float GetStartPositionX
         {
-            get => _startPosition;
-            set => _startPosition = value;
+            get => this.gameObject.transform.position.x;
         }
         
-        private float _GetX;
+        [VariableGroup("panel start variables")]
+        [Variable(English: "GetStartPositionY", Russian: "Получить стартовую позицию Y")]
+        public float GetStartPositionY
+        {
+            get => this.gameObject.transform.position.y;
+        }
+        
+        [VariableGroup("panel start variables")]
+        [Variable(English: "GetStartPositionZ", Russian: "Получить стартовую позицию Z")]
+        public float GetStartPositionZ
+        {
+            get => this.gameObject.transform.position.z;
+        }
+        
+        private float _startPositionX;
 
-        [Variable(English: "VarX", Russian: "Просто переменная X")]
+        [Variable(English: "Start position X", Russian: "Стартовая позиция X")]
         public float GetXPanel
         {
-            get => _GetX;
-            set => _GetX = value;
+            get => _startPositionX;
+            set => _startPositionX = value;
         }
         
-        private float _GetY;
+        private float _startPositionY;
 
-        [Variable(English: "VarY", Russian: "Просто переменная Y")]
+        [Variable(English: "Start position Y", Russian: "Стартовая позиция Y")]
         public float GetYPanel
         {
-            get => _GetY;
-            set => _GetY = value;
+            get => _startPositionY;
+            set => _startPositionY = value;
         }
         
-        private float _GetZ;
+        private float _startPositionZ;
 
-        [Variable(English: "VarZ", Russian: "Просто переменная Z")]
+        [Variable(English: "Start position Z", Russian: "Стартовая позиция Z")]
         public float GetZPanel
         {
-            get => _GetZ;
-            set => _GetZ = value;
+            get => _startPositionZ;
+            set => _startPositionZ = value;
         }
         
-        [Function(English: "Get X Position")]
-        public float GetXPos()
-        {
-            return gameObject.transform.position.x;
-        }
-        
-        [Function(English: "Get Y Position")]
-        public float GetYPos()
-        {
-            return gameObject.transform.position.y;
-        }
-        
-        [Function(English: "Get Z Position")]
-        public float GetZPos()
-        {
-            return gameObject.transform.position.z;
-        }
+        ////////////////////////////////////////////////////////////////////////////////////////
 
         public enum EnEnemyClass
         {
