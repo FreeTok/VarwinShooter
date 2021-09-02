@@ -2094,7 +2094,7 @@ MonoBehaviour:
   damage_handlers:
   - {fileID: 2121996851060493868}
   - {fileID: 4776352897071748919}
-  health: 100
+  MaxHealth: 100
   HPText: {fileID: 967414613299719692}
   DieTime: 2
 --- !u!114 &3375106327733551465
@@ -2126,7 +2126,7 @@ MonoBehaviour:
   AssetBundleParts: []
   Prefab: Assets/Objects/SmallEnemy/SmallEnemy.prefab
   PrefabGuid: 61156eef821a9b84783ec7e3c15e22f4
-  Guid: 4f2cdfb1-cafa-433c-993e-0d17c54c73b2
+  Guid: b76003b6-5853-49df-bf3d-738c2eb98814
   RootGuid: 211023e0-a08b-4fe6-9ae1-2e0d1c19edba
   Locked: 0
   Embedded: 0
@@ -2139,7 +2139,7 @@ MonoBehaviour:
   AuthorUrl: 
   LicenseCode: cc-by
   LicenseVersion: 4.0
-  BuiltAt: 8/17/2021 11:10:58 PM +03:00
+  BuiltAt: 8/31/2021 9:48:28 PM +03:00
   CurrentVersionWasBuilt: 1
   CurrentVersionWasBuiltAsMobileReady: 0
   Components:
