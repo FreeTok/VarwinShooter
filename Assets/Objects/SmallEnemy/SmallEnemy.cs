@@ -9,38 +9,82 @@ namespace Varwin.Types.SmallEnemy_211023e0a08b4fe69ae12e0d1c19edba
     {
         public enum EnEnemyClass
         {
-            Wizard,
-            Knight,
+            Dendro,
+            Ice,
+            Light,
+            Darkness
         };
         
         public EnEnemyClass EnemyClass;
+
+        public GameObject MeshHolder;
+        private MeshRenderer[] Meshs;
         
         [VarwinInspector(English: "Enemy class", Russian: "Класс врага")]
+        [Variable(English: "Enemy class")]
         public EnEnemyClass EnemyClassPanel
         {
             get => EnemyClass;
             set => EnemyClass = value;
         }
         
-        public GameObject WizardMesh, KnightMesh;
+        public Material DendroMaterial, IceMaterial, LightMaterial, DarknessMaterial;
         
         void Start()
         {
+            Meshs = MeshHolder.GetComponentsInChildren<MeshRenderer>();
+        }
+
+        [Action(English: "Check mesh material")]
+        public void CheckMeshMaterial()
+        {
             switch(EnemyClass)
             {
-                case EnEnemyClass.Wizard:
+                case EnEnemyClass.Dendro:
                 {
-                    WizardMesh.SetActive(true);
-                    print("Wizard");
+                    SwitchMeshMaterial(DendroMaterial);
+                    print("Dendro");
                     break;
                 }
+                
+                case EnEnemyClass.Ice:
+                {
+                    SwitchMeshMaterial(IceMaterial);
+                    print("Ice");
+                    break;
+                }
+                
+                case EnEnemyClass.Light:
+                {
+                    SwitchMeshMaterial(LightMaterial);
+                    print("Light");
+                    break;
+                }
+                
+                case EnEnemyClass.Darkness:
+                {
+                    SwitchMeshMaterial(DarknessMaterial);
+                    print("Darkness");
+                    break;
+                }
+            }
+        }
         
-                case EnEnemyClass.Knight:
-                {
-                    KnightMesh.SetActive(true);
-                    print("Knight");
-                    break;
-                }
+        [Action(English: "Set random enemy class")]
+        public void RandomEnemyClass()
+        {
+            EnemyClass = (EnEnemyClass)Random.Range(0, 3);
+            print(EnemyClass);
+            CheckMeshMaterial();
+        }
+
+        void SwitchMeshMaterial(Material meshMaterial)
+        {
+            GetComponent<Element>().SwitchElement(EnemyClass.ToString());
+            
+            foreach (MeshRenderer Mesh in Meshs)
+            {
+                Mesh.material = meshMaterial;
             }
         }
     }

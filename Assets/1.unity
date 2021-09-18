@@ -131,46 +131,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2813125563680724992, guid: 855ee32b174870c4d84ea26809b69787,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 37aab0b95d1af254a9134b412752c616, type: 2}
-    - target: {fileID: 2813125563680724994, guid: 855ee32b174870c4d84ea26809b69787,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 37aab0b95d1af254a9134b412752c616, type: 2}
-    - target: {fileID: 2813125563680724996, guid: 855ee32b174870c4d84ea26809b69787,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 37aab0b95d1af254a9134b412752c616, type: 2}
-    - target: {fileID: 2813125563680724998, guid: 855ee32b174870c4d84ea26809b69787,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 37aab0b95d1af254a9134b412752c616, type: 2}
-    - target: {fileID: 2813125563680725000, guid: 855ee32b174870c4d84ea26809b69787,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 37aab0b95d1af254a9134b412752c616, type: 2}
-    - target: {fileID: 2813125563680725002, guid: 855ee32b174870c4d84ea26809b69787,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 37aab0b95d1af254a9134b412752c616, type: 2}
-    - target: {fileID: 2813125563680725004, guid: 855ee32b174870c4d84ea26809b69787,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 37aab0b95d1af254a9134b412752c616, type: 2}
-    - target: {fileID: 2813125563680725006, guid: 855ee32b174870c4d84ea26809b69787,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 37aab0b95d1af254a9134b412752c616, type: 2}
     - target: {fileID: 4705824462617328545, guid: 855ee32b174870c4d84ea26809b69787,
         type: 3}
       propertyPath: m_Name
@@ -6678,7 +6638,7 @@ MonoBehaviour:
   damage_handlers:
   - {fileID: 0}
   - {fileID: 0}
-  MaxHealth: 100
+  health: 100
   HPText: {fileID: 0}
   DieTime: 2
 --- !u!33 &5809979532029113365
