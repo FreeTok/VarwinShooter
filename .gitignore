@@ -40,4 +40,5 @@ Assets/Varwin
 Assets/SteamVR_Input
 Assets/Plugins
 ProjectSettings/
-BakedObjects/
+BakedSceneTemplates/
+AssetBundles/
