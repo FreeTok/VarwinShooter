@@ -10,7 +10,7 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 4
+  serializedVersion: 3
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -5337287895192755482, guid: aa781f05cb622f44593efb2d1dccb022, type: 3}
@@ -24,7 +24,7 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 4
+  serializedVersion: 3
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -1148514454470099829, guid: 8f0e8b3872b7ac24b99acdbaca8758da, type: 3}
@@ -73,7 +73,7 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 4
+  serializedVersion: 3
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 0}
@@ -87,7 +87,7 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 4
+  serializedVersion: 3
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -5337287895192755482, guid: aa781f05cb622f44593efb2d1dccb022, type: 3}
@@ -146,7 +146,6 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -158,7 +157,6 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -181,7 +179,7 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 4
+  serializedVersion: 3
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 1180676026550898293, guid: 01cc1709ffffd6b4481aa6fce45faaaa, type: 3}
@@ -267,6 +265,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8939903665960933522, guid: ec9f6c040f8942948a54eebe761ea6b8,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 4300000, guid: aa781f05cb622f44593efb2d1dccb022, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ec9f6c040f8942948a54eebe761ea6b8, type: 3}
 --- !u!1 &746413922921699768 stripped
@@ -363,6 +366,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.x
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8939903665960933522, guid: ec9f6c040f8942948a54eebe761ea6b8,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 4300000, guid: aa781f05cb622f44593efb2d1dccb022, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ec9f6c040f8942948a54eebe761ea6b8, type: 3}
 --- !u!1 &1201229425860757254 stripped
@@ -464,6 +472,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: EA_Swamp_Grass_Hill_Dead_01a_PRE (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 7275473393895599825, guid: 4033e14f6da23ae42847062e509f8add,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 4300000, guid: 8f0e8b3872b7ac24b99acdbaca8758da, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4033e14f6da23ae42847062e509f8add, type: 3}
 --- !u!1 &815340108311865605 stripped
