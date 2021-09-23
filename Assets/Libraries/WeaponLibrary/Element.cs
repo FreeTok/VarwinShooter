@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Element : MonoBehaviour
 {
-    public enum EnEnemyElement
+    public enum EnElements
     {
         Dendro,
         Ice,
@@ -12,11 +12,11 @@ public class Element : MonoBehaviour
         Darkness
     };
     
-    public EnEnemyElement enemyElement;
+    public EnElements v_Element;
 
-    public void SwitchElement(string element)
+    public void SwitchElement(EnElements element)
     {
-        enemyElement = (EnEnemyElement)System.Enum.Parse(typeof(EnEnemyElement), element);
-        print(enemyElement);
+        v_Element = element;
+        print(v_Element);
     }
 }

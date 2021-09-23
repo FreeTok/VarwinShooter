@@ -11,16 +11,8 @@ namespace WeaponLibrary
         [HideInInspector] public float WallHoleLifeTime;
         [HideInInspector] public float BaseDamage;
         public HoleBehaviour HolePrefab;
-        
-        public enum EnBulletElement
-        {
-            Dendro,
-            Ice,
-            Light,
-            Darkness
-        };
-    
-        public EnBulletElement bulletElement;
+
+        public Element.EnElements bulletElement;
 
         private void Start()
         {
@@ -57,7 +49,7 @@ namespace WeaponLibrary
 
             if (handler)
             {
-                handler.TakeDamage(BaseDamage, bulletElement.ToString());
+                handler.TakeDamage(BaseDamage, bulletElement);
             }
 
             Destroy(this.gameObject);

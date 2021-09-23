@@ -8,59 +8,59 @@ public class damage_get : MonoBehaviour
     [HideInInspector] public damage_get_main_counter Counter;
     public float damageMultiplier = 1;
 
-    public void TakeDamage(float damage, string element)
+    public void TakeDamage(float damage, Element.EnElements element)
     {
         if(Counter != null)
         {
-            switch (Counter.mob.GetComponent<Element>().enemyElement.ToString())                                                                    //система урона в зависимости от элемента
+            switch (Counter.mob.GetComponent<Element>().v_Element)                                                                    //система урона в зависимости от элемента
             {
-                case "Dendro":
+                case Element.EnElements.Dendro:
                     switch (element)
                     {
-                        case "Dendro":
+                        case Element.EnElements.Dendro:
                             damageMultiplier *= .5f;
                             break;
-                        case "Light":
+                        case Element.EnElements.Light:
                             damageMultiplier *= 1.5f;
                             break;
-                        case "Darkness":
+                        case Element.EnElements.Darkness:
                             damageMultiplier *= 2f;
                             break;
-                        case "Ice":
+                        case Element.EnElements.Ice:
                             damageMultiplier *= 2f;
                             break;
                     }
                     break;
-                case "Ice":
+                case Element.EnElements.Ice:
                     switch (element)
                     {
-                        case "Dendro":
+                        case Element.EnElements.Dendro:
                             damageMultiplier *= .5f;
                             break;
-                        case "Light":
+                        case Element.EnElements.Light:
                             damageMultiplier *= 4f;
                             break;
-                        case "Darkness":
+                        case Element.EnElements.Darkness:
                             damageMultiplier *= 1f;
                             break;
-                        case "Ice":
+                        case Element.EnElements.Ice:
                             damageMultiplier *= .5f;
                             break;
                     }
                     break;
-                case "Darkness":
+                case Element.EnElements.Darkness:
                     switch (element)
                     {
-                        case "Dendro":
+                        case Element.EnElements.Dendro:
                             damageMultiplier *= .5f;
                             break;
-                        case "Light":
+                        case Element.EnElements.Light:
                             damageMultiplier *= 5f;
                             break;
-                        case "Darkness":
+                        case Element.EnElements.Darkness:
                             damageMultiplier *= 1f;
                             break;
-                        case "Ice":
+                        case Element.EnElements.Ice:
                             damageMultiplier *= 2f;
                             break;
                     }

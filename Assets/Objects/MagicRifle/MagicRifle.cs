@@ -123,7 +123,7 @@ namespace Varwin.Types.MagicRifle_bf6ae11eea9e4720b830fffc0560378a
             }
         }
 
-        private BulletBehaviour.EnBulletElement bulletElement;
+        private Element.EnElements bulletElement;
 
         private void AddBullet()
         {
@@ -175,9 +175,9 @@ namespace Varwin.Types.MagicRifle_bf6ae11eea9e4720b830fffc0560378a
 
         public void NextElement()
         {
-            if (bulletElement == BulletBehaviour.EnBulletElement.Darkness)
+            if (bulletElement == Element.EnElements.Darkness)
             {
-                bulletElement = BulletBehaviour.EnBulletElement.Dendro;
+                bulletElement = Element.EnElements.Dendro;
             }
             else
             {
