@@ -5,26 +5,18 @@ using Varwin;
 
 public class EnemyElementSwitch : MonoBehaviour
 {
-    private Element.EnElements EnemyClass;
+    public Element.EnElements EnemyClass;
 
     public GameObject MeshHolder;
     private MeshRenderer[] Meshs;
-
-    [VarwinInspector(English: "Enemy class", Russian: "Класс врага")]
-    [Variable(English: "Enemy class")]
-    public Element.EnElements EnemyClassPanel
-    {
-        get => EnemyClass;
-    }
-
+    
     public Material DendroMaterial, IceMaterial, LightMaterial, DarknessMaterial;
 
     void Start()
     {
         Meshs = MeshHolder.GetComponentsInChildren<MeshRenderer>();
     }
-
-    [Action(English: "Switch enemy class")]
+    
     public void SwitchEnemyClass()
     {
         switch (EnemyClass)
@@ -58,8 +50,7 @@ public class EnemyElementSwitch : MonoBehaviour
             }
         }
     }
-
-    [Action(English: "Set random enemy class")]
+    
     public void RandomEnemyClass()
     {
         EnemyClass = (Element.EnElements)Random.Range(0, 3);

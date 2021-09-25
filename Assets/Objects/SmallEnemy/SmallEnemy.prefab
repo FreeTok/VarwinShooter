@@ -1897,7 +1897,7 @@ GameObject:
   - component: {fileID: 8590433212146240361}
   - component: {fileID: 480168435719339622}
   - component: {fileID: 6173994699298107999}
-  - component: {fileID: 8078722491737738058}
+  - component: {fileID: 5528487103995438752}
   m_Layer: 0
   m_Name: SmallEnemy
   m_TagString: Untagged
@@ -1968,7 +1968,7 @@ MonoBehaviour:
   AuthorUrl: 
   LicenseCode: cc-by
   LicenseVersion: 4.0
-  BuiltAt: 9/23/2021 8:17:28 PM +03:00
+  BuiltAt: 9/25/2021 10:43:33 PM +03:00
   CurrentVersionWasBuilt: 1
   CurrentVersionWasBuiltAsMobileReady: 0
   Components:
@@ -1989,8 +1989,6 @@ MonoBehaviour:
       Component: {fileID: 4549727565528767905}
     - Name: Element_0
       Component: {fileID: 6173994699298107999}
-    - Name: EnemyElementSwitch_0
-      Component: {fileID: 8078722491737738058}
 --- !u!114 &7360738838082093460
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2066,7 +2064,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   v_Element: 0
---- !u!114 &8078722491737738058
+--- !u!114 &5528487103995438752
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2078,7 +2076,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9ee842ce44ac624ba71ca5316e4c8f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MeshHolder: {fileID: 2260588261783630044}
+  EnemyClass: 0
+  MeshHolder: {fileID: 0}
   DendroMaterial: {fileID: 2100000, guid: ed0290a985d98a6439d983410e33dceb, type: 2}
   IceMaterial: {fileID: 2100000, guid: 3c0a5c1f031e7884295f351b6bbc1598, type: 2}
   LightMaterial: {fileID: 2100000, guid: dcb202283b4b1cd4a96b27206b7b1aff, type: 2}
