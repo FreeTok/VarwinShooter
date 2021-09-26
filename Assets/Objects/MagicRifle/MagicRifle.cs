@@ -123,16 +123,12 @@ namespace Varwin.Types.MagicRifle_bf6ae11eea9e4720b830fffc0560378a
             }
         }
 
-        private Element.EnElements bulletElement;
-
         private void AddBullet()
         {
             var bulletPointTransform = BulletPoint.transform;
             var bullet = Instantiate(BulletBehaviourPrefab, bulletPointTransform.position,
                 BulletBehaviourPrefab.gameObject.transform.rotation);
-
-            bullet.bulletElement = bulletElement;
-            
+        
             bullet.gameObject.SetActive(true);
 
             bullet.GetComponent<Rigidbody>().AddForce(BulletPoint.transform.forward * BulletForce);
@@ -171,18 +167,6 @@ namespace Varwin.Types.MagicRifle_bf6ae11eea9e4720b830fffc0560378a
             }
 
             return _rigidbody;
-        }
-
-        public void NextElement()
-        {
-            if (bulletElement == Element.EnElements.Darkness)
-            {
-                bulletElement = Element.EnElements.Dendro;
-            }
-            else
-            {
-                bulletElement += 1;
-            }
         }
     }
 }

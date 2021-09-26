@@ -1626,14 +1626,14 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4046214131163021405}
-  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
+  m_LocalRotation: {x: -0, y: -0.7071068, z: -0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: -0}
   m_LocalScale: {x: 0.018041095, y: 0.018041072, z: 0.018041095}
   m_Children:
   - {fileID: 2997146216356225998}
   m_Father: {fileID: 1600640900560875792}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: -0.18, y: 3.15}
@@ -1738,7 +1738,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5283068854520261756}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -1846,13 +1846,13 @@ MonoBehaviour:
   m_margin: {x: 0.0654191, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 967414613299719692}
-    characterCount: 2
+    characterCount: 0
     spriteCount: 0
     spaceCount: 0
-    wordCount: 1
+    wordCount: 0
     linkCount: 0
-    lineCount: 1
-    pageCount: 1
+    lineCount: 0
+    pageCount: 0
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
@@ -1891,13 +1891,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1600640900560875792}
-  - component: {fileID: 3375106327733551465}
-  - component: {fileID: 7360738838082093460}
-  - component: {fileID: 8294330035544451343}
   - component: {fileID: 8590433212146240361}
+  - component: {fileID: 3375106327733551465}
   - component: {fileID: 480168435719339622}
-  - component: {fileID: 6173994699298107999}
-  - component: {fileID: 5528487103995438752}
+  - component: {fileID: 8294330035544451343}
+  - component: {fileID: 7360738838082093460}
+  - component: {fileID: 114600386966164564}
   m_Layer: 0
   m_Name: SmallEnemy
   m_TagString: Untagged
@@ -1922,6 +1921,27 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8590433212146240361
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7086108453939572992}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 993eca303cd994c4fac9c2ebd3d20b04, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  deathparticles:
+  - {fileID: 9053943529414669857}
+  mob: {fileID: 7086108453939572992}
+  damage_handlers:
+  - {fileID: 6212134948121932675}
+  - {fileID: 4549727565528767905}
+  health: 100
+  HPText: {fileID: 967414613299719692}
+  DieTime: 2
 --- !u!114 &3375106327733551465
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1955,7 +1975,7 @@ MonoBehaviour:
   AssetBundleParts: []
   Prefab: Assets/Objects/SmallEnemy/SmallEnemy.prefab
   PrefabGuid: 61156eef821a9b84783ec7e3c15e22f4
-  Guid: ef4560d9-50fc-40b1-b064-a5c940bff786
+  Guid: c7af4004-e307-4d79-8a30-67a1d086bcd9
   RootGuid: 211023e0-a08b-4fe6-9ae1-2e0d1c19edba
   Locked: 0
   Embedded: 0
@@ -1968,7 +1988,7 @@ MonoBehaviour:
   AuthorUrl: 
   LicenseCode: cc-by
   LicenseVersion: 4.0
-  BuiltAt: 9/25/2021 10:43:33 PM +03:00
+  BuiltAt: 9/18/2021 11:49:58 AM +03:00
   CurrentVersionWasBuilt: 1
   CurrentVersionWasBuiltAsMobileReady: 0
   Components:
@@ -1988,8 +2008,8 @@ MonoBehaviour:
     - Name: damage_get_1
       Component: {fileID: 4549727565528767905}
     - Name: Element_0
-      Component: {fileID: 6173994699298107999}
---- !u!114 &7360738838082093460
+      Component: {fileID: 114600386966164564}
+--- !u!114 &480168435719339622
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1998,10 +2018,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 7086108453939572992}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8e0fef5926f5abc4abda01eb169b6e87, type: 3}
+  m_Script: {fileID: 11500000, guid: bedc1ef4a601b474d8775b6926e56e94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Id: 21594
+  EnemyClass: 0
+  MeshHolder: {fileID: 2260588261783630044}
+  DendroMaterial: {fileID: 2100000, guid: ed0290a985d98a6439d983410e33dceb, type: 2}
+  IceMaterial: {fileID: 2100000, guid: 3c0a5c1f031e7884295f351b6bbc1598, type: 2}
+  LightMaterial: {fileID: 2100000, guid: dcb202283b4b1cd4a96b27206b7b1aff, type: 2}
+  DarknessMaterial: {fileID: 2100000, guid: 6e838bc6246edc84a93f9a24d191b7cd, type: 2}
 --- !u!54 &8294330035544451343
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2018,7 +2043,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &8590433212146240361
+--- !u!114 &7360738838082093460
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2027,31 +2052,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 7086108453939572992}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 993eca303cd994c4fac9c2ebd3d20b04, type: 3}
+  m_Script: {fileID: 11500000, guid: 8e0fef5926f5abc4abda01eb169b6e87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deathparticles:
-  - {fileID: 9053943529414669857}
-  mob: {fileID: 7086108453939572992}
-  damage_handlers:
-  - {fileID: 6212134948121932675}
-  - {fileID: 4549727565528767905}
-  health: 100
-  HPText: {fileID: 967414613299719692}
-  DieTime: 2
---- !u!114 &480168435719339622
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7086108453939572992}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bedc1ef4a601b474d8775b6926e56e94, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &6173994699298107999
+  Id: 21594
+--- !u!114 &114600386966164564
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2063,25 +2068,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5021033e8edda3408ed2258e59fcb2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  v_Element: 0
---- !u!114 &5528487103995438752
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7086108453939572992}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e9ee842ce44ac624ba71ca5316e4c8f7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  EnemyClass: 0
-  MeshHolder: {fileID: 0}
-  DendroMaterial: {fileID: 2100000, guid: ed0290a985d98a6439d983410e33dceb, type: 2}
-  IceMaterial: {fileID: 2100000, guid: 3c0a5c1f031e7884295f351b6bbc1598, type: 2}
-  LightMaterial: {fileID: 2100000, guid: dcb202283b4b1cd4a96b27206b7b1aff, type: 2}
-  DarknessMaterial: {fileID: 2100000, guid: 6e838bc6246edc84a93f9a24d191b7cd, type: 2}
+  enemyElement: 0
 --- !u!1 &9053561869304017805
 GameObject:
   m_ObjectHideFlags: 0

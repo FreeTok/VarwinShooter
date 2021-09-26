@@ -11,8 +11,24 @@ namespace WeaponLibrary
         [HideInInspector] public float WallHoleLifeTime;
         [HideInInspector] public float BaseDamage;
         public HoleBehaviour HolePrefab;
-
-        public Element.EnElements bulletElement;
+        
+        public enum EnBulletElement
+        {
+            Dendro,
+            Ice,
+            Light,
+            Darkness
+        };
+    
+        public EnBulletElement bulletElement;
+        
+        // [VarwinInspector(English: "Bullet class", Russian: "Класс пули")]
+        // [Variable(English: "Bullet class")]
+        // public BulletBehaviour.EnBulletElement BulletClassPanel
+        // {
+        //     get => bulletElement;
+        //     set => bulletElement = value;
+        // }
 
         private void Start()
         {
@@ -30,8 +46,6 @@ namespace WeaponLibrary
                 return;
             }
             
-            print("Bullet element is " + bulletElement);
-            
             ContactPoint contact = other.contacts[0];
             Vector3 rot = contact.normal;
             Vector3 pos = contact.point;
@@ -44,14 +58,19 @@ namespace WeaponLibrary
             
             holeSpriteTransform.parent = other.transform;
             holeInstance.gameObject.SetActive(true);
-
+            print(holeInstance.name);
+            
             damage_get handler = other.collider.gameObject.GetComponent<damage_get>();
 
             if (handler)
             {
-                handler.TakeDamage(BaseDamage, bulletElement);
+                handler.TakeDamage(BaseDamage, bulletElement.ToString());
             }
-
+            else
+            {
+                print("Miss");
+            }
+            
             Destroy(this.gameObject);
         }
     }
