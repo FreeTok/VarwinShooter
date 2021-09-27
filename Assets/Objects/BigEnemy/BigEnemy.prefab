@@ -14976,10 +14976,11 @@ GameObject:
   m_Component:
   - component: {fileID: 8866625303108761959}
   - component: {fileID: 7937116770037471472}
+  - component: {fileID: 4765471772822219097}
+  - component: {fileID: 2325391978151093927}
   - component: {fileID: 3900228892022031828}
   - component: {fileID: 8152077264356678532}
-  - component: {fileID: 2325391978151093927}
-  - component: {fileID: 4765471772822219097}
+  - component: {fileID: 5079073577213030352}
   m_Layer: 0
   m_Name: BigEnemy
   m_TagString: Untagged
@@ -15033,7 +15034,7 @@ MonoBehaviour:
   AssetBundleParts: []
   Prefab: Assets/Objects/BigEnemy/BigEnemy.prefab
   PrefabGuid: 855ee32b174870c4d84ea26809b69787
-  Guid: 6048936d-2494-4ec4-a9c1-4aec2e99b911
+  Guid: 86e4b0b5-91fd-4d1a-9435-108e904920a3
   RootGuid: 6cc896cf-fcff-4e8d-95a8-367963486dd1
   Locked: 0
   Embedded: 0
@@ -15046,7 +15047,7 @@ MonoBehaviour:
   AuthorUrl: 
   LicenseCode: cc-by
   LicenseVersion: 4.0
-  BuiltAt: 8/31/2021 9:47:24 PM +03:00
+  BuiltAt: 9/27/2021 10:35:32 PM +03:00
   CurrentVersionWasBuilt: 1
   CurrentVersionWasBuiltAsMobileReady: 0
   Components:
@@ -15067,6 +15068,37 @@ MonoBehaviour:
       Component: {fileID: 3330447809979386684}
     - Name: damage_get_2
       Component: {fileID: 2999142404613363790}
+    - Name: Element_0
+      Component: {fileID: 5079073577213030352}
+--- !u!114 &4765471772822219097
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4705824462617328545}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e0fef5926f5abc4abda01eb169b6e87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Id: 48476
+--- !u!54 &2325391978151093927
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4705824462617328545}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!114 &3900228892022031828
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15086,7 +15118,7 @@ MonoBehaviour:
   - {fileID: 8192893404959586445}
   - {fileID: 3330447809979386684}
   - {fileID: 2999142404613363790}
-  MaxHealth: 100
+  health: 100
   HPText: {fileID: 7448868999786717604}
   DieTime: 2
 --- !u!114 &8152077264356678532
@@ -15101,23 +15133,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d558e460cc14af4b9d7cd1bd98ce234, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!54 &2325391978151093927
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4705824462617328545}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
---- !u!114 &4765471772822219097
+  EnemyClass: 0
+  MeshHolder: {fileID: 2813125563682653894}
+  DendroMaterial: {fileID: 2100000, guid: ce605cb2aa6fcf14ca3471b769676a14, type: 2}
+  IceMaterial: {fileID: 2100000, guid: 46ba58a7a2390e247801dc5165408413, type: 2}
+  LightMaterial: {fileID: 2100000, guid: 8f73b18501d809f49bdb47b54cbbfa6a, type: 2}
+  DarknessMaterial: {fileID: 2100000, guid: 51a795a1bce4a7841890ee0551dec107, type: 2}
+--- !u!114 &5079073577213030352
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -15126,7 +15148,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4705824462617328545}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8e0fef5926f5abc4abda01eb169b6e87, type: 3}
+  m_Script: {fileID: 11500000, guid: b5021033e8edda3408ed2258e59fcb2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Id: 48476
+  enemyElement: 0

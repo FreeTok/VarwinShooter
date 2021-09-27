@@ -1891,11 +1891,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1600640900560875792}
-  - component: {fileID: 8590433212146240361}
   - component: {fileID: 3375106327733551465}
-  - component: {fileID: 480168435719339622}
-  - component: {fileID: 8294330035544451343}
   - component: {fileID: 7360738838082093460}
+  - component: {fileID: 8294330035544451343}
+  - component: {fileID: 8590433212146240361}
+  - component: {fileID: 480168435719339622}
   - component: {fileID: 114600386966164564}
   m_Layer: 0
   m_Name: SmallEnemy
@@ -1921,27 +1921,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8590433212146240361
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7086108453939572992}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 993eca303cd994c4fac9c2ebd3d20b04, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  deathparticles:
-  - {fileID: 9053943529414669857}
-  mob: {fileID: 7086108453939572992}
-  damage_handlers:
-  - {fileID: 6212134948121932675}
-  - {fileID: 4549727565528767905}
-  health: 100
-  HPText: {fileID: 967414613299719692}
-  DieTime: 2
 --- !u!114 &3375106327733551465
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2009,6 +1988,56 @@ MonoBehaviour:
       Component: {fileID: 4549727565528767905}
     - Name: Element_0
       Component: {fileID: 114600386966164564}
+--- !u!114 &7360738838082093460
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7086108453939572992}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e0fef5926f5abc4abda01eb169b6e87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Id: 21594
+--- !u!54 &8294330035544451343
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7086108453939572992}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &8590433212146240361
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7086108453939572992}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 993eca303cd994c4fac9c2ebd3d20b04, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  deathparticles:
+  - {fileID: 9053943529414669857}
+  mob: {fileID: 7086108453939572992}
+  damage_handlers:
+  - {fileID: 6212134948121932675}
+  - {fileID: 4549727565528767905}
+  health: 100
+  HPText: {fileID: 967414613299719692}
+  DieTime: 2
 --- !u!114 &480168435719339622
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2027,35 +2056,6 @@ MonoBehaviour:
   IceMaterial: {fileID: 2100000, guid: 3c0a5c1f031e7884295f351b6bbc1598, type: 2}
   LightMaterial: {fileID: 2100000, guid: dcb202283b4b1cd4a96b27206b7b1aff, type: 2}
   DarknessMaterial: {fileID: 2100000, guid: 6e838bc6246edc84a93f9a24d191b7cd, type: 2}
---- !u!54 &8294330035544451343
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7086108453939572992}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
---- !u!114 &7360738838082093460
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7086108453939572992}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8e0fef5926f5abc4abda01eb169b6e87, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Id: 21594
 --- !u!114 &114600386966164564
 MonoBehaviour:
   m_ObjectHideFlags: 0
