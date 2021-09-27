@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 4963647864727143814}
   - component: {fileID: 6687621278412659026}
   - component: {fileID: 3413117015168056041}
-  - component: {fileID: 7831575192912660154}
   m_Layer: 0
   m_Name: EM_rock_fence5_LOD2
   m_TagString: Untagged
@@ -40,7 +39,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2222731234185019341}
-  m_Mesh: {fileID: 595910572905073100, guid: 34d07a9bf2aa0dd4a971e02e7153a24e, type: 3}
+  m_Mesh: {fileID: 4300000, guid: 34d07a9bf2aa0dd4a971e02e7153a24e, type: 3}
 --- !u!23 &3413117015168056041
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -55,7 +54,6 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -67,7 +65,6 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -80,20 +77,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!64 &7831575192912660154
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2222731234185019341}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 595910572905073100, guid: 34d07a9bf2aa0dd4a971e02e7153a24e, type: 3}
 --- !u!1 &2433841431393554010
 GameObject:
   m_ObjectHideFlags: 0
@@ -133,7 +116,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2433841431393554010}
-  m_Mesh: {fileID: 1226013185722158367, guid: 34d07a9bf2aa0dd4a971e02e7153a24e, type: 3}
+  m_Mesh: {fileID: 4300002, guid: 34d07a9bf2aa0dd4a971e02e7153a24e, type: 3}
 --- !u!23 &6438323979360672708
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -148,7 +131,6 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -160,7 +142,6 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -212,7 +193,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3257340155515528382}
-  m_Mesh: {fileID: 2379039237730960789, guid: 34d07a9bf2aa0dd4a971e02e7153a24e, type: 3}
+  m_Mesh: {fileID: 4300004, guid: 34d07a9bf2aa0dd4a971e02e7153a24e, type: 3}
 --- !u!23 &1596192086495164025
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -227,7 +208,6 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -239,7 +219,6 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
