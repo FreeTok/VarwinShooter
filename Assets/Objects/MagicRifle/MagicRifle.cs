@@ -50,7 +50,7 @@ namespace Varwin.Types.MagicRifle_bf6ae11eea9e4720b830fffc0560378a
 
         public AnimationClip IdleClip;
 
-        public delegate void ShootEvent(int countMarks, Wrapper targetWrapper);
+        public delegate void ShootEvent(Wrapper targetWrapper);
 
         private Rigidbody _rigidbody;
 
@@ -114,6 +114,8 @@ namespace Varwin.Types.MagicRifle_bf6ae11eea9e4720b830fffc0560378a
             set => _wallHoleLifeTime = value;
         }
 
+        private BulletBehaviour.EnBulletElement bulletElement;
+
         public void Shoot()
         {
             if (Time.time - LastShoot >= _shootDelay)
@@ -130,6 +132,8 @@ namespace Varwin.Types.MagicRifle_bf6ae11eea9e4720b830fffc0560378a
                 BulletBehaviourPrefab.gameObject.transform.rotation);
         
             bullet.gameObject.SetActive(true);
+            bullet.bulletElement = bulletElement;
+            bullet.OnHitTargetEvent += OnBulletHit;
 
             bullet.GetComponent<Rigidbody>().AddForce(BulletPoint.transform.forward * BulletForce);
 
@@ -167,6 +171,24 @@ namespace Varwin.Types.MagicRifle_bf6ae11eea9e4720b830fffc0560378a
             }
 
             return _rigidbody;
+        }
+        
+        public void NextElement()
+        {
+            if (bulletElement == BulletBehaviour.EnBulletElement.Darkness)
+            {
+                bulletElement = BulletBehaviour.EnBulletElement.Dendro;
+            }
+            else
+            {
+                bulletElement += 1;
+            }
+        }
+
+        private void OnBulletHit(Wrapper target)
+        {
+            print("Bullet hitted");
+            if (OnShootToTarget != null) OnShootToTarget.Invoke(target);
         }
     }
 }

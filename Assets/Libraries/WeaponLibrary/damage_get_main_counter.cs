@@ -19,6 +19,11 @@ public class damage_get_main_counter : MonoBehaviour
     public TextMeshProUGUI HPText;
 
     public float DieTime = 2;
+    
+    public delegate void DieEventHandler();
+    
+    [Event(English: "die event")]
+    public event DieEventHandler dieEvent;
 
     public void TakeDamage(float damage, float damageMultiplier)
     {
@@ -36,6 +41,8 @@ public class damage_get_main_counter : MonoBehaviour
         else
         {
             HPText.text = "0";
+            
+            dieEvent.Invoke();
             
             Debug.Log("Ragdoll_dead");
 

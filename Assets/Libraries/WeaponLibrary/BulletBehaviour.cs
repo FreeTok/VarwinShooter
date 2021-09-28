@@ -12,6 +12,9 @@ namespace WeaponLibrary
         [HideInInspector] public float BaseDamage;
         public HoleBehaviour HolePrefab;
         
+        public delegate void OnHitEventHandler(Wrapper targetWrapper);
+        public event OnHitEventHandler OnHitTargetEvent;
+        
         public enum EnBulletElement
         {
             Dendro,
@@ -21,14 +24,6 @@ namespace WeaponLibrary
         };
     
         public EnBulletElement bulletElement;
-        
-        // [VarwinInspector(English: "Bullet class", Russian: "Класс пули")]
-        // [Variable(English: "Bullet class")]
-        // public BulletBehaviour.EnBulletElement BulletClassPanel
-        // {
-        //     get => bulletElement;
-        //     set => bulletElement = value;
-        // }
 
         private void Start()
         {
@@ -45,6 +40,8 @@ namespace WeaponLibrary
                 print("Rifle hitted");
                 return;
             }
+            
+            OnHitTargetEvent?.Invoke(other.gameObject.GetWrapper());
             
             ContactPoint contact = other.contacts[0];
             Vector3 rot = contact.normal;
