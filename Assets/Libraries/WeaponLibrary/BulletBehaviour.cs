@@ -10,6 +10,8 @@ namespace WeaponLibrary
         [HideInInspector] public GameObject Rifle;
         [HideInInspector] public float WallHoleLifeTime;
         [HideInInspector] public float BaseDamage;
+        [HideInInspector] public bool Explode;
+        public GameObject Explosion;
         public HoleBehaviour HolePrefab;
         
         public delegate void OnHitEventHandler(Wrapper targetWrapper);
@@ -41,6 +43,11 @@ namespace WeaponLibrary
                 return;
             }
             
+            if (Explode)
+            {                                                                                            //���� �������������� �������, �� ��� ��������� ���� �������� ����� ������
+                GameObject explosion = Instantiate(Explosion, transform.position, transform.rotation);
+                explosion.GetComponent<Explosion>().element = bulletElement.ToString();                        //��� ����� �����������, ����� ��������
+            }
             OnHitTargetEvent?.Invoke(other.gameObject.GetWrapper());
             
             ContactPoint contact = other.contacts[0];
