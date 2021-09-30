@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1158998716000497122}
   - component: {fileID: 1158998716000497120}
+  - component: {fileID: 2816863277120960198}
   m_Layer: 0
   m_Name: previewLine
   m_TagString: Untagged
@@ -324,3 +325,19 @@ LineRenderer:
     generateLightingData: 0
   m_UseWorldSpace: 1
   m_Loop: 0
+--- !u!114 &2816863277120960198
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1158998716000497125}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0c96dbbfd3a9934abb796e2977fa503, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  firePoint: {fileID: 0}
+  bulletPrefab: {fileID: 0}
+  maxIterations: 200
+  power: 20

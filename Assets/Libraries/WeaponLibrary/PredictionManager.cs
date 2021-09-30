@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class PredictionManager : MonoBehaviour{
-
+public class PredictionManager : MonoBehaviour
+{
     Scene currentScene;
     Scene predictionScene;
 
@@ -21,7 +21,8 @@ public class PredictionManager : MonoBehaviour{
     Vector3 currentPosition;
     Quaternion currentRotation;
 
-    void Start(){
+    void Start()
+    {
         Physics.autoSimulation = false;
 
         currentScene = SceneManager.GetActiveScene();
@@ -38,8 +39,10 @@ public class PredictionManager : MonoBehaviour{
         predict();
     }
 
-    void FixedUpdate(){
-        if (currentPhysicsScene.IsValid()){
+    void FixedUpdate()
+    {
+        if (currentPhysicsScene.IsValid())
+        {
             currentPhysicsScene.Simulate(Time.fixedDeltaTime);
         }
 
@@ -50,9 +53,12 @@ public class PredictionManager : MonoBehaviour{
         currentPosition = transform.position;
     }
 
-    public void predict(){
-        if (currentPhysicsScene.IsValid() && predictionPhysicsScene.IsValid()){
-            if(dummy == null){
+    public void predict()
+    {
+        if (currentPhysicsScene.IsValid() && predictionPhysicsScene.IsValid())
+        {
+            if (dummy == null)
+            {
                 dummy = Instantiate(bulletPrefab);
                 SceneManager.MoveGameObjectToScene(dummy, predictionScene);
             }
@@ -63,7 +69,8 @@ public class PredictionManager : MonoBehaviour{
             lineRenderer.positionCount = maxIterations;
 
 
-            for (int i = 0; i < maxIterations; i++){
+            for (int i = 0; i < maxIterations; i++)
+            {
                 predictionPhysicsScene.Simulate(Time.fixedDeltaTime);
                 lineRenderer.SetPosition(i, dummy.transform.position);
             }

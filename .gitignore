@@ -37,6 +37,7 @@ sysinfo.txt
 *.unitypackage
 
 Assets/Varwin
+Assets/Scenes/mapVarwin
 Assets/SteamVR_Input
 Assets/Plugins
 ProjectSettings/
