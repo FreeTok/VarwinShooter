@@ -24,7 +24,7 @@ public class damage_get_main_counter : MonoBehaviour
     
     [Event(English: "die event")]
     public event DieEventHandler dieEvent;
-
+    
     public void TakeDamage(float damage, float damageMultiplier)
     {
         damage *= damageMultiplier;
@@ -43,7 +43,6 @@ public class damage_get_main_counter : MonoBehaviour
             HPText.text = "0";
             
             dieEvent.Invoke();
-            
             Debug.Log("Ragdoll_dead");
 
             foreach (GameObject particle in deathparticles)

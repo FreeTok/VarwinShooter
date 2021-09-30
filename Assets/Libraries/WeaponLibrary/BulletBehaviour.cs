@@ -16,7 +16,7 @@ namespace WeaponLibrary
         
         public delegate void OnHitEventHandler(Wrapper targetWrapper);
         public event OnHitEventHandler OnHitTargetEvent;
-        
+
         public enum EnBulletElement
         {
             Dendro,
@@ -42,13 +42,15 @@ namespace WeaponLibrary
                 print("Rifle hitted");
                 return;
             }
-            
+
             if (Explode)
             {                                                                                            //���� �������������� �������, �� ��� ��������� ���� �������� ����� ������
                 GameObject explosion = Instantiate(Explosion, transform.position, transform.rotation);
                 explosion.GetComponent<Explosion>().element = bulletElement.ToString();                        //��� ����� �����������, ����� ��������
             }
+            
             OnHitTargetEvent?.Invoke(other.gameObject.GetWrapper());
+            print("Bullet element is " + bulletElement);
             
             ContactPoint contact = other.contacts[0];
             Vector3 rot = contact.normal;
@@ -62,19 +64,14 @@ namespace WeaponLibrary
             
             holeSpriteTransform.parent = other.transform;
             holeInstance.gameObject.SetActive(true);
-            print(holeInstance.name);
-            
+
             damage_get handler = other.collider.gameObject.GetComponent<damage_get>();
 
             if (handler)
             {
                 handler.TakeDamage(BaseDamage, bulletElement.ToString());
             }
-            else
-            {
-                print("Miss");
-            }
-            
+
             Destroy(this.gameObject);
         }
     }
