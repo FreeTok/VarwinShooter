@@ -171,6 +171,12 @@
                   },
                   "west" : {
                      "output" : "/actions/default/in/turnleft"
+                  },
+                  "north" : {
+                     "output" : "/actions/default/in/touchpadpress"
+                  },
+                  "south" : {
+                     "output" : "/actions/default/in/touchpadpress"
                   }
                },
                "mode" : "dpad",
@@ -187,6 +193,12 @@
                   },
                   "west" : {
                      "output" : "/actions/default/in/turnleft"
+                  },
+                  "north" : {
+                     "output" : "/actions/default/in/touchpadpress"
+                  },
+                  "south" : {
+                     "output" : "/actions/default/in/touchpadpress"
                   }
                },
                "mode" : "dpad",

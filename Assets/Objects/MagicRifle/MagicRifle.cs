@@ -11,13 +11,35 @@ namespace Varwin.Types.MagicRifle_bf6ae11eea9e4720b830fffc0560378a
     public class MagicRifle : VarwinObject
     {
         private float _baseDamage = 10;
+
         [VarwinInspector(English: "Base damage per shot", Russian: "Дамаг за выстрел")]
         public float BaseDamage
         {
             get => _baseDamage;
             set => _baseDamage = value;
         }
-        
+
+        private float _chargeDamage;
+
+        private float _maxChargeDamage = 20f;
+
+        [VarwinInspector(English: "Max charged damage per shot", Russian: "Максимальный дамаг за заряженный выстрел")]
+        public float MaxChargeDamage
+        {
+            get => _maxChargeDamage;
+            set => _maxChargeDamage = value;
+        }
+
+        private float _сhargeDamageMultiplayer = 1f;
+
+        [VarwinInspector(English: "Damage that divides to charged damage",
+            Russian: "Дамаг, который добавляется к заряженному выстрелу")]
+        public float ChargeDamageAdder
+        {
+            get => _сhargeDamageMultiplayer;
+            set => _сhargeDamageMultiplayer = value;
+        }
+
         private float _maxVelocityInertia = 0.2f;
 
         [VarwinInspector(English: "Inertia in m", Russian: "Максимальное отклонение в метрах")]
@@ -85,6 +107,15 @@ namespace Varwin.Types.MagicRifle_bf6ae11eea9e4720b830fffc0560378a
             get => _shootDelay;
             set => _shootDelay = value;
         }
+        
+        private float _artilleryShootDelay = 5f;
+
+        [VarwinInspector(English: "Delay between artillery shoots", Russian: "Задержка между артилирийными выстрелами")]
+        public float AtrilleryShootDelay
+        {
+            get => _artilleryShootDelay;
+            set => _artilleryShootDelay = value;
+        }
 
         [VarwinInspector(English: "Force inertia", Russian: "Сила инерции от выстрела")]
         public float ForceInertia
@@ -113,51 +144,124 @@ namespace Varwin.Types.MagicRifle_bf6ae11eea9e4720b830fffc0560378a
             get => _wallHoleLifeTime;
             set => _wallHoleLifeTime = value;
         }
+        
+        public enum RifleFireMode
+        {
+            DefaultShot,
+            DoubleShot,
+            ArtilleryShot
+        };
+    
+        public RifleFireMode fireMode;
+
+        public GameObject predictLine;
+
+        public bool isCharging;
+
+        private void Awake()
+        {
+            _chargeDamage = _baseDamage;
+            LastShoot = Time.time;
+            //predictLine.SetActive(false);
+        }
 
         public void Shoot()
         {
+            if (Time.time - LastShoot < _artilleryShootDelay)
+            {
+                print(Time.time + " " + LastShoot + " = " + (Time.time - LastShoot));
+                print("not shoot delay");
+            }
+            
             if (Time.time - LastShoot >= _shootDelay)
             {
-                LastShoot = Time.time;
-                StartCoroutine(Shooting());
+                if (fireMode == RifleFireMode.DefaultShot)
+                {
+                    StartCoroutine(Shooting(_baseDamage));
+                }
+
+                if (fireMode == RifleFireMode.DoubleShot)
+                {
+                    StartCharging();
+                    //DoubleShot();
+                }
+
+                if (fireMode == RifleFireMode.ArtilleryShot && Time.time - LastShoot >= _artilleryShootDelay)
+                {
+                    ArtilleryShot();
+                }
+                
+                else if (fireMode != RifleFireMode.ArtilleryShot)
+                {
+                    print("not artillery");
+                }
+                
+                else if (Time.time - LastShoot < _artilleryShootDelay)
+                {
+                    print(Time.time + " " + LastShoot + " = " + (Time.time - LastShoot));
+                    print("not shoot delay");
+                }
             }
         }
-        public void DoubleShot()                                                //
-        {                                                                       //
-            if (Time.time - LastShoot >= _shootDelay)                           //Та же задержка, что и на обычном выстреле
-            {                                                                   //
-                if (_baseDamage == 10f)                                         //Если зарядка атаки ещё не идёт, то он начинает зарядку
-                    StartCoroutine(IncreaseDamage());                           //
-                else                                                            //в обратном случае он стреляет и возвращает урон на изначальный уровень
-                {                                                               //
-                    StopAllCoroutines();                                        //
-                    Debug.Log(_baseDamage + "damage");                          //
-                    Shoot();                                                    //
-                    _baseDamage = 10f;                                          //
-                }                                                               //
-            }                                                                   //
-        }                                                                       //
-        IEnumerator IncreaseDamage()
-        {                                                                       //
-            for (_baseDamage = 10f; _baseDamage < 20f; _baseDamage+=1f)         // За 2 секунды 2х урон (пока что)
-            {                                                                   //
-                _baseDamage = (float)Math.Round(_baseDamage, 1);                //
-                yield return new WaitForSeconds(.2f);                           //
-            }                                                                   //
-        }                                                                       //
 
-        public void ArtilleryShot()
+        private void StartCharging()
         {
-            _bulletForce = 10f;                  
+            isCharging = true;
+            StartCoroutine(IncreaseDamage());
+        }
+
+        public void EndCharging()
+        {
+            if (isCharging)
+            {
+                StopAllCoroutines();
+                StartCoroutine(Shooting(_chargeDamage));
+                _chargeDamage = _baseDamage;
+                isCharging = false;
+            }
+        }
+
+        // private void DoubleShot()
+        // {
+        //     if (_chargeDamage <= _baseDamage) //Если зарядка атаки ещё не идёт, то он начинает зарядку
+        //         StartCoroutine(IncreaseDamage());
+        //     else //в обратном случае он стреляет и возвращает урон на изначальный уровень
+        //     {
+        //         StopAllCoroutines();
+        //         StartCoroutine(Shooting(_chargeDamage)); 
+        //         _chargeDamage = _baseDamage; 
+        //     }
+        // }
+
+        IEnumerator IncreaseDamage()
+        {
+            _chargeDamage = _baseDamage;
+
+            while (_chargeDamage < _maxChargeDamage)
+            {
+                _chargeDamage = (float) Math.Round(_chargeDamage + _сhargeDamageMultiplayer, 1);
+                yield return new WaitForSeconds(.2f);
+            }
+            
+            // for (_chargeDamage = _baseDamage; _chargeDamage < _maxChargeDamage; _chargeDamage += _сhargeDamageMultiplayer * Time.deltaTime) // За 2 секунды 2х урон (пока что)
+            // {
+            //     _chargeDamage = (float) Math.Round(_chargeDamage, 1);
+            //     yield return new WaitForSeconds(.2f);
+            // }
+        }
+
+        private void ArtilleryShot()
+        {
+            _bulletForce = 10f;
             BulletBehaviourPrefab.Explode = true;
-            Shoot();
+            StartCoroutine(Shooting(_baseDamage));
             BulletBehaviourPrefab.Explode = false;
             _bulletForce = 20f;
         }
 
         private BulletBehaviour.EnBulletElement bulletElement;
 
-        private void AddBullet()
+        private void AddBullet(float damage)
         {
             var bulletPointTransform = BulletPoint.transform;
             var bullet = Instantiate(BulletBehaviourPrefab, bulletPointTransform.position,
@@ -165,23 +269,25 @@ namespace Varwin.Types.MagicRifle_bf6ae11eea9e4720b830fffc0560378a
 
             bullet.bulletElement = bulletElement;
             bullet.OnHitTargetEvent += OnBulletHit;
-            
+
             bullet.gameObject.SetActive(true);
 
             bullet.GetComponent<Rigidbody>().AddForce(BulletPoint.transform.forward * BulletForce);
 
-            bullet.Rifle = this.gameObject;
+            bullet.Rifle = gameObject;
             bullet.WallHoleLifeTime = _wallHoleLifeTime;
-            bullet.BaseDamage = _baseDamage;
-            bullet.transform.localScale = new Vector3(_baseDamage / 10f, _baseDamage / 10f, _baseDamage / 10f);
+            bullet.BaseDamage = (float) Math.Round(damage, 1);
+            Debug.Log(damage + " damage");
+            bullet.transform.localScale = new Vector3(damage / 10f, damage / 10f, damage / 10f);
         }
 
-        private IEnumerator Shooting()
+        private IEnumerator Shooting(float damage)
         {
+            LastShoot = Time.time;
             PlayAudioClip(ShootAudioClip);
             ShootParticleSystem.Play();
 
-            AddBullet();
+            AddBullet(damage);
 
             Rigidbody.AddExplosionForce(ForceInertia, ShootPoint.transform.position, ForceRadius);
             OnShoot?.Invoke();
@@ -218,11 +324,25 @@ namespace Varwin.Types.MagicRifle_bf6ae11eea9e4720b830fffc0560378a
                 bulletElement += 1;
             }
         }
-        
+
+        public void NextRifleFireMode()
+        {
+            //predictLine.SetActive(fireMode == RifleFireMode.DoubleShot);
+
+            if (fireMode == RifleFireMode.ArtilleryShot)
+            {
+                fireMode = RifleFireMode.DefaultShot;
+            }
+            else
+            {
+                fireMode += 1;
+                print("Fire mode is " + fireMode);
+            }
+        }
+
         private void OnBulletHit(Wrapper target)
         {
-            print("Bullet hitted");
-            if (OnShootToTarget != null) OnShootToTarget.Invoke(target);
+            OnShootToTarget?.Invoke(target);
         }
     }
 }

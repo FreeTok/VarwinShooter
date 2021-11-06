@@ -70,6 +70,7 @@ namespace WeaponLibrary
             if (handler)
             {
                 handler.TakeDamage(BaseDamage, bulletElement.ToString());
+                Debug.Log(BaseDamage + " enemy damage");
             }
 
             Destroy(this.gameObject);
