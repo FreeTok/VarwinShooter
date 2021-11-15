@@ -39,24 +39,23 @@ namespace WeaponLibrary
         {
             if (other.gameObject == Rifle)
             {
-                print("Rifle hitted");
                 return;
             }
 
             if (Explode)
-            {                                                                                            //���� �������������� �������, �� ��� ��������� ���� �������� ����� ������
+            {
                 GameObject explosion = Instantiate(Explosion, transform.position, transform.rotation);
-                explosion.GetComponent<Explosion>().element = bulletElement.ToString();                        //��� ����� �����������, ����� ��������
+                explosion.GetComponent<Explosion>().element = bulletElement.ToString();
             }
             
             OnHitTargetEvent?.Invoke(other.gameObject.GetWrapper());
-            print("Bullet element is " + bulletElement);
-            
+
             ContactPoint contact = other.contacts[0];
             Vector3 rot = contact.normal;
             Vector3 pos = contact.point;
-            
-            var holeInstance = Instantiate(HolePrefab, pos, Quaternion.LookRotation(rot));
+
+            HoleBehaviour holeInstance;
+            holeInstance = Instantiate(HolePrefab, pos, Quaternion.LookRotation(rot));
             holeInstance.MaxTime = WallHoleLifeTime;
             var holeSpriteTransform = holeInstance.transform;
             
@@ -73,7 +72,7 @@ namespace WeaponLibrary
                 Debug.Log(BaseDamage + " enemy damage");
             }
 
-            Destroy(this.gameObject);
+            Destroy(gameObject);
         }
     }
 }

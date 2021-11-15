@@ -14,7 +14,8 @@ public class damage_get_main_counter : MonoBehaviour
 
     [SerializeField] private List<damage_get> damage_handlers;
 
-    [SerializeField] private float health = 100;
+    public float maxHealth = 100f;
+    private float health;
 
     public TextMeshProUGUI HPText;
 
@@ -24,6 +25,8 @@ public class damage_get_main_counter : MonoBehaviour
     
     [Event(English: "die event")]
     public event DieEventHandler dieEvent;
+    
+    public Animator enemyAnimator;
     
     public void TakeDamage(float damage, float damageMultiplier)
     {
@@ -35,6 +38,7 @@ public class damage_get_main_counter : MonoBehaviour
         
         if (health > 0)
         {
+            enemyAnimator.SetTrigger("WasDamaged");
             HPText.text = health.ToString();
         }
 
@@ -56,10 +60,18 @@ public class damage_get_main_counter : MonoBehaviour
 
     private void Start()
     {
+        ResetHealth();
         HPText.text = health.ToString();
         foreach(damage_get handler in damage_handlers)
         {
             handler.Counter = this;
         }
+    }
+
+    [Action(English: "reset health")]
+    public void ResetHealth()
+    {
+        health = maxHealth;
+        HPText.text = health.ToString();
     }
 }

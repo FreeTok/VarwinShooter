@@ -17,6 +17,5 @@ public class Element : MonoBehaviour
     public void SwitchElement(string element)
     {
         enemyElement = (EnEnemyElement)System.Enum.Parse(typeof(EnEnemyElement), element);
-        print(enemyElement);
     }
 }

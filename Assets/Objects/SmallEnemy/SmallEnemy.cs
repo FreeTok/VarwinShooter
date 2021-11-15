@@ -43,28 +43,24 @@ namespace Varwin.Types.SmallEnemy_211023e0a08b4fe69ae12e0d1c19edba
                 case EnEnemyClass.Dendro:
                 {
                     SwitchMeshMaterial(DendroMaterial);
-                    print("Dendro");
                     break;
                 }
                 
                 case EnEnemyClass.Ice:
                 {
                     SwitchMeshMaterial(IceMaterial);
-                    print("Ice");
                     break;
                 }
                 
                 case EnEnemyClass.Light:
                 {
                     SwitchMeshMaterial(LightMaterial);
-                    print("Light");
                     break;
                 }
                 
                 case EnEnemyClass.Darkness:
                 {
                     SwitchMeshMaterial(DarknessMaterial);
-                    print("Darkness");
                     break;
                 }
             }
@@ -74,7 +70,6 @@ namespace Varwin.Types.SmallEnemy_211023e0a08b4fe69ae12e0d1c19edba
         public void RandomEnemyClass()
         {
             EnemyClass = (EnEnemyClass)Random.Range(0, 3);
-            print(EnemyClass);
             CheckMeshMaterial();
         }
 

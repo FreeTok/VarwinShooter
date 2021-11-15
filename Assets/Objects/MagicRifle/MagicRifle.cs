@@ -167,12 +167,6 @@ namespace Varwin.Types.MagicRifle_bf6ae11eea9e4720b830fffc0560378a
 
         public void Shoot()
         {
-            if (Time.time - LastShoot < _artilleryShootDelay)
-            {
-                print(Time.time + " " + LastShoot + " = " + (Time.time - LastShoot));
-                print("not shoot delay");
-            }
-            
             if (Time.time - LastShoot >= _shootDelay)
             {
                 if (fireMode == RifleFireMode.DefaultShot)
@@ -189,17 +183,6 @@ namespace Varwin.Types.MagicRifle_bf6ae11eea9e4720b830fffc0560378a
                 if (fireMode == RifleFireMode.ArtilleryShot && Time.time - LastShoot >= _artilleryShootDelay)
                 {
                     ArtilleryShot();
-                }
-                
-                else if (fireMode != RifleFireMode.ArtilleryShot)
-                {
-                    print("not artillery");
-                }
-                
-                else if (Time.time - LastShoot < _artilleryShootDelay)
-                {
-                    print(Time.time + " " + LastShoot + " = " + (Time.time - LastShoot));
-                    print("not shoot delay");
                 }
             }
         }
@@ -336,7 +319,6 @@ namespace Varwin.Types.MagicRifle_bf6ae11eea9e4720b830fffc0560378a
             else
             {
                 fireMode += 1;
-                print("Fire mode is " + fireMode);
             }
         }
 
