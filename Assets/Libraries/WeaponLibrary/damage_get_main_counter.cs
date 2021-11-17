@@ -25,9 +25,10 @@ public class damage_get_main_counter : MonoBehaviour
     
     [Event(English: "die event")]
     public event DieEventHandler dieEvent;
-    
-    public Animator enemyAnimator;
-    
+
+    public GameObject damagedEnemy, wallkingEnemy;
+    public float damageAnimDuration = 2.2f;
+
     public void TakeDamage(float damage, float damageMultiplier)
     {
         damage *= damageMultiplier;
@@ -38,7 +39,7 @@ public class damage_get_main_counter : MonoBehaviour
         
         if (health > 0)
         {
-            enemyAnimator.SetTrigger("WasDamaged");
+            SetWalkOrDamage(true);
             HPText.text = health.ToString();
         }
 
@@ -60,6 +61,8 @@ public class damage_get_main_counter : MonoBehaviour
 
     private void Start()
     {
+        damagedEnemy.SetActive(false);
+        wallkingEnemy.SetActive(true);
         ResetHealth();
         HPText.text = health.ToString();
         foreach(damage_get handler in damage_handlers)
@@ -73,5 +76,20 @@ public class damage_get_main_counter : MonoBehaviour
     {
         health = maxHealth;
         HPText.text = health.ToString();
+    }
+
+    void SetWalkOrDamage(bool isDamaged)
+    {
+        print("Playing anim");
+        damagedEnemy.SetActive(isDamaged);
+        wallkingEnemy.SetActive(!isDamaged);
+
+        Invoke(nameof(SetWalkingEnemy), damageAnimDuration);
+    }
+
+    void SetWalkingEnemy()
+    {
+        damagedEnemy.SetActive(false);
+        wallkingEnemy.SetActive(true);
     }
 }
