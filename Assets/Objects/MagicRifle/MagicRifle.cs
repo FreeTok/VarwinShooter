@@ -3,6 +3,7 @@ using Varwin.Public;
 using WeaponLibrary;
 using System;
 using System.Collections;
+using TMPro;
 using UnityEngine;
 
 namespace Varwin.Types.MagicRifle_bf6ae11eea9e4720b830fffc0560378a
@@ -162,8 +163,11 @@ namespace Varwin.Types.MagicRifle_bf6ae11eea9e4720b830fffc0560378a
         {
             _chargeDamage = _baseDamage;
             LastShoot = Time.time;
+            rifleModeText.text = fireMode.ToString();
             //predictLine.SetActive(false);
         }
+
+        public TextMeshProUGUI rifleModeText;
 
         public void Shoot()
         {
@@ -320,6 +324,8 @@ namespace Varwin.Types.MagicRifle_bf6ae11eea9e4720b830fffc0560378a
             {
                 fireMode += 1;
             }
+            
+            rifleModeText.text = fireMode.ToString();
         }
 
         private void OnBulletHit(Wrapper target)
