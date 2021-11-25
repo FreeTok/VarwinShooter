@@ -41,6 +41,11 @@ namespace WeaponLibrary
             {
                 return;
             }
+            
+            if (other.gameObject.CompareTag("Tower"))
+            {
+                return;
+            }
 
             if (Explode)
             {

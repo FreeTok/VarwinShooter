@@ -27,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4395521461161937671}
   m_LocalRotation: {x: -0, y: 1, z: -0.000000021855694, w: 0}
-  m_LocalPosition: {x: -0.0048, y: -0.0061911, z: -0.20504}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.09644973, y: 0.09644973, z: 0.29288003}
   m_Children: []
   m_Father: {fileID: 8099378639207741822}
@@ -119,8 +119,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5026521642113080818}
   m_LocalRotation: {x: -0, y: -0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -1.2229998, y: 1.1322, z: -8.0352}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 4, y: 4, z: 4}
   m_Children:
   - {fileID: 9202977544682311401}
   m_Father: {fileID: 0}
@@ -157,6 +157,8 @@ MonoBehaviour:
   Rifle: {fileID: 0}
   WallHoleLifeTime: 0
   BaseDamage: 0
+  Explode: 0
+  Explosion: {fileID: 0}
   HolePrefab: {fileID: 0}
   bulletElement: 0
 --- !u!82 &1547134350488553725

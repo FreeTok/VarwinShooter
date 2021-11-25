@@ -5,6 +5,8 @@ using System;
 using System.Collections;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Serialization;
+using UnityEngine.UI;
 
 namespace Varwin.Types.MagicRifle_bf6ae11eea9e4720b830fffc0560378a
 {
@@ -159,11 +161,15 @@ namespace Varwin.Types.MagicRifle_bf6ae11eea9e4720b830fffc0560378a
 
         public bool isCharging;
 
+        public Image elementPad;
+        [FormerlySerializedAs("elementMaterials")] public Sprite[] elementSprites;
+
         private void Awake()
         {
             _chargeDamage = _baseDamage;
             LastShoot = Time.time;
             rifleModeText.text = fireMode.ToString();
+            SwitchPadElement();
             //predictLine.SetActive(false);
         }
 
@@ -309,6 +315,28 @@ namespace Varwin.Types.MagicRifle_bf6ae11eea9e4720b830fffc0560378a
             else
             {
                 bulletElement += 1;
+            }
+
+            SwitchPadElement();
+        }
+
+        private void SwitchPadElement()
+        {
+            print("Element is " + bulletElement);
+            switch (bulletElement)
+            {
+                case BulletBehaviour.EnBulletElement.Darkness:
+                    elementPad.sprite = elementSprites[0];
+                    break;
+                case BulletBehaviour.EnBulletElement.Dendro:
+                    elementPad.sprite = elementSprites[1];
+                    break;
+                case BulletBehaviour.EnBulletElement.Ice:
+                    elementPad.sprite = elementSprites[2];
+                    break;
+                case BulletBehaviour.EnBulletElement.Light:
+                    elementPad.sprite = elementSprites[3];
+                    break;
             }
         }
 
