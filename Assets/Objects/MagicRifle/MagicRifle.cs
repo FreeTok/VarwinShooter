@@ -151,7 +151,7 @@ namespace Varwin.Types.MagicRifle_bf6ae11eea9e4720b830fffc0560378a
         public enum RifleFireMode
         {
             DefaultShot,
-            DoubleShot,
+            ChargeShot,
             ArtilleryShot
         };
     
@@ -162,18 +162,19 @@ namespace Varwin.Types.MagicRifle_bf6ae11eea9e4720b830fffc0560378a
         public bool isCharging;
 
         public Image elementPad;
-        [FormerlySerializedAs("elementMaterials")] public Sprite[] elementSprites;
+        public Sprite[] elementSprites;
+        
+        public Image modesPad;
+        public Sprite[] modesSprites;
 
         private void Awake()
         {
             _chargeDamage = _baseDamage;
             LastShoot = Time.time;
-            rifleModeText.text = fireMode.ToString();
             SwitchPadElement();
+            SwitchPadMode();
             //predictLine.SetActive(false);
         }
-
-        public TextMeshProUGUI rifleModeText;
 
         public void Shoot()
         {
@@ -184,7 +185,7 @@ namespace Varwin.Types.MagicRifle_bf6ae11eea9e4720b830fffc0560378a
                     StartCoroutine(Shooting(_baseDamage));
                 }
 
-                if (fireMode == RifleFireMode.DoubleShot)
+                if (fireMode == RifleFireMode.ChargeShot)
                 {
                     StartCharging();
                     //DoubleShot();
@@ -352,8 +353,26 @@ namespace Varwin.Types.MagicRifle_bf6ae11eea9e4720b830fffc0560378a
             {
                 fireMode += 1;
             }
-            
-            rifleModeText.text = fireMode.ToString();
+            SwitchPadMode();
+        }
+        
+        private void SwitchPadMode()
+        {
+            print("Mode is " + fireMode);
+            switch (fireMode)
+            {
+                case RifleFireMode.DefaultShot:
+                    modesPad.sprite = modesSprites[0];
+                    break;
+                
+                case RifleFireMode.ChargeShot:
+                    modesPad.sprite = modesSprites[1];
+                    break;
+                
+                case RifleFireMode.ArtilleryShot:
+                    modesPad.sprite = modesSprites[2];
+                    break;
+            }
         }
 
         private void OnBulletHit(Wrapper target)
