@@ -147,15 +147,8 @@ namespace Varwin.Types.MagicRifle_bf6ae11eea9e4720b830fffc0560378a
             get => _wallHoleLifeTime;
             set => _wallHoleLifeTime = value;
         }
-        
-        public enum RifleFireMode
-        {
-            DefaultShot,
-            ChargeShot,
-            ArtilleryShot
-        };
-    
-        public RifleFireMode fireMode;
+
+        public BulletBehaviour.EnBulletMode fireMode;
 
         public GameObject predictLine;
 
@@ -180,18 +173,18 @@ namespace Varwin.Types.MagicRifle_bf6ae11eea9e4720b830fffc0560378a
         {
             if (Time.time - LastShoot >= _shootDelay)
             {
-                if (fireMode == RifleFireMode.DefaultShot)
+                if (fireMode == BulletBehaviour.EnBulletMode.DefaultShot)
                 {
                     StartCoroutine(Shooting(_baseDamage));
                 }
 
-                if (fireMode == RifleFireMode.ChargeShot)
+                if (fireMode == BulletBehaviour.EnBulletMode.ChargedShot)
                 {
                     StartCharging();
                     //DoubleShot();
                 }
 
-                if (fireMode == RifleFireMode.ArtilleryShot && Time.time - LastShoot >= _artilleryShootDelay)
+                if (fireMode == BulletBehaviour.EnBulletMode.ArtilleryShot && Time.time - LastShoot >= _artilleryShootDelay)
                 {
                     ArtilleryShot();
                 }
@@ -261,6 +254,7 @@ namespace Varwin.Types.MagicRifle_bf6ae11eea9e4720b830fffc0560378a
             var bullet = Instantiate(BulletBehaviourPrefab, bulletPointTransform.position,
                 BulletBehaviourPrefab.gameObject.transform.rotation);
 
+            bullet.bulletMode = fireMode;
             bullet.bulletElement = bulletElement;
             bullet.OnHitTargetEvent += OnBulletHit;
 
@@ -345,9 +339,9 @@ namespace Varwin.Types.MagicRifle_bf6ae11eea9e4720b830fffc0560378a
         {
             //predictLine.SetActive(fireMode == RifleFireMode.DoubleShot);
 
-            if (fireMode == RifleFireMode.ArtilleryShot)
+            if (fireMode == BulletBehaviour.EnBulletMode.ArtilleryShot)
             {
-                fireMode = RifleFireMode.DefaultShot;
+                fireMode = BulletBehaviour.EnBulletMode.DefaultShot;
             }
             else
             {
@@ -361,15 +355,15 @@ namespace Varwin.Types.MagicRifle_bf6ae11eea9e4720b830fffc0560378a
             print("Mode is " + fireMode);
             switch (fireMode)
             {
-                case RifleFireMode.DefaultShot:
+                case BulletBehaviour.EnBulletMode.DefaultShot:
                     modesPad.sprite = modesSprites[0];
                     break;
                 
-                case RifleFireMode.ChargeShot:
+                case BulletBehaviour.EnBulletMode.ChargedShot:
                     modesPad.sprite = modesSprites[1];
                     break;
                 
-                case RifleFireMode.ArtilleryShot:
+                case BulletBehaviour.EnBulletMode.ArtilleryShot:
                     modesPad.sprite = modesSprites[2];
                     break;
             }

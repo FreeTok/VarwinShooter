@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.Serialization;
 using Varwin;
 using Varwin.Public;
 
@@ -13,6 +14,10 @@ namespace WeaponLibrary
         [HideInInspector] public bool Explode;
         public GameObject Explosion;
         public HoleBehaviour HolePrefab;
+
+        public GameObject[] defaultShotVFXs;
+        public GameObject[] chargedVFXs;
+        public GameObject[] artilleryShotVFXs;
         
         public delegate void OnHitEventHandler(Wrapper targetWrapper);
         public event OnHitEventHandler OnHitTargetEvent;
@@ -24,7 +29,15 @@ namespace WeaponLibrary
             Light,
             Darkness
         };
-    
+
+        public enum EnBulletMode
+        {
+            DefaultShot,
+            ChargedShot,
+            ArtilleryShot
+        };
+
+        public EnBulletMode bulletMode;
         public EnBulletElement bulletElement;
 
         private void Start()
@@ -41,33 +54,31 @@ namespace WeaponLibrary
             {
                 return;
             }
-            
-            if (other.gameObject.CompareTag("Tower"))
-            {
-                return;
-            }
 
             if (Explode)
             {
                 GameObject explosion = Instantiate(Explosion, transform.position, transform.rotation);
                 explosion.GetComponent<Explosion>().element = bulletElement.ToString();
             }
-            
-            OnHitTargetEvent?.Invoke(other.gameObject.GetWrapper());
 
+            OnHitTargetEvent?.Invoke(other.gameObject.GetWrapper());
+            
             ContactPoint contact = other.contacts[0];
             Vector3 rot = contact.normal;
+            print(rot);
             Vector3 pos = contact.point;
 
-            HoleBehaviour holeInstance;
-            holeInstance = Instantiate(HolePrefab, pos, Quaternion.LookRotation(rot));
-            holeInstance.MaxTime = WallHoleLifeTime;
-            var holeSpriteTransform = holeInstance.transform;
+            var vfX = SpawnVfX(pos, rot);
             
-            holeSpriteTransform.Translate(Vector3.forward * 0.001f);
-            
-            holeSpriteTransform.parent = other.transform;
-            holeInstance.gameObject.SetActive(true);
+            Destroy(vfX, WallHoleLifeTime);
+            //holeInstance = Instantiate(HolePrefab, pos, Quaternion.LookRotation(rot));
+            // holeInstance.MaxTime = WallHoleLifeTime;
+            // var holeSpriteTransform = holeInstance.transform;
+            //
+            // holeSpriteTransform.Translate(Vector3.forward * 0.001f);
+            //
+            // holeSpriteTransform.parent = other.transform;
+            // holeInstance.gameObject.SetActive(true);
 
             damage_get handler = other.collider.gameObject.GetComponent<damage_get>();
 
@@ -78,6 +89,74 @@ namespace WeaponLibrary
             }
 
             Destroy(gameObject);
+        }
+
+        private GameObject SpawnVfX(Vector3 position, Vector3 rotation)
+        {
+            switch (bulletMode)
+            {
+                case EnBulletMode.DefaultShot:
+                {
+                    if (defaultShotVFXs.Length == 0)
+                    {
+                        print("VFXs are null");
+                        return null;
+                    }
+                    
+                    return Instantiate(defaultShotVFXs[GetBulletElementID()], position, Quaternion.LookRotation(rotation));
+                }
+
+                case EnBulletMode.ChargedShot:
+                {
+                    if (defaultShotVFXs.Length == 0)
+                    {
+                        print("VFXs are null");
+                        return null;
+                    }
+                    
+                    return Instantiate(chargedVFXs[GetBulletElementID()], position, Quaternion.LookRotation(rotation));
+                }
+                
+                case EnBulletMode.ArtilleryShot:
+                {
+                    if (defaultShotVFXs.Length == 0)
+                    {
+                        print("VFXs are null");
+                        return null;
+                    }
+                    
+                    return Instantiate(artilleryShotVFXs[GetBulletElementID()], position, Quaternion.Euler(new Vector3(
+                        90 * rotation.z, 90 * rotation.y, 90 * rotation.z)));
+                }
+            }
+
+            return null;
+        }
+
+        private int GetBulletElementID()
+        {
+            switch (bulletElement)
+            {
+                case EnBulletElement.Darkness:
+                {
+                    return 0;
+                }
+                case EnBulletElement.Dendro:
+                {
+                    return 1;
+                }
+                case EnBulletElement.Ice:
+                {
+                    return 2;
+                }
+                        
+                case EnBulletElement.Light:
+                {
+                    return 3;
+                }
+            }
+            
+            return 0;
         }
     }
 }
