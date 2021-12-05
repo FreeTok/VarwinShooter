@@ -12,7 +12,7 @@ public class damage_get : MonoBehaviour
     {
         if(Counter != null)
         {
-            switch (Counter.mob.GetComponent<Element>().enemyElement.ToString())                                                                    //система урона в зависимости от элемента
+            switch (Counter.gameObject.GetComponent<Element>().enemyElement.ToString())                                                                    //система урона в зависимости от элемента
             {
                 case "Dendro":
                     switch (element)

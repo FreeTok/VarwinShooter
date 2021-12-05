@@ -16,9 +16,8 @@ namespace Varwin.Types.BigEnemy_6cc896cffcff4e8d95a8367963486dd1
         };
         
         public EnEnemyClass EnemyClass;
-
-        public GameObject MeshHolder;
-        private MeshRenderer[] Meshs;
+        
+        public MeshRenderer[] Meshs;
         
         [VarwinInspector(English: "Enemy class", Russian: "Класс врага")]
         [Variable(English: "Enemy class")]
@@ -29,11 +28,6 @@ namespace Varwin.Types.BigEnemy_6cc896cffcff4e8d95a8367963486dd1
         }
         
         public Material DendroMaterial, IceMaterial, LightMaterial, DarknessMaterial;
-        
-        void Start()
-        {
-            Meshs = MeshHolder.GetComponentsInChildren<MeshRenderer>();
-        }
 
         [Action(English: "Check mesh material")]
         public void CheckMeshMaterial()

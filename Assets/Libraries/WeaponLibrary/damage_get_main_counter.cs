@@ -10,8 +10,6 @@ public class damage_get_main_counter : MonoBehaviour
 {
     public List<GameObject> deathparticles;
 
-    public GameObject mob;
-
     [SerializeField] private List<damage_get> damage_handlers;
 
     public float maxHealth = 100f;
@@ -54,8 +52,6 @@ public class damage_get_main_counter : MonoBehaviour
             {
                 particle.SetActive(true);
             }
-            
-            Destroy(mob, DieTime);
         }
     }
 
