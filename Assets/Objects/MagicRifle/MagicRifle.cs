@@ -354,7 +354,7 @@ namespace Varwin.Types.MagicRifle_bf6ae11eea9e4720b830fffc0560378a
             }
             else
             {
-                fireMode += 1;
+                fireMode += 1; 
             }
             SwitchPadMode();
         }
@@ -377,7 +377,7 @@ namespace Varwin.Types.MagicRifle_bf6ae11eea9e4720b830fffc0560378a
                     break;
             }
         }
-
+        
         private void OnBulletHit(Wrapper target)
         {
             OnShootToTarget?.Invoke(target);
