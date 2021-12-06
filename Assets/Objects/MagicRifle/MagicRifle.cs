@@ -147,6 +147,16 @@ namespace Varwin.Types.MagicRifle_bf6ae11eea9e4720b830fffc0560378a
             get => _wallHoleLifeTime;
             set => _wallHoleLifeTime = value;
         }
+        
+        private float _bulletMass = 0.01f;
+
+        [VarwinInspector(English: "Bullet mass", Russian: "Масса пули")]
+        public float BulletMass
+        {
+            get => _bulletMass;
+            set => _bulletMass = value;
+        }
+
 
         public BulletBehaviour.EnBulletMode fireMode;
 
@@ -239,11 +249,9 @@ namespace Varwin.Types.MagicRifle_bf6ae11eea9e4720b830fffc0560378a
 
         private void ArtilleryShot()
         {
-            _bulletForce = 10f;
             BulletBehaviourPrefab.Explode = true;
             StartCoroutine(Shooting(_baseDamage));
             BulletBehaviourPrefab.Explode = false;
-            _bulletForce = 20f;
         }
 
         private BulletBehaviour.EnBulletElement bulletElement;
@@ -260,6 +268,7 @@ namespace Varwin.Types.MagicRifle_bf6ae11eea9e4720b830fffc0560378a
 
             bullet.gameObject.SetActive(true);
 
+            bullet.GetComponent<Rigidbody>().mass = _bulletMass;
             bullet.GetComponent<Rigidbody>().AddForce(BulletPoint.transform.forward * BulletForce);
 
             bullet.Rifle = gameObject;
