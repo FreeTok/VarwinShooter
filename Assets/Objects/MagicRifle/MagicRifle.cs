@@ -169,6 +169,18 @@ namespace Varwin.Types.MagicRifle_bf6ae11eea9e4720b830fffc0560378a
         
         public Image modesPad;
         public Sprite[] modesSprites;
+        
+        public AudioClip defaultShotAudio;
+        public AudioClip chargedShotAudio;
+        public AudioClip artilleryShotAudio;
+
+        private AudioClip _bulletAudio;
+
+        private void Update()
+        {
+            print("Is grabbable " + GetComponent<InteractableObjectBehaviour>().IsGrabbable);
+            print("Is grabbed " + GetComponent<InteractableObjectBehaviour>().IsGrabbed);
+        }
 
         private void Awake()
         {
@@ -186,6 +198,7 @@ namespace Varwin.Types.MagicRifle_bf6ae11eea9e4720b830fffc0560378a
                 if (fireMode == BulletBehaviour.EnBulletMode.DefaultShot)
                 {
                     StartCoroutine(Shooting(_baseDamage));
+                    
                 }
 
                 if (fireMode == BulletBehaviour.EnBulletMode.ChargedShot)
@@ -270,6 +283,8 @@ namespace Varwin.Types.MagicRifle_bf6ae11eea9e4720b830fffc0560378a
 
             bullet.GetComponent<Rigidbody>().mass = _bulletMass;
             bullet.GetComponent<Rigidbody>().AddForce(BulletPoint.transform.forward * BulletForce);
+
+            GetComponent<AudioSource>().PlayOneShot(_bulletAudio);
 
             bullet.Rifle = gameObject;
             bullet.WallHoleLifeTime = _wallHoleLifeTime;
@@ -366,14 +381,17 @@ namespace Varwin.Types.MagicRifle_bf6ae11eea9e4720b830fffc0560378a
             {
                 case BulletBehaviour.EnBulletMode.DefaultShot:
                     modesPad.sprite = modesSprites[0];
+                    _bulletAudio = defaultShotAudio;
                     break;
                 
                 case BulletBehaviour.EnBulletMode.ChargedShot:
                     modesPad.sprite = modesSprites[1];
+                    _bulletAudio = chargedShotAudio;
                     break;
                 
                 case BulletBehaviour.EnBulletMode.ArtilleryShot:
                     modesPad.sprite = modesSprites[2];
+                    _bulletAudio = artilleryShotAudio;
                     break;
             }
         }
