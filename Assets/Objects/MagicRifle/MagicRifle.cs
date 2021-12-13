@@ -73,8 +73,6 @@ namespace Varwin.Types.MagicRifle_bf6ae11eea9e4720b830fffc0560378a
             set => _coefSlowInertiaByTwoHand = value;
         }
 
-        public AnimationClip IdleClip;
-
         public delegate void ShootEvent(Wrapper targetWrapper);
 
         private Rigidbody _rigidbody;
@@ -88,13 +86,13 @@ namespace Varwin.Types.MagicRifle_bf6ae11eea9e4720b830fffc0560378a
         public Rigidbody Rigidbody => GetRigidBody();
 
         public Transform ShootPoint;
+        public Transform BulletExplosionPoint;
         public HoleBehaviour HolePrefab;
 
         public bool OnSafety = false;
 
         public float ShootNormalizedTime = 0.5f;
-
-        public AudioClip ShootAudioClip;
+        
         public ParticleSystem ShootParticleSystem;
 
         private AudioSource _audioSource;
@@ -175,12 +173,6 @@ namespace Varwin.Types.MagicRifle_bf6ae11eea9e4720b830fffc0560378a
         public AudioClip artilleryShotAudio;
 
         private AudioClip _bulletAudio;
-
-        private void Update()
-        {
-            print("Is grabbable " + GetComponent<InteractableObjectBehaviour>().IsGrabbable);
-            print("Is grabbed " + GetComponent<InteractableObjectBehaviour>().IsGrabbed);
-        }
 
         private void Awake()
         {
@@ -271,6 +263,7 @@ namespace Varwin.Types.MagicRifle_bf6ae11eea9e4720b830fffc0560378a
 
         private void AddBullet(float damage)
         {
+            //TODO Replace it to bulletBehaviour
             var bulletPointTransform = BulletPoint.transform;
             var bullet = Instantiate(BulletBehaviourPrefab, bulletPointTransform.position,
                 BulletBehaviourPrefab.gameObject.transform.rotation);
@@ -281,8 +274,9 @@ namespace Varwin.Types.MagicRifle_bf6ae11eea9e4720b830fffc0560378a
 
             bullet.gameObject.SetActive(true);
 
-            bullet.GetComponent<Rigidbody>().mass = _bulletMass;
-            bullet.GetComponent<Rigidbody>().AddForce(BulletPoint.transform.forward * BulletForce);
+            Rigidbody bulletRigidbody = bullet.GetComponent<Rigidbody>();
+            bulletRigidbody.mass = _bulletMass;
+            bulletRigidbody.AddForce(BulletExplosionPoint.transform.forward * BulletForce);
 
             GetComponent<AudioSource>().PlayOneShot(_bulletAudio);
 
@@ -296,12 +290,14 @@ namespace Varwin.Types.MagicRifle_bf6ae11eea9e4720b830fffc0560378a
         private IEnumerator Shooting(float damage)
         {
             LastShoot = Time.time;
-            PlayAudioClip(ShootAudioClip);
-            ShootParticleSystem.Play();
 
+            if (ShootParticleSystem)
+            {
+                ShootParticleSystem.Play();
+            }
+            
             AddBullet(damage);
 
-            Rigidbody.AddExplosionForce(ForceInertia, ShootPoint.transform.position, ForceRadius);
             OnShoot?.Invoke();
 
             yield return new WaitForSeconds(ShootDelay);

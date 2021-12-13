@@ -17,7 +17,8 @@ namespace Varwin.Types.BigEnemy_6cc896cffcff4e8d95a8367963486dd1
         
         public EnEnemyClass EnemyClass;
         
-        public MeshRenderer[] Meshs;
+        public GameObject MeshHolder;
+        private MeshRenderer[] Meshs;
         
         [VarwinInspector(English: "Enemy class", Russian: "Класс врага")]
         [Variable(English: "Enemy class")]
