@@ -6,7 +6,10 @@ public class Element : MonoBehaviour
 {
     public enum EnEnemyElement
     {
-        Dendro,
+        Earth,
+        Air,
+        Fire,
+        Water,
         Ice,
         Light,
         Darkness

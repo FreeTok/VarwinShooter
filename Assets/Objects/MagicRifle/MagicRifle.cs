@@ -325,7 +325,7 @@ namespace Varwin.Types.MagicRifle_bf6ae11eea9e4720b830fffc0560378a
         {
             if (bulletElement == BulletBehaviour.EnBulletElement.Darkness)
             {
-                bulletElement = BulletBehaviour.EnBulletElement.Dendro;
+                bulletElement = BulletBehaviour.EnBulletElement.Earth;
             }
             else
             {
@@ -340,17 +340,26 @@ namespace Varwin.Types.MagicRifle_bf6ae11eea9e4720b830fffc0560378a
             print("Element is " + bulletElement);
             switch (bulletElement)
             {
-                case BulletBehaviour.EnBulletElement.Darkness:
+                case BulletBehaviour.EnBulletElement.Earth:
                     elementPad.sprite = elementSprites[0];
                     break;
-                case BulletBehaviour.EnBulletElement.Dendro:
+                case BulletBehaviour.EnBulletElement.Air:
                     elementPad.sprite = elementSprites[1];
                     break;
-                case BulletBehaviour.EnBulletElement.Ice:
+                case BulletBehaviour.EnBulletElement.Fire:
                     elementPad.sprite = elementSprites[2];
                     break;
-                case BulletBehaviour.EnBulletElement.Light:
+                case BulletBehaviour.EnBulletElement.Water:
                     elementPad.sprite = elementSprites[3];
+                    break;
+                case BulletBehaviour.EnBulletElement.Ice:
+                    elementPad.sprite = elementSprites[4];
+                    break;
+                case BulletBehaviour.EnBulletElement.Light:
+                    elementPad.sprite = elementSprites[5];
+                    break;
+                case BulletBehaviour.EnBulletElement.Darkness:
+                    elementPad.sprite = elementSprites[6];
                     break;
             }
         }

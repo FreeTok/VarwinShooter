@@ -7,63 +7,66 @@ namespace Varwin.Types.SmallEnemy_211023e0a08b4fe69ae12e0d1c19edba
     [VarwinComponent(English: "Small Enemy")]
     public class SmallEnemy : VarwinObject
     {
-        public enum EnEnemyClass
-        {
-            Dendro,
-            Ice,
-            Light,
-            Darkness
-        };
-        
-        public EnEnemyClass EnemyClass;
+        public Element.EnEnemyElement EnemyClass;
         
         public MeshRenderer[] Meshs;
-        
-        [VarwinInspector(English: "Enemy class", Russian: "Класс врага")]
-        [Variable(English: "Enemy class")]
-        public EnEnemyClass EnemyClassPanel
-        {
-            get => EnemyClass;
-            set => EnemyClass = value;
-        }
-        
-        public Material DendroMaterial, IceMaterial, LightMaterial, DarknessMaterial;
+
+        public Material[] MeshMaterials;
 
         [Action(English: "Check mesh material")]
         public void CheckMeshMaterial()
         {
             switch(EnemyClass)
             {
-                case EnEnemyClass.Dendro:
+                case Element.EnEnemyElement.Earth:
                 {
-                    SwitchMeshMaterial(DendroMaterial);
+                    SwitchMeshMaterial(MeshMaterials[0]);
                     break;
                 }
                 
-                case EnEnemyClass.Ice:
+                case Element.EnEnemyElement.Air:
                 {
-                    SwitchMeshMaterial(IceMaterial);
+                    SwitchMeshMaterial(MeshMaterials[1]);
                     break;
                 }
                 
-                case EnEnemyClass.Light:
+                case Element.EnEnemyElement.Fire:
                 {
-                    SwitchMeshMaterial(LightMaterial);
+                    SwitchMeshMaterial(MeshMaterials[2]);
                     break;
                 }
                 
-                case EnEnemyClass.Darkness:
+                case Element.EnEnemyElement.Water:
                 {
-                    SwitchMeshMaterial(DarknessMaterial);
+                    SwitchMeshMaterial(MeshMaterials[3]);
                     break;
                 }
+                
+                case Element.EnEnemyElement.Ice:
+                {
+                    SwitchMeshMaterial(MeshMaterials[4]);
+                    break;
+                }
+                
+                case Element.EnEnemyElement.Light:
+                {
+                    SwitchMeshMaterial(MeshMaterials[5]);
+                    break;
+                }
+                
+                case Element.EnEnemyElement.Darkness:
+                {
+                    SwitchMeshMaterial(MeshMaterials[6]);
+                    break;
+                }
+                
             }
         }
         
         [Action(English: "Set random enemy class")]
         public void RandomEnemyClass()
         {
-            EnemyClass = (EnEnemyClass)Random.Range(0, 3);
+            EnemyClass = (Element.EnEnemyElement)Random.Range(0, 6);
             CheckMeshMaterial();
         }
 

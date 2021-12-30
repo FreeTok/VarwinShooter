@@ -60,9 +60,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ConfigBlockly: "{\"Name\":{\"en\":\"Magic Rifle\",\"ru\":\"\u041C\u0430\u0433\u0438\u0447\u0435\u0441\u043A\u0430\u044F
     \u0412\u0438\u043D\u0442\u043E\u0432\u043A\u0430\"},\"Description\":{\"en\":\"Magic
-    Rifle description\"},\"Guid\":\"f5682d2a-646c-4505-9d04-1bd62f9b885a\",\"RootGuid\":\"bf6ae11e-ea9e-4720-b830-fffc0560378a\",\"Locked\":false,\"Embedded\":false,\"MobileReady\":false,\"SourcesIncluded\":false,\"DisableSceneLogic\":false,\"Config\":{\"type\":\"MagicRifle_bf6ae11eea9e4720b830fffc0560378a.MagicRifleWrapper\",\"blocks\":[{\"name\":\"OnShootToTarget\",\"type\":\"event\",\"items\":[{\"method\":\"OnShootToTarget\",\"i18n\":{\"en\":\"On
+    Rifle description\"},\"Guid\":\"0c95de11-9068-48c2-85f9-eeaaed4e5b4d\",\"RootGuid\":\"bf6ae11e-ea9e-4720-b830-fffc0560378a\",\"Locked\":false,\"Embedded\":false,\"MobileReady\":false,\"SourcesIncluded\":false,\"DisableSceneLogic\":false,\"Config\":{\"type\":\"MagicRifle_bf6ae11eea9e4720b830fffc0560378a.MagicRifleWrapper\",\"blocks\":[{\"name\":\"OnShootToTarget\",\"type\":\"event\",\"items\":[{\"method\":\"OnShootToTarget\",\"i18n\":{\"en\":\"On
     shoot to target\",\"ru\":\"\u041F\u0440\u0438 \u043F\u043E\u043F\u0430\u0434\u0430\u043D\u0438\u0438\"}}],\"params\":[{\"name\":\"targetWrapper\",\"valueType\":\"Varwin.Wrapper\"}]},{\"name\":\"OnShoot\",\"type\":\"event\",\"items\":[{\"method\":\"OnShoot\",\"i18n\":{\"en\":\"On
-    shoot\",\"ru\":\"\u041F\u0440\u0438 \u0432\u044B\u0441\u0442\u0440\u0435\u043B\u0435\"}}]}]},\"Author\":{\"Name\":\"Anonymous\",\"Email\":\"\",\"Url\":\"\"},\"License\":{\"Code\":\"cc-by\",\"Version\":\"4.0\"},\"BuiltAt\":\"2021-11-26T14:10:24Z\",\"SdkVersion\":\"0.13.13\"}"
+    shoot\",\"ru\":\"\u041F\u0440\u0438 \u0432\u044B\u0441\u0442\u0440\u0435\u043B\u0435\"}}]}]},\"Author\":{\"Name\":\"Anonymous\",\"Email\":\"\",\"Url\":\"\"},\"License\":{\"Code\":\"cc-by\",\"Version\":\"4.0\"},\"BuiltAt\":\"2021-12-30T07:59:06Z\",\"SdkVersion\":\"0.13.13\"}"
   ConfigAssetBundle: '{"AssetName":"MagicRifle","Assembly":["WeaponLibrary.dll","MagicRifle_bf6ae11eea9e4720b830fffc0560378a.dll"]}'
   Icon: {fileID: 0}
   Name: MagicRifle
@@ -81,7 +81,7 @@ MonoBehaviour:
   AssetBundleParts: []
   Prefab: Assets/Objects/MagicRifle/MagicRifle.prefab
   PrefabGuid: 500a7057cb2377c43a1226759e2551b2
-  Guid: 0c95de11-9068-48c2-85f9-eeaaed4e5b4d
+  Guid: 7d1fe8c0-0df1-4515-a0bf-da5d7d7c88bc
   RootGuid: bf6ae11e-ea9e-4720-b830-fffc0560378a
   Locked: 0
   Embedded: 0
@@ -94,7 +94,7 @@ MonoBehaviour:
   AuthorUrl: 
   LicenseCode: cc-by
   LicenseVersion: 4.0
-  BuiltAt: 13.12.2021 15:47:48 +03:00
+  BuiltAt: 30.12.2021 13:25:33 +03:00
   CurrentVersionWasBuilt: 1
   CurrentVersionWasBuiltAsMobileReady: 0
   Components:
@@ -261,10 +261,13 @@ MonoBehaviour:
   isCharging: 0
   elementPad: {fileID: 9066625910572121623}
   elementSprites:
-  - {fileID: 21300000, guid: f5dd6d80d86ad2d49bdca82e04652b99, type: 3}
   - {fileID: 21300000, guid: bb356e32ee300074abb214c1e711df49, type: 3}
+  - {fileID: 21300000, guid: ee085eefb3bc40844bbf2bf2a7cc25eb, type: 3}
+  - {fileID: 21300000, guid: 188ea378aa80698499685b716404d0e2, type: 3}
+  - {fileID: 21300000, guid: 92eea12b1494b6049b95c58488b61572, type: 3}
   - {fileID: 21300000, guid: d7d90be4b57f9d7469c5b0d4ba1d3ff2, type: 3}
   - {fileID: 21300000, guid: 707c87527d1ac3846842b3c3f4ab5ec1, type: 3}
+  - {fileID: 21300000, guid: f5dd6d80d86ad2d49bdca82e04652b99, type: 3}
   modesPad: {fileID: 3515034408206552167}
   modesSprites:
   - {fileID: 21300000, guid: beed75e2ee29819428c1283ec21ddf75, type: 3}
@@ -1845,6 +1848,50 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 50958
+--- !u!1 &3487331660917307983
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4431045529690287547}
+  - component: {fileID: 2834479047522623882}
+  m_Layer: 2
+  m_Name: Collider
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4431045529690287547
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3487331660917307983}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.103, z: -0.762}
+  m_LocalScale: {x: 1, y: 1.0894763, z: 8.129752}
+  m_Children: []
+  m_Father: {fileID: 3889711210101680537}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: -8, y: 0, z: 0}
+--- !u!65 &2834479047522623882
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3487331660917307983}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.02, y: 0.02512443, z: 0.15632674}
+  m_Center: {x: 0, y: 0.10781604, z: 0.000081539154}
 --- !u!1 &4094945608042703215
 GameObject:
   m_ObjectHideFlags: 0
@@ -1870,11 +1917,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4094945608042703215}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.103, z: -0.762}
-  m_LocalScale: {x: 1, y: 1.0894763, z: 8.129752}
+  m_LocalPosition: {x: 0, y: -0.234, z: -0.024}
+  m_LocalScale: {x: 3.2245252, y: 3.2245252, z: 3.2245252}
   m_Children: []
   m_Father: {fileID: 3889711210101680537}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -8, y: 0, z: 0}
 --- !u!65 &6222042746462051420
 BoxCollider:
@@ -1887,8 +1934,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.02, y: 0.02512443, z: 0.15632674}
-  m_Center: {x: 0, y: 0.10781604, z: 0.000081539154}
+  m_Size: {x: 0.01, y: 0.03726214, z: 0.047038928}
+  m_Center: {x: 0, y: 0.074943155, z: -0.009551801}
 --- !u!1 &4287869215224441604
 GameObject:
   m_ObjectHideFlags: 0
@@ -2028,50 +2075,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 35998
---- !u!1 &5405640268559494883
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 6668999622560025924}
-  - component: {fileID: 5405688576172395691}
-  m_Layer: 2
-  m_Name: Collider
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &6668999622560025924
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5405640268559494883}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.234, z: -0.024}
-  m_LocalScale: {x: 3.2245252, y: 3.2245252, z: 3.2245252}
-  m_Children: []
-  m_Father: {fileID: 3889711210101680537}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -8, y: 0, z: 0}
---- !u!65 &5405688576172395691
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5405640268559494883}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.01, y: 0.03726214, z: 0.047038928}
-  m_Center: {x: 0, y: 0.074943155, z: -0.009551801}
 --- !u!1 &5673125607980703879
 GameObject:
   m_ObjectHideFlags: 0
@@ -2247,8 +2250,8 @@ Transform:
   m_LocalPosition: {x: 0.004066946, y: -0.0040529966, z: 0.8261148}
   m_LocalScale: {x: 2.1235, y: 1, z: 1}
   m_Children:
-  - {fileID: 6668999622560025924}
   - {fileID: 4111352690906113734}
+  - {fileID: 4431045529690287547}
   - {fileID: 7506281337077147129}
   m_Father: {fileID: 4240192}
   m_RootOrder: 2
@@ -2594,16 +2597,29 @@ MonoBehaviour:
     type: 3}
   HolePrefab: {fileID: 835284293900653998}
   defaultShotVFXs:
-  - {fileID: 7904231590798142252, guid: a590d834a862fbb469f96ed2a6270f29, type: 3}
   - {fileID: 4685357052550804304, guid: 1f874ac4fbbc31c4f9a403adefacc965, type: 3}
+  - {fileID: 9125880788361980821, guid: cc257a6c51acebe4b8123b8aefafe2ef, type: 3}
+  - {fileID: 3387642893873143557, guid: 2a99a72614308a9469310d1c5ea44ffd, type: 3}
+  - {fileID: 2439919497578002113, guid: fe4c42b421629844d8fd0ef95d27aef3, type: 3}
   - {fileID: 8942099037922373393, guid: 7f7614ec25deb0c45a2552ca09f58a2b, type: 3}
   - {fileID: 8231869589583857516, guid: 6431a4d906e75c540904415474d4abad, type: 3}
-  chargedVFXs: []
+  - {fileID: 7904231590798142252, guid: a590d834a862fbb469f96ed2a6270f29, type: 3}
+  chargedVFXs:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   artilleryShotVFXs:
-  - {fileID: 6651230113780481009, guid: fd0a09776b8237340a9b765f59fc8fef, type: 3}
   - {fileID: 2270883473347909197, guid: 2120464adb593eb4c983bda12008c966, type: 3}
+  - {fileID: 6810848714256057653, guid: 78719b278bf759849b6fa337aa08550c, type: 3}
+  - {fileID: 5008370355124622484, guid: 5ae4a475d8068964c94f97a235709eeb, type: 3}
+  - {fileID: 5193084151090111280, guid: e95d28e3fad339b4daa0d874fcdcf82f, type: 3}
   - {fileID: 6257985077542266267, guid: 3df139b4a50e6784c89ec27366c6476b, type: 3}
   - {fileID: 4270971229557603008, guid: 5f2c67d7dc907d04a889d0109684c545, type: 3}
+  - {fileID: 6651230113780481009, guid: fd0a09776b8237340a9b765f59fc8fef, type: 3}
   bulletMode: 0
   bulletElement: 0
 --- !u!82 &4577903460018221701

@@ -24,7 +24,10 @@ namespace WeaponLibrary
 
         public enum EnBulletElement
         {
-            Dendro,
+            Earth,
+            Air,
+            Fire,
+            Water,
             Ice,
             Light,
             Darkness
@@ -125,6 +128,7 @@ namespace WeaponLibrary
                         return null;
                     }
                     
+                    print(GetBulletElementID());
                     return Instantiate(artilleryShotVFXs[GetBulletElementID()], position, Quaternion.Euler(new Vector3(
                         90 * rotation.z, 90 * rotation.y, 90 * rotation.z)));
                 }
@@ -137,22 +141,37 @@ namespace WeaponLibrary
         {
             switch (bulletElement)
             {
-                case EnBulletElement.Darkness:
+                case EnBulletElement.Earth:
                 {
                     return 0;
                 }
-                case EnBulletElement.Dendro:
+                case EnBulletElement.Air:
                 {
                     return 1;
                 }
-                case EnBulletElement.Ice:
+                case EnBulletElement.Fire:
                 {
                     return 2;
                 }
                         
-                case EnBulletElement.Light:
+                case EnBulletElement.Water:
                 {
                     return 3;
+                }
+                
+                case EnBulletElement.Ice:
+                {
+                    return 4;
+                }
+                
+                case EnBulletElement.Light:
+                {
+                    return 5;
+                }
+                
+                case EnBulletElement.Darkness:
+                {
+                    return 6;
                 }
             }
             
