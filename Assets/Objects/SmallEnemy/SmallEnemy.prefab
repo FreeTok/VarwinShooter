@@ -3117,13 +3117,13 @@ MonoBehaviour:
   - {fileID: 7493121318696600605}
   - {fileID: 2775116305286060931}
   MeshMaterials:
+  - {fileID: 2100000, guid: dcacf0899f7c0e046aa99723845f60ee, type: 2}
   - {fileID: 2100000, guid: f3755c34178d0d74f8bfb53a4bc4d3a3, type: 2}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 2100000, guid: 598886b5cbbbef446b4859415ece1a4a, type: 2}
+  - {fileID: 2100000, guid: 7419ab577e1a2b84f81fe8022eb08cb0, type: 2}
+  - {fileID: 2100000, guid: 6a192f3b8da1b944aaf8e26990f4ba03, type: 2}
+  - {fileID: 2100000, guid: 02ee4055faf6bf742b3b2d7106a6336d, type: 2}
+  - {fileID: 2100000, guid: e4f59fd290e1fc848843bb3bf6ffa2e2, type: 2}
 --- !u!114 &114600386966164564
 MonoBehaviour:
   m_ObjectHideFlags: 0
