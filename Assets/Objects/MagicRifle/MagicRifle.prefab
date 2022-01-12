@@ -94,7 +94,7 @@ MonoBehaviour:
   AuthorUrl: 
   LicenseCode: cc-by
   LicenseVersion: 4.0
-  BuiltAt: 30.12.2021 13:25:33 +03:00
+  BuiltAt: 12.01.2022 19:17:21 +03:00
   CurrentVersionWasBuilt: 1
   CurrentVersionWasBuiltAsMobileReady: 0
   Components:
@@ -1848,50 +1848,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 50958
---- !u!1 &3487331660917307983
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 4431045529690287547}
-  - component: {fileID: 2834479047522623882}
-  m_Layer: 2
-  m_Name: Collider
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &4431045529690287547
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3487331660917307983}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.103, z: -0.762}
-  m_LocalScale: {x: 1, y: 1.0894763, z: 8.129752}
-  m_Children: []
-  m_Father: {fileID: 3889711210101680537}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: -8, y: 0, z: 0}
---- !u!65 &2834479047522623882
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3487331660917307983}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.02, y: 0.02512443, z: 0.15632674}
-  m_Center: {x: 0, y: 0.10781604, z: 0.000081539154}
 --- !u!1 &4094945608042703215
 GameObject:
   m_ObjectHideFlags: 0
@@ -2075,6 +2031,50 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 35998
+--- !u!1 &5304541571870943219
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4497853897127591238}
+  - component: {fileID: 5223888230022712105}
+  m_Layer: 2
+  m_Name: Collider
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4497853897127591238
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5304541571870943219}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.103, z: -0.762}
+  m_LocalScale: {x: 1, y: 1.0894763, z: 8.129752}
+  m_Children: []
+  m_Father: {fileID: 3889711210101680537}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: -8, y: 0, z: 0}
+--- !u!65 &5223888230022712105
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5304541571870943219}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.02, y: 0.02512443, z: 0.15632674}
+  m_Center: {x: 0, y: 0.10781604, z: 0.000081539154}
 --- !u!1 &5673125607980703879
 GameObject:
   m_ObjectHideFlags: 0
@@ -2251,7 +2251,7 @@ Transform:
   m_LocalScale: {x: 2.1235, y: 1, z: 1}
   m_Children:
   - {fileID: 4111352690906113734}
-  - {fileID: 4431045529690287547}
+  - {fileID: 4497853897127591238}
   - {fileID: 7506281337077147129}
   m_Father: {fileID: 4240192}
   m_RootOrder: 2
@@ -2605,13 +2605,13 @@ MonoBehaviour:
   - {fileID: 8231869589583857516, guid: 6431a4d906e75c540904415474d4abad, type: 3}
   - {fileID: 7904231590798142252, guid: a590d834a862fbb469f96ed2a6270f29, type: 3}
   chargedVFXs:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 3440818041637455863, guid: b855dc074d8397d41a1af9f9b7da83f0, type: 3}
+  - {fileID: 790738554699824193, guid: 3b5ee583fb667744d8d03e80fd124936, type: 3}
+  - {fileID: 8806493876428231925, guid: 969aefe8ee481fb4f8e0106b8f6cd023, type: 3}
+  - {fileID: 3902522557021930960, guid: 41281d4e99238d34685896c12e48fab5, type: 3}
+  - {fileID: 8742465811948828601, guid: 2432579e88145714e821605cd68097db, type: 3}
+  - {fileID: 7078161338273848410, guid: 7bd7f635f7a0fc1499dd9f0d064e0e55, type: 3}
+  - {fileID: 8846362073386241721, guid: 5c4ab9f1f9b22c94197f533067bcb510, type: 3}
   artilleryShotVFXs:
   - {fileID: 2270883473347909197, guid: 2120464adb593eb4c983bda12008c966, type: 3}
   - {fileID: 6810848714256057653, guid: 78719b278bf759849b6fa337aa08550c, type: 3}

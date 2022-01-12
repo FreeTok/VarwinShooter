@@ -47,7 +47,7 @@ namespace WeaponLibrary
         {
             if (WallHoleLifeTime == 0)
             {
-                WallHoleLifeTime = 200f;
+                WallHoleLifeTime = 10f;
             }
         }
 
