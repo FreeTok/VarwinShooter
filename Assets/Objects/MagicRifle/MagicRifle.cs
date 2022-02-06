@@ -4,6 +4,7 @@ using WeaponLibrary;
 using System;
 using System.Collections;
 using TMPro;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
@@ -158,8 +159,6 @@ namespace Varwin.Types.MagicRifle_bf6ae11eea9e4720b830fffc0560378a
 
         public BulletBehaviour.EnBulletMode fireMode;
 
-        public GameObject predictLine;
-
         public bool isCharging;
 
         public Image elementPad;
@@ -174,6 +173,21 @@ namespace Varwin.Types.MagicRifle_bf6ae11eea9e4720b830fffc0560378a
 
         private AudioClip _bulletAudio;
 
+        private GameObject[] TP_Points;
+
+        public bool isTpEnabled;
+        public Wrapper TPPoint;
+        
+        public delegate void OnTPHandler(Wrapper target);
+        [Event(English: "on tp event")]
+        public event OnTPHandler OnTP;
+
+        public void SetTPEnabled(bool enabled, Wrapper tppoint = null)
+        {
+            isTpEnabled = enabled;
+            TPPoint = tppoint;
+        }
+        
         private void Awake()
         {
             _chargeDamage = _baseDamage;
@@ -181,16 +195,35 @@ namespace Varwin.Types.MagicRifle_bf6ae11eea9e4720b830fffc0560378a
             SwitchPadElement();
             SwitchPadMode();
             //predictLine.SetActive(false);
+            
+            // TP_Points = GameObject.FindGameObjectsWithTag("Tower");
+            // if (TP_Points != null)
+            // {
+            //     foreach (GameObject point in TP_Points)
+            //     {
+            //         point.transform.localScale = new Vector3(_tpPointScale, _tpPointScale, _tpPointScale);
+            //     }
+            // }
+            //
+            // else
+            // {
+            //     print("No tp points");
+            // }
         }
 
         public void Shoot()
         {
+            if (isTpEnabled)
+            {
+                OnTP?.Invoke(TPPoint);
+                return;
+            }
+            
             if (Time.time - LastShoot >= _shootDelay)
             {
                 if (fireMode == BulletBehaviour.EnBulletMode.DefaultShot)
                 {
                     StartCoroutine(Shooting(_baseDamage));
-                    
                 }
 
                 if (fireMode == BulletBehaviour.EnBulletMode.ChargedShot)
@@ -278,7 +311,7 @@ namespace Varwin.Types.MagicRifle_bf6ae11eea9e4720b830fffc0560378a
             bulletRigidbody.mass = _bulletMass;
             bulletRigidbody.AddForce(BulletExplosionPoint.transform.forward * BulletForce);
 
-            GetComponent<AudioSource>().PlayOneShot(_bulletAudio);
+            bullet.GetComponent<AudioSource>().PlayOneShot(_bulletAudio);
 
             bullet.Rifle = gameObject;
             bullet.WallHoleLifeTime = _wallHoleLifeTime;
@@ -405,5 +438,6 @@ namespace Varwin.Types.MagicRifle_bf6ae11eea9e4720b830fffc0560378a
         {
             OnShootToTarget?.Invoke(target);
         }
+
     }
 }

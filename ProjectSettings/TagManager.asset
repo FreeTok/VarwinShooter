@@ -8,6 +8,7 @@ TagManager:
   - NotTeleport
   - Beam
   - Effects
+  - Tower
   layers:
   - Default
   - TransparentFX
@@ -24,7 +25,7 @@ TagManager:
   - LiquidEraser
   - Zones
   - PostProcessing
-  - 
+  - Tower
   - 
   - 
   - 

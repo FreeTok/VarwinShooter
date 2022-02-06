@@ -20,13 +20,26 @@ public class damage_get_main_counter : MonoBehaviour
     public float DieTime = 2;
     
     public delegate void DieEventHandler();
-    
+
     [Event(English: "die event")]
     public event DieEventHandler dieEvent;
 
-    public GameObject damagedEnemy, wallkingEnemy;
-    public float damageAnimDuration = 2.2f;
+    public GameObject mesh;
+    private Animator animator;
+    public float damageAnimDuration = 3f;
 
+    private void Start()
+    {
+        animator = mesh.GetComponent<Animator>();
+        
+        ResetHealth();
+        HPText.text = health.ToString();
+        foreach(damage_get handler in damage_handlers)
+        {
+            handler.Counter = this;
+        }
+    }
+    
     public void TakeDamage(float damage, float damageMultiplier)
     {
         damage *= damageMultiplier;
@@ -37,7 +50,7 @@ public class damage_get_main_counter : MonoBehaviour
         
         if (health > 0)
         {
-            SetWalkOrDamage(true);
+            PlayDamageAnim();
             HPText.text = health.ToString();
         }
 
@@ -55,18 +68,6 @@ public class damage_get_main_counter : MonoBehaviour
         }
     }
 
-    private void Start()
-    {
-        damagedEnemy.SetActive(false);
-        wallkingEnemy.SetActive(true);
-        ResetHealth();
-        HPText.text = health.ToString();
-        foreach(damage_get handler in damage_handlers)
-        {
-            handler.Counter = this;
-        }
-    }
-
     [Action(English: "reset health")]
     public void ResetHealth()
     {
@@ -74,18 +75,17 @@ public class damage_get_main_counter : MonoBehaviour
         HPText.text = health.ToString();
     }
 
-    void SetWalkOrDamage(bool isDamaged)
+    void PlayDamageAnim()
     {
         print("Playing anim");
-        damagedEnemy.SetActive(isDamaged);
-        wallkingEnemy.SetActive(!isDamaged);
+        animator.SetTrigger("Damaged");
 
         Invoke(nameof(SetWalkingEnemy), damageAnimDuration);
     }
 
     void SetWalkingEnemy()
     {
-        damagedEnemy.SetActive(false);
-        wallkingEnemy.SetActive(true);
+        print("reset trigger");
+        animator.ResetTrigger("Damaged");
     }
 }
