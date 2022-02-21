@@ -169,6 +169,7 @@ namespace Varwin.Types.MagicRifle_bf6ae11eea9e4720b830fffc0560378a
         
         public AudioClip defaultShotAudio;
         public AudioClip chargedShotAudio;
+        public AudioClip artilleryBoomAudio;
         public AudioClip artilleryShotAudio;
 
         private AudioClip _bulletAudio;
@@ -290,9 +291,11 @@ namespace Varwin.Types.MagicRifle_bf6ae11eea9e4720b830fffc0560378a
             BulletBehaviourPrefab.Explode = true;
             StartCoroutine(Shooting(_baseDamage));
             BulletBehaviourPrefab.Explode = false;
+            PlayAudioClip(artilleryShotAudio);
         }
 
         private BulletBehaviour.EnBulletElement bulletElement;
+        private AudioClip boomAudio;
 
         private void AddBullet(float damage)
         {
@@ -310,8 +313,9 @@ namespace Varwin.Types.MagicRifle_bf6ae11eea9e4720b830fffc0560378a
             Rigidbody bulletRigidbody = bullet.GetComponent<Rigidbody>();
             bulletRigidbody.mass = _bulletMass;
             bulletRigidbody.AddForce(BulletExplosionPoint.transform.forward * BulletForce);
-
-            bullet.GetComponent<AudioSource>().PlayOneShot(_bulletAudio);
+            
+            print(_bulletAudio);
+            bullet.GetComponent<BulletBehaviour>().SetBoomAudio(_bulletAudio);
 
             bullet.Rifle = gameObject;
             bullet.WallHoleLifeTime = _wallHoleLifeTime;
@@ -336,7 +340,7 @@ namespace Varwin.Types.MagicRifle_bf6ae11eea9e4720b830fffc0560378a
             yield return new WaitForSeconds(ShootDelay);
         }
 
-        public void PlayAudioClip(AudioClip clip)
+        private void PlayAudioClip(AudioClip clip)
         {
             if (_audioSource && clip)
             {
@@ -420,16 +424,19 @@ namespace Varwin.Types.MagicRifle_bf6ae11eea9e4720b830fffc0560378a
                 case BulletBehaviour.EnBulletMode.DefaultShot:
                     modesPad.sprite = modesSprites[0];
                     _bulletAudio = defaultShotAudio;
+                    boomAudio = null;
                     break;
                 
                 case BulletBehaviour.EnBulletMode.ChargedShot:
                     modesPad.sprite = modesSprites[1];
                     _bulletAudio = chargedShotAudio;
+                    boomAudio = null;
                     break;
                 
                 case BulletBehaviour.EnBulletMode.ArtilleryShot:
                     modesPad.sprite = modesSprites[2];
                     _bulletAudio = artilleryShotAudio;
+                    boomAudio = artilleryBoomAudio;
                     break;
             }
         }
