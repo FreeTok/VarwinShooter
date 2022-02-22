@@ -15,7 +15,7 @@ public class TPcplliderBehaviour : MonoBehaviour
         print(other.tag);
         if (other.CompareTag("projectile"))
         {
-            rifle.SetTPEnabled(true, other.gameObject.GetWrapper());
+            rifle.SetTpEnabled(true, other.gameObject.GetWrapper());
             print("Tp point in");
         }
     }
@@ -24,7 +24,7 @@ public class TPcplliderBehaviour : MonoBehaviour
     {
         if (other.CompareTag("projectile"))
         {
-            rifle.SetTPEnabled(false);
+            rifle.SetTpEnabled(false);
             print("Tp point of");
         }
     }

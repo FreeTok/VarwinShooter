@@ -19,7 +19,8 @@ namespace WeaponLibrary
         public GameObject[] chargedVFXs;
         public GameObject[] artilleryShotVFXs;
 
-        private AudioClip boomAudio;
+        public AudioClip acBulletShot;
+        public float acShotVolume = 100;
         
         public delegate void OnHitEventHandler(Wrapper targetWrapper);
         public event OnHitEventHandler OnHitTargetEvent;
@@ -66,9 +67,10 @@ namespace WeaponLibrary
                 explosion.GetComponent<Explosion>().element = bulletElement.ToString();
             }
 
-            if (boomAudio)
+            if (acBulletShot)
             {
-                GetComponent<AudioSource>().PlayOneShot(boomAudio);
+                print("Звук " +  acBulletShot);
+                GetComponent<AudioSource>().PlayOneShot(acBulletShot, acShotVolume);
             }
             
             OnHitTargetEvent?.Invoke(other.gameObject.GetWrapper());
@@ -99,16 +101,6 @@ namespace WeaponLibrary
             }
 
             Destroy(gameObject);
-        }
-
-        public void SetBoomAudio(AudioClip audio)
-        {   
-            print(boomAudio);
-            print(audio);
-            if (audio)
-            {
-                boomAudio = audio;
-            }
         }
 
         private GameObject SpawnVfX(Vector3 position, Vector3 rotation)

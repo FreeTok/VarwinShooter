@@ -83,25 +83,11 @@ namespace Varwin.Types.MagicRifle_bf6ae11eea9e4720b830fffc0560378a
 
         [Event(English: "On shoot", Russian: "При выстреле")]
         public event Action OnShoot;
-
-        public Rigidbody Rigidbody => GetRigidBody();
-
-        public Transform ShootPoint;
-        public Transform BulletExplosionPoint;
-        public HoleBehaviour HolePrefab;
-
-        public bool OnSafety = false;
-
-        public float ShootNormalizedTime = 0.5f;
         
-        public ParticleSystem ShootParticleSystem;
+        public Transform bulletExplosionPoint;
 
-        private AudioSource _audioSource;
-        private float _forceInertia = 3000;
-
-        public float ForceRadius = 0.3f;
         private float _shootDelay = 0.5f;
-        private float LastShoot;
+        private float _lastShoot;
 
         [VarwinInspector(English: "Delay between shooting", Russian: "Задержка между выстрелами")]
         public float ShootDelay
@@ -119,15 +105,8 @@ namespace Varwin.Types.MagicRifle_bf6ae11eea9e4720b830fffc0560378a
             set => _artilleryShootDelay = value;
         }
 
-        [VarwinInspector(English: "Force inertia", Russian: "Сила инерции от выстрела")]
-        public float ForceInertia
-        {
-            get => _forceInertia;
-            set => _forceInertia = value;
-        }
-
-        public BulletBehaviour BulletBehaviourPrefab;
-        public Transform BulletPoint;
+        public BulletBehaviour bulletBehaviourPrefab;
+        public Transform bulletPoint;
 
         private float _bulletForce = 20f;
 
@@ -159,68 +138,67 @@ namespace Varwin.Types.MagicRifle_bf6ae11eea9e4720b830fffc0560378a
 
         public BulletBehaviour.EnBulletMode fireMode;
 
-        public bool isCharging;
+        private bool isCharging;
 
         public Image elementPad;
         public Sprite[] elementSprites;
         
         public Image modesPad;
         public Sprite[] modesSprites;
+
+        private GameObject[] _tpPoints;
+
+        private bool isTpEnabled;
+        private Wrapper TpPoint;
         
-        public AudioClip defaultShotAudio;
-        public AudioClip chargedShotAudio;
-        public AudioClip artilleryBoomAudio;
-        public AudioClip artilleryShotAudio;
-
-        private AudioClip _bulletAudio;
-
-        private GameObject[] TP_Points;
-
-        public bool isTpEnabled;
-        public Wrapper TPPoint;
+        public delegate void OnTpHandler(Wrapper target);
         
-        public delegate void OnTPHandler(Wrapper target);
         [Event(English: "on tp event")]
-        public event OnTPHandler OnTP;
+        public event OnTpHandler OnTp;
 
-        public void SetTPEnabled(bool enabled, Wrapper tppoint = null)
+        public void SetTpEnabled(bool enabled, Wrapper tppoint = null)
         {
             isTpEnabled = enabled;
-            TPPoint = tppoint;
+            TpPoint = tppoint;
         }
+        
+        public AudioClip[] acRifleShots;
+        private AudioClip _acRifleShot;
+
+        public AudioClip[] acBulletShots;
+        private AudioClip _acBulletShot;
+
+        private float _acShotVolume = 100f;
+
+        [VarwinInspector(English: "Shot audio volume", Russian: "Громкость выстрела")]
+        public float ShotVolume
+        {
+            get => _acShotVolume;
+            set => _acShotVolume = value;
+        }
+
         
         private void Awake()
         {
             _chargeDamage = _baseDamage;
-            LastShoot = Time.time;
+            _lastShoot = Time.time;
+            
             SwitchPadElement();
             SwitchPadMode();
-            //predictLine.SetActive(false);
-            
-            // TP_Points = GameObject.FindGameObjectsWithTag("Tower");
-            // if (TP_Points != null)
-            // {
-            //     foreach (GameObject point in TP_Points)
-            //     {
-            //         point.transform.localScale = new Vector3(_tpPointScale, _tpPointScale, _tpPointScale);
-            //     }
-            // }
-            //
-            // else
-            // {
-            //     print("No tp points");
-            // }
+
+            _acRifleShot = acRifleShots[0];
+            _acBulletShot = acBulletShots[0];
         }
 
         public void Shoot()
         {
             if (isTpEnabled)
             {
-                OnTP?.Invoke(TPPoint);
+                OnTp?.Invoke(TpPoint);
                 return;
             }
             
-            if (Time.time - LastShoot >= _shootDelay)
+            if (Time.time - _lastShoot >= _shootDelay)
             {
                 if (fireMode == BulletBehaviour.EnBulletMode.DefaultShot)
                 {
@@ -230,10 +208,9 @@ namespace Varwin.Types.MagicRifle_bf6ae11eea9e4720b830fffc0560378a
                 if (fireMode == BulletBehaviour.EnBulletMode.ChargedShot)
                 {
                     StartCharging();
-                    //DoubleShot();
                 }
 
-                if (fireMode == BulletBehaviour.EnBulletMode.ArtilleryShot && Time.time - LastShoot >= _artilleryShootDelay)
+                if (fireMode == BulletBehaviour.EnBulletMode.ArtilleryShot && Time.time - _lastShoot >= _artilleryShootDelay)
                 {
                     ArtilleryShot();
                 }
@@ -244,6 +221,10 @@ namespace Varwin.Types.MagicRifle_bf6ae11eea9e4720b830fffc0560378a
         {
             isCharging = true;
             StartCoroutine(IncreaseDamage());
+
+            GetComponent<AudioSource>().clip = acRifleShots[1];
+            GetComponent<AudioSource>().Play();
+            GetComponent<AudioSource>().loop = true;
         }
 
         public void EndCharging()
@@ -254,20 +235,11 @@ namespace Varwin.Types.MagicRifle_bf6ae11eea9e4720b830fffc0560378a
                 StartCoroutine(Shooting(_chargeDamage));
                 _chargeDamage = _baseDamage;
                 isCharging = false;
+                
+                GetComponent<AudioSource>().Stop();
+                GetComponent<AudioSource>().clip = null;
             }
         }
-
-        // private void DoubleShot()
-        // {
-        //     if (_chargeDamage <= _baseDamage) //Если зарядка атаки ещё не идёт, то он начинает зарядку
-        //         StartCoroutine(IncreaseDamage());
-        //     else //в обратном случае он стреляет и возвращает урон на изначальный уровень
-        //     {
-        //         StopAllCoroutines();
-        //         StartCoroutine(Shooting(_chargeDamage)); 
-        //         _chargeDamage = _baseDamage; 
-        //     }
-        // }
 
         IEnumerator IncreaseDamage()
         {
@@ -278,61 +250,58 @@ namespace Varwin.Types.MagicRifle_bf6ae11eea9e4720b830fffc0560378a
                 _chargeDamage = (float) Math.Round(_chargeDamage + _сhargeDamageMultiplayer, 1);
                 yield return new WaitForSeconds(.2f);
             }
-            
-            // for (_chargeDamage = _baseDamage; _chargeDamage < _maxChargeDamage; _chargeDamage += _сhargeDamageMultiplayer * Time.deltaTime) // За 2 секунды 2х урон (пока что)
-            // {
-            //     _chargeDamage = (float) Math.Round(_chargeDamage, 1);
-            //     yield return new WaitForSeconds(.2f);
-            // }
         }
 
         private void ArtilleryShot()
         {
-            BulletBehaviourPrefab.Explode = true;
+            bulletBehaviourPrefab.Explode = true;
             StartCoroutine(Shooting(_baseDamage));
-            BulletBehaviourPrefab.Explode = false;
-            PlayAudioClip(artilleryShotAudio);
+            bulletBehaviourPrefab.Explode = false;
         }
 
-        private BulletBehaviour.EnBulletElement bulletElement;
-        private AudioClip boomAudio;
+        private BulletBehaviour.EnBulletElement _bulletElement;
 
         private void AddBullet(float damage)
         {
             //TODO Replace it to bulletBehaviour
-            var bulletPointTransform = BulletPoint.transform;
-            var bullet = Instantiate(BulletBehaviourPrefab, bulletPointTransform.position,
-                BulletBehaviourPrefab.gameObject.transform.rotation);
+            var bulletPointTransform = bulletPoint.transform;
+            var bullet = Instantiate(bulletBehaviourPrefab, bulletPointTransform.position,
+                bulletBehaviourPrefab.gameObject.transform.rotation);
 
             bullet.bulletMode = fireMode;
-            bullet.bulletElement = bulletElement;
+            bullet.bulletElement = _bulletElement;
             bullet.OnHitTargetEvent += OnBulletHit;
 
             bullet.gameObject.SetActive(true);
 
             Rigidbody bulletRigidbody = bullet.GetComponent<Rigidbody>();
             bulletRigidbody.mass = _bulletMass;
-            bulletRigidbody.AddForce(BulletExplosionPoint.transform.forward * BulletForce);
-            
-            print(_bulletAudio);
-            bullet.GetComponent<BulletBehaviour>().SetBoomAudio(_bulletAudio);
+            bulletRigidbody.AddForce(bulletExplosionPoint.transform.forward * BulletForce);
 
             bullet.Rifle = gameObject;
             bullet.WallHoleLifeTime = _wallHoleLifeTime;
             bullet.BaseDamage = (float) Math.Round(damage, 1);
             Debug.Log(damage + " damage");
             bullet.transform.localScale = new Vector3(damage / 10f, damage / 10f, damage / 10f);
+
+            if (_acRifleShot && GetComponent<AudioSource>())
+            {
+                print(_acRifleShot);
+                GetComponent<AudioSource>().PlayOneShot(_acRifleShot);
+            }
+
+            if (_acBulletShot)
+            {
+                print(_acBulletShot);
+                bullet.GetComponent<BulletBehaviour>().acBulletShot = _acBulletShot;
+                bullet.GetComponent<BulletBehaviour>().acShotVolume = _acShotVolume;
+            }
         }
 
         private IEnumerator Shooting(float damage)
         {
-            LastShoot = Time.time;
+            _lastShoot = Time.time;
 
-            if (ShootParticleSystem)
-            {
-                ShootParticleSystem.Play();
-            }
-            
             AddBullet(damage);
 
             OnShoot?.Invoke();
@@ -340,33 +309,15 @@ namespace Varwin.Types.MagicRifle_bf6ae11eea9e4720b830fffc0560378a
             yield return new WaitForSeconds(ShootDelay);
         }
 
-        private void PlayAudioClip(AudioClip clip)
-        {
-            if (_audioSource && clip)
-            {
-                _audioSource.PlayOneShot(clip);
-            }
-        }
-
-        private Rigidbody GetRigidBody()
-        {
-            if (!_rigidbody)
-            {
-                _rigidbody = GetComponent<Rigidbody>();
-            }
-
-            return _rigidbody;
-        }
-
         public void NextElement()
         {
-            if (bulletElement == BulletBehaviour.EnBulletElement.Darkness)
+            if (_bulletElement == BulletBehaviour.EnBulletElement.Darkness)
             {
-                bulletElement = BulletBehaviour.EnBulletElement.Earth;
+                _bulletElement = BulletBehaviour.EnBulletElement.Earth;
             }
             else
             {
-                bulletElement += 1;
+                _bulletElement += 1;
             }
 
             SwitchPadElement();
@@ -374,8 +325,8 @@ namespace Varwin.Types.MagicRifle_bf6ae11eea9e4720b830fffc0560378a
 
         private void SwitchPadElement()
         {
-            print("Element is " + bulletElement);
-            switch (bulletElement)
+            print("Element is " + _bulletElement);
+            switch (_bulletElement)
             {
                 case BulletBehaviour.EnBulletElement.Earth:
                     elementPad.sprite = elementSprites[0];
@@ -403,8 +354,6 @@ namespace Varwin.Types.MagicRifle_bf6ae11eea9e4720b830fffc0560378a
 
         public void NextRifleFireMode()
         {
-            //predictLine.SetActive(fireMode == RifleFireMode.DoubleShot);
-
             if (fireMode == BulletBehaviour.EnBulletMode.ArtilleryShot)
             {
                 fireMode = BulletBehaviour.EnBulletMode.DefaultShot;
@@ -423,20 +372,23 @@ namespace Varwin.Types.MagicRifle_bf6ae11eea9e4720b830fffc0560378a
             {
                 case BulletBehaviour.EnBulletMode.DefaultShot:
                     modesPad.sprite = modesSprites[0];
-                    _bulletAudio = defaultShotAudio;
-                    boomAudio = null;
+
+                    _acRifleShot = acRifleShots[0];
+                    _acBulletShot = acBulletShots[0];
                     break;
                 
                 case BulletBehaviour.EnBulletMode.ChargedShot:
                     modesPad.sprite = modesSprites[1];
-                    _bulletAudio = chargedShotAudio;
-                    boomAudio = null;
+
+                    _acRifleShot = null;
+                    _acBulletShot = acBulletShots[1];
                     break;
                 
                 case BulletBehaviour.EnBulletMode.ArtilleryShot:
                     modesPad.sprite = modesSprites[2];
-                    _bulletAudio = artilleryShotAudio;
-                    boomAudio = artilleryBoomAudio;
+
+                    _acRifleShot = acRifleShots[2];
+                    _acBulletShot = acBulletShots[2];
                     break;
             }
         }
