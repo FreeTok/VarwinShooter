@@ -156,6 +156,7 @@ namespace Varwin.Types.MagicRifle_bf6ae11eea9e4720b830fffc0560378a
         [Event(English: "on tp event")]
         public event OnTpHandler OnTp;
 
+        //TODO remove this after making it by raycast
         public void SetTpEnabled(bool enabled, Wrapper tppoint = null)
         {
             isTpEnabled = enabled;
@@ -192,6 +193,25 @@ namespace Varwin.Types.MagicRifle_bf6ae11eea9e4720b830fffc0560378a
 
         public void Shoot()
         {
+            //TP
+            RaycastHit hit;
+            if (Physics.Raycast(bulletPoint.position, bulletPoint.TransformDirection(Vector3.forward), out hit, Mathf.Infinity))
+            {
+                Debug.Log("Did Hit");
+                
+                print(hit.collider.gameObject.GetComponent<TPcplliderBehaviour>());
+
+                if (hit.collider.gameObject.GetComponent<TPcplliderBehaviour>())
+                {
+                    print("isTping");
+                    OnTp?.Invoke(hit.collider.gameObject.GetWrapper());
+                    
+                    return;
+                }
+            }
+
+
+            //TP
             if (isTpEnabled)
             {
                 OnTp?.Invoke(TpPoint);
@@ -204,12 +224,12 @@ namespace Varwin.Types.MagicRifle_bf6ae11eea9e4720b830fffc0560378a
                 {
                     StartCoroutine(Shooting(_baseDamage));
                 }
-
+            
                 if (fireMode == BulletBehaviour.EnBulletMode.ChargedShot)
                 {
                     StartCharging();
                 }
-
+            
                 if (fireMode == BulletBehaviour.EnBulletMode.ArtilleryShot && Time.time - _lastShoot >= _artilleryShootDelay)
                 {
                     ArtilleryShot();

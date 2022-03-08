@@ -44,6 +44,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5173239105260934351}
   - component: {fileID: 6410834512161826399}
+  - component: {fileID: 1419634452829995573}
   m_Layer: 15
   m_Name: Crystal
   m_TagString: Tower
@@ -79,8 +80,21 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 3.6482854, y: 7.0858297, z: 3.3583684}
+  m_Size: {x: 7, y: 14, z: 7}
   m_Center: {x: 0.08410645, y: -0.07424926, z: -0.009368897}
+--- !u!114 &1419634452829995573
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2984731330943780338}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c99dc1b376812c4ab421dae187ac1b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rifle: {fileID: 0}
 --- !u!1 &3464530290681046736
 GameObject:
   m_ObjectHideFlags: 0
