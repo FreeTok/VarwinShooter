@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using TMPro;
@@ -39,7 +40,15 @@ public class damage_get_main_counter : MonoBehaviour
             handler.Counter = this;
         }
     }
-    
+
+    private void FixedUpdate()
+    {
+        if (CameraManager.CurrentCamera)
+        {
+            HPText.transform.LookAt(CameraManager.CurrentCamera.transform);
+        }
+    }
+
     public void TakeDamage(float damage, float damageMultiplier)
     {
         damage *= damageMultiplier;

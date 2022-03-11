@@ -58,17 +58,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4046214131163021405}
-  m_LocalRotation: {x: -0, y: -1, z: -0, w: 0.000028625127}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.018041095, y: 0.018041072, z: 0.018041095}
+  m_LocalScale: {x: -0.01574, y: 0.01574, z: 0.01574}
   m_Children:
   - {fileID: 2997146216356225998}
   m_Father: {fileID: 1600640900560875792}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: -179.99701, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -0.1800003, y: 3.15}
+  m_AnchoredPosition: {x: -0.1800003, y: 2.81}
   m_SizeDelta: {x: 152.53773, y: 58.374054}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &3033260267713938265
@@ -208,7 +208,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: HP
+  m_text: 100
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d8b31dcbe28f20b47be2f1703ddb2afa, type: 2}
   m_sharedMaterial: {fileID: 21609603115720214, guid: d8b31dcbe28f20b47be2f1703ddb2afa,
@@ -2021,7 +2021,7 @@ MonoBehaviour:
   AuthorUrl: 
   LicenseCode: cc-by
   LicenseVersion: 4.0
-  BuiltAt: 3/8/2022 9:07:18 PM +03:00
+  BuiltAt: 3/11/2022 5:03:22 PM +03:00
   CurrentVersionWasBuilt: 1
   CurrentVersionWasBuiltAsMobileReady: 0
   Components:
